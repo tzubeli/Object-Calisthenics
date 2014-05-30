@@ -1,4 +1,5 @@
-package com.example.objectcalisthenics;
+package com.example.objectcalisthenics.Jobs;
+
 
 /**
  * Created by atzubeli on 5/21/14.

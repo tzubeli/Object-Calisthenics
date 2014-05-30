@@ -1,4 +1,6 @@
-package com.example.objectcalisthenics;
+package com.example.objectcalisthenics.JobApplication;
+
+import com.example.objectcalisthenics.User.Jobseeker;
 
 /**
  * Created by atzubeli on 5/21/14.
