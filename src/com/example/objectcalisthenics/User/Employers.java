@@ -1,6 +1,4 @@
-package com.example.objectcalisthenics.Collections;
-
-import com.example.objectcalisthenics.User.Employer;
+package com.example.objectcalisthenics.User;
 
 import java.util.Collection;
 

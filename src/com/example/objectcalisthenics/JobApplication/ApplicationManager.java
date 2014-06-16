@@ -1,25 +1,35 @@
 package com.example.objectcalisthenics.JobApplication;
 
 
-import java.util.Collection;
+import com.example.objectcalisthenics.User.Jobseeker;
+import com.example.objectcalisthenics.Resumes.Resume;
+import com.example.objectcalisthenics.Jobs.JReqJob;
+import com.example.objectcalisthenics.User.ID;
 
 /**
  * Created by atzubeli on 5/28/14.
  */
 public class ApplicationManager {
 
+    JobApplications applications = new JobApplications();
 
-    Collection<JobApplication> applications;
 
 
-    public ApplicationManager(Collection<JobApplication> applications) {
 
-        this.applications = applications;
-    }
+    public void apply(ID jobId, Jobseeker jobseeker, Resume resume){
 
-    public void apply(JobApplication application){
+        if (jobId.getValue() instanceof JReqJob) {  //does instanceOf violate the rules?
 
-        applications.add(application);
+            new JobApplicationJReq(jobId, jobseeker, resume);
+        }
+
+        new JobApplicationATS(jobId, jobseeker);
+
+
+
+
+
+
 
     }
 

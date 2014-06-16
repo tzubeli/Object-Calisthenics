@@ -1,6 +1,4 @@
-package com.example.objectcalisthenics.Collections;
-
-import com.example.objectcalisthenics.Jobs.Job;
+package com.example.objectcalisthenics.Jobs;
 
 import java.util.Collection;
 
