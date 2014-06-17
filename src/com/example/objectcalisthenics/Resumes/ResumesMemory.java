@@ -3,6 +3,7 @@ package com.example.objectcalisthenics.Resumes;
 import com.example.objectcalisthenics.Collections.RecordedMap;
 import com.example.objectcalisthenics.User.ID;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 /**
@@ -42,9 +43,11 @@ public class ResumesMemory implements RecordedMap<Resume> {
 
     }
 
-    public ResumeList readAll(ID jobseekerId){
+    public Collection readAll(ID jobseekerId){
 
-        return resumes.get(jobseekerId);
+        ResumeList list = resumes.get(jobseekerId);
+
+        return list.readAll();
 
     }
 
