@@ -1,7 +1,7 @@
 package com.example.objectcalisthenics.User;
 
 import com.example.objectcalisthenics.Jobs.JobDescription;
-import com.example.objectcalisthenics.Posts.JobManager;
+import com.example.objectcalisthenics.Jobs.JobManager;
 
 import java.util.List;
 
@@ -10,23 +10,25 @@ import java.util.List;
  */
 public class Employer {
 
-    private String name;
-    private int id;
+    private Name name;
+
+    private JobManager jobManager;
+
+    public Employer(JobManager jobManager){
+
+        this.jobManager = jobManager;
+    }
 
     public String toString(){
 
-        return name;
+        return name.toString();
     }
 
-    public void createJob(){
+    public void postJob(String newName){
 
-    }
+        JobDescription description = new JobDescription(new Name(newName), true);  //no
 
-
-    public void postJob(JobDescription description){
-
-        JobManager.createJob(this, description);
-
+        jobManager.createJob(this, description);
 
 
     }

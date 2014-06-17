@@ -20,7 +20,6 @@ public class ResumeListMemory implements ResumeList{
 
     public Resume read(int id){
 
-
         for (Resume resume : resumes)
 
             //two indents oops

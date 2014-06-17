@@ -13,11 +13,11 @@ import java.util.Collection;
  */
 public class JobListManager {
 
-    private static RecordedMap saved = new SavedJobs();
+    private RecordedMap saved = new SavedJobs();
 
-    private static RecordedMap applied = new AppliedJobs();
+    private RecordedMap applied = new AppliedJobs();
 
-    public static void createJobseekerLists(ID jobseekerId){
+    public void createJobseekerLists(ID jobseekerId){
 
         saved.createKey(jobseekerId);
 
@@ -25,14 +25,14 @@ public class JobListManager {
 
     }
 
-    public static void saveJob(ID jobseekerId, ID jobId){
+    public void saveJob(ID jobseekerId, ID jobId){
 
 
        saved.add(jobseekerId, jobId);
 
     }
 
-    public static void unSaveJob(ID jobseekerId, ID jobId){
+    public void unSaveJob(ID jobseekerId, ID jobId){
 
        saved.readAll(jobseekerId);
 
@@ -40,13 +40,13 @@ public class JobListManager {
 
     }
 
-    public static Collection<ID> getSavedJobs(ID jobseekerId){
+    public Collection<ID> getSavedJobs(ID jobseekerId){
 
        return saved.readAll(jobseekerId);
 
     }
 
-    public static Collection<ID> getAppliedJobs(ID jobseekerId){
+    public Collection<ID> getAppliedJobs(ID jobseekerId){
 
         return applied.readAll(jobseekerId);
     }
