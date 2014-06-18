@@ -11,7 +11,7 @@ import java.util.Collection;
 /**
  * Created by atzubeli on 5/30/14.
  */
-public class JobListManager {
+public class RecordedJobManager {
 
     private RecordedMap saved = new SavedJobs();
 

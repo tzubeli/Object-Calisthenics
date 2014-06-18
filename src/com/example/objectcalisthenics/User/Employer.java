@@ -17,6 +17,8 @@ public class Employer {
     public Employer(JobManager jobManager){
 
         this.jobManager = jobManager;
+
+        ID id = IdFactory.createId(this);
     }
 
     public String toString(){
@@ -24,9 +26,9 @@ public class Employer {
         return name.toString();
     }
 
-    public void postJob(String newName){
+    public void postJob(String newName, boolean requiresResume){
 
-        JobDescription description = new JobDescription(new Name(newName), true);  //no
+        JobDescription description = new JobDescription(new Name(newName), requiresResume);  //no
 
         jobManager.createJob(this, description);
 

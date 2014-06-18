@@ -1,6 +1,7 @@
 package com.example.objectcalisthenics.Jobs;
 
 
+import com.example.objectcalisthenics.Collections.RecordedMap;
 import com.example.objectcalisthenics.JobApplication.JobApplications;
 import com.example.objectcalisthenics.User.Employer;
 import com.example.objectcalisthenics.User.ID;
@@ -33,6 +34,10 @@ public class JobManager {
 
     private void postJob(Job job){
 
+
+        RecordedMap jobs = new Jobs();
+
+        //jobs.add();
 
 
     }
