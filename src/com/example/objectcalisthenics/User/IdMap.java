@@ -1,24 +1,37 @@
 package com.example.objectcalisthenics.User;
 
-import com.example.objectcalisthenics.User.ID;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 
-
-import java.util.HashMap;
 
 /**
  * Created by atzubeli on 6/16/14.
  */
 public class IdMap {
 
-    private static HashMap<ID, Object> idMap = new HashMap<ID, Object>();
+    private static HashBiMap<ID, Object> biMap = HashBiMap.create();
 
-    public static Object get(ID key){
-
-        return idMap.get(key);
-    }
 
     public static void put(ID key, Object value){
 
-        idMap.put(key, value);
+        biMap.put(key, value);
+    }
+
+    public static Object getValue(ID key){
+
+        return biMap.get(key);
+
+    }
+
+    public static ID getKey(Object value){
+
+        BiMap<Object, ID> map = biMap.inverse();
+        return map.get(value);
+
+    }
+
+    public static int size(){
+
+        return biMap.size();
     }
 }

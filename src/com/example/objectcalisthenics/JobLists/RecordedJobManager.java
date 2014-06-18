@@ -1,8 +1,6 @@
 package com.example.objectcalisthenics.JobLists;
 
-import com.example.objectcalisthenics.JobLists.AppliedJobs;
 import com.example.objectcalisthenics.Collections.RecordedMap;
-import com.example.objectcalisthenics.JobLists.SavedJobs;
 import com.example.objectcalisthenics.User.ID;
 
 import java.util.Collection;
@@ -18,6 +16,7 @@ public class RecordedJobManager {
     private RecordedMap applied = new AppliedJobs();
 
     public void createJobseekerLists(ID jobseekerId){
+
 
         saved.createKey(jobseekerId);
 

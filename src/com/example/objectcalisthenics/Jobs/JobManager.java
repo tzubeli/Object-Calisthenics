@@ -6,39 +6,55 @@ import com.example.objectcalisthenics.JobApplication.JobApplications;
 import com.example.objectcalisthenics.User.Employer;
 import com.example.objectcalisthenics.User.ID;
 import com.example.objectcalisthenics.User.IdFactory;
+import com.example.objectcalisthenics.User.IdMap;
+
+import java.util.Collection;
 
 /**
  * Created by atzubeli on 6/16/14.
  */
 public class JobManager {
 
-    JobApplications applications = new JobApplications();
+    Jobs jobs;
 
 
-
-    public void createJob(Employer employer, JobDescription description){
-
+    public void createJob(Employer employer, JobDescription description, Jobs jobs){
 
         Job job = new Job(employer, description);  //creates a new job object
 
-        ID id = IdFactory.createId(job);  //creates new ID and puts it in the map
+        this.jobs = jobs;
 
-        //TODO create key for employer ID
-
-        applications.createKey(id);  //adds this id to the applications map (????)
-
-        postJob(job);  //posts job --> sends to list of posted jobs
-
+        createKeys(job, employer);
 
     }
 
-    private void postJob(Job job){
+    private void postJob(ID employerId, ID jobId){
 
+        jobs.add(employerId, jobId);
 
-        RecordedMap jobs = new Jobs();
+    }
 
-        //jobs.add();
+    private void createKeys(Job job, Employer employer){
 
+        ID jobId = IdMap.getKey(job);  //creates new ID and puts it in the map
+
+        ID employerId = IdMap.getKey(employer);
+
+        jobs.createKey(employerId);
+
+       // JobApplications applications = new JobApplications();
+
+       // applications.createKey(jobId);  //adds this id to the applications map (????)
+
+        postJob(employerId, jobId);  //posts job --> sends to list of posted jobs
+
+    }
+
+    public Collection<ID> viewPostedJobs(Employer employer){
+
+        ID employerId = IdMap.getKey(employer);
+
+        return jobs.readAll(employerId);
 
     }
 }

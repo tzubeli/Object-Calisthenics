@@ -2,7 +2,9 @@ package com.example.objectcalisthenics.User;
 
 import com.example.objectcalisthenics.Jobs.JobDescription;
 import com.example.objectcalisthenics.Jobs.JobManager;
+import com.example.objectcalisthenics.Jobs.Jobs;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -14,9 +16,11 @@ public class Employer {
 
     private JobManager jobManager;
 
-    public Employer(JobManager jobManager){
+    public Employer(Name name, JobManager jobManager){
 
         this.jobManager = jobManager;
+
+        this.name = name;
 
         ID id = IdFactory.createId(this);
     }
@@ -26,18 +30,20 @@ public class Employer {
         return name.toString();
     }
 
-    public void postJob(String newName, boolean requiresResume){
+    public void postJob(String newName, boolean requiresResume, Jobs jobs){
 
         JobDescription description = new JobDescription(new Name(newName), requiresResume);  //no
 
-        jobManager.createJob(this, description);
+        jobManager.createJob(this, description, jobs);
 
 
     }
 
-    public List viewPostedJobs(){
+    public Collection<ID> viewPostedJobs(){
 
-        return null;
+        return jobManager.viewPostedJobs(this);
+
+
     }
 
 

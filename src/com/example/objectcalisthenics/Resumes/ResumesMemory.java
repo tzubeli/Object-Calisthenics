@@ -23,7 +23,9 @@ public class ResumesMemory implements RecordedMap<Resume> {
 
     public void createKey(ID jobseekerId){
 
-        resumes.put(jobseekerId, factory.create());
+        if (!resumes.containsKey(jobseekerId))
+
+             resumes.put(jobseekerId, factory.create());
 
     }
 

@@ -17,7 +17,9 @@ public class JobApplications implements RecordedMap<ApplicationDetails> {
 
     public void createKey(ID jobId){
 
-        applications.put(jobId, new ApplicationsList());
+        if (!applications.containsKey(jobId))
+
+                applications.put(jobId, new ApplicationsList());
 
     }
 

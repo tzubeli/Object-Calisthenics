@@ -11,9 +11,9 @@ public interface RecordedMap<K> {
 
     public void createKey(ID id);
 
-    public void add(ID jobseekerId, K object);
+    public void add(ID id, K object);
 
-    public void remove(ID jobseekerId, K object);
+    public void remove(ID id, K object);
 
     public Collection<ID> readAll(ID id);
 

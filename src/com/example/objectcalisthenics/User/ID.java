@@ -17,9 +17,13 @@ public class ID {
 
     public Object getValue(){
 
-        return idMap.get(this);
+        return idMap.getValue(this);
 
 
     }
+
+    public int getId(){
+        return id;
+    } //TODO get rid of this
 
 }
