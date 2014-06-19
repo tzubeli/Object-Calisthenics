@@ -1,11 +1,8 @@
 package com.example.objectcalisthenics.Jobs;
 
 
-import com.example.objectcalisthenics.Collections.RecordedMap;
-import com.example.objectcalisthenics.JobApplication.JobApplications;
 import com.example.objectcalisthenics.User.Employer;
 import com.example.objectcalisthenics.User.ID;
-import com.example.objectcalisthenics.User.IdFactory;
 import com.example.objectcalisthenics.User.IdMap;
 
 import java.util.Collection;
@@ -15,55 +12,54 @@ import java.util.Collection;
  */
 public class JobManager {
 
-    Jobs jobs;
-
-
-    public void createJob(Employer employer, JobDescription description, Jobs jobs){
-
-        Job job = new Job(employer, description);  //creates a new job object
+    PostedJobs jobs;
+    
+    public JobManager(PostedJobs jobs){
 
         this.jobs = jobs;
+    }
+
+
+    public void createJob(Employer employer, JobDescription description){
+
+        Job job = new Job(employer, description);  //creates a new job object
 
         createKeys(job, employer);
 
     }
 
-    private void postJob(ID employerId, ID jobId){
-
-        jobs.add(employerId, jobId);
-
-    }
-
     private void createKeys(Job job, Employer employer){
 
-        ID jobId = IdMap.getKey(job);  //creates new ID and puts it in the map
-
-        ID employerId = IdMap.getKey(employer);
-
-        jobs.createKey(employerId);
+        jobs.createKey(employer);
 
        // JobApplications applications = new JobApplications();
 
        // applications.createKey(jobId);  //adds this id to the applications map (????)
 
-        postJob(employerId, jobId);  //posts job --> sends to list of posted jobs
+        postJob(employer, job);  //posts job --> sends to list of posted jobs
 
     }
 
-    public Collection<ID> viewPostedJobs(Employer employer){
+    private void postJob(Employer employer, Job job){
+
+        jobs.add(employer, job);
+
+    }
+
+    public Collection<Job> viewPostedJobs(Employer employer){
 
         ID employerId = IdMap.getKey(employer);
 
-        Collection<ID> collection = jobs.readAll(employerId);
+        Collection<Job> collection = jobs.readAll(employer);
 
-        for (ID c : collection) {
+        for (Job job : collection) {
 
-            System.out.println(c.toString());
+            System.out.println(job.toString());
 
         }
-        collection.toArray();
 
-        return jobs.readAll(employerId);
+
+        return jobs.readAll(employer);
 
     }
 }

@@ -1,7 +1,10 @@
 package com.example.objectcalisthenics.JobLists;
 
 import com.example.objectcalisthenics.Collections.RecordedMap;
+import com.example.objectcalisthenics.Jobs.Job;
 import com.example.objectcalisthenics.User.ID;
+import com.example.objectcalisthenics.User.IdMap;
+import com.example.objectcalisthenics.User.Jobseeker;
 
 import java.util.Collection;
 
@@ -15,39 +18,47 @@ public class RecordedJobManager {
 
     private RecordedMap applied = new AppliedJobs();
 
-    public void createJobseekerLists(ID jobseekerId){
+    public void createJobseekerLists(Jobseeker jobseeker){
 
 
-        saved.createKey(jobseekerId);
+        saved.createKey(jobseeker);
 
-        applied.createKey(jobseekerId);
-
-    }
-
-    public void saveJob(ID jobseekerId, ID jobId){
-
-
-       saved.add(jobseekerId, jobId);
+        applied.createKey(jobseeker);
 
     }
 
-    public void unSaveJob(ID jobseekerId, ID jobId){
 
-       saved.readAll(jobseekerId);
+    public void saveJob(Jobseeker jobseeker, Job job){
 
-       saved.remove(jobseekerId, jobId);
 
-    }
-
-    public Collection<ID> getSavedJobs(ID jobseekerId){
-
-       return saved.readAll(jobseekerId);
+       saved.add(jobseeker, job);
 
     }
 
-    public Collection<ID> getAppliedJobs(ID jobseekerId){
+    public void unSaveJob(Jobseeker jobseeker, Job job){
 
-        return applied.readAll(jobseekerId);
+       saved.readAll(jobseeker);
+
+       saved.remove(jobseeker, job);
+
+    }
+
+//    public boolean isSaved(Jobseeker jobseeker, Job job){
+//
+//
+//
+//    }
+
+    public Collection<ID> getSavedJobs(Jobseeker jobseeker){
+
+       return saved.readAll(jobseeker);
+
+    }
+
+
+    public Collection<ID> getAppliedJobs(Jobseeker jobseeker){
+
+        return applied.readAll(jobseeker);
     }
 
 }

@@ -1,6 +1,8 @@
 package com.example.objectcalisthenics.User;
 
 import com.example.objectcalisthenics.JobLists.RecordedJobManager;
+import com.example.objectcalisthenics.Jobs.Job;
+import com.example.objectcalisthenics.Resumes.Resume;
 
 import java.util.Collection;
 
@@ -10,44 +12,46 @@ import java.util.Collection;
 public class Jobseeker {
 
     private Name name;
+
     private ID id;
 
 
     public Jobseeker(Name name, RecordedJobManager manager){
 
         this.name = name;
+
         this.id = IdFactory.createId(this);
 
-        manager.createJobseekerLists(this.id);
+        manager.createJobseekerLists(this);
 
     }
 
 
-    public void saveJob(ID jobId, RecordedJobManager jobListManager){
+    public void saveJob(Job job, RecordedJobManager jobListManager){
 
-        jobListManager.saveJob(this.id, jobId);
-
-    }
-
-    public void apply(int resumeId, ID jobId){
-
+        jobListManager.saveJob(this, job);
 
     }
 
-    public void unSaveJob(ID jobId, RecordedJobManager jobListManager){
+    public void apply(Resume resume, Job job){
 
-        jobListManager.unSaveJob(this.id, jobId);
+
+    }
+
+    public void unSaveJob(Job job, RecordedJobManager jobListManager){
+
+        jobListManager.unSaveJob(this, job);
     }
 
     public Collection viewSavedJobs(RecordedJobManager jobListManager){
 
-        return jobListManager.getSavedJobs(this.id);
+        return jobListManager.getSavedJobs(this);
 
     }
 
     public Collection viewAppliedJobs(RecordedJobManager jobListManager){
 
-        return jobListManager.getAppliedJobs(this.id);
+        return jobListManager.getAppliedJobs(this);
 
     }
 

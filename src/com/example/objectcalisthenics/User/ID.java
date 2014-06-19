@@ -7,7 +7,7 @@ package com.example.objectcalisthenics.User;
 public class ID {
 
     int id;
-    IdMap idMap = new IdMap();
+   // IdMap idMap = new IdMap();
 
     public ID(int id){
 
@@ -17,7 +17,7 @@ public class ID {
 
     public Object getValue(){
 
-        return idMap.getValue(this);
+        return IdMap.getValue(this);
 
 
     }

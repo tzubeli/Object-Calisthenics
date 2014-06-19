@@ -19,7 +19,9 @@ public class JobDescription {
 
     public String toString(){
 
-        return name.toString();
+        String jobType = (requiresResume)? "(JReq)" : "(ATS)";
+
+        return name.toString()+" "+ jobType;
     }
 
     public boolean requiresResume(){

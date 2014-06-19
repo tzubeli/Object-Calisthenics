@@ -7,15 +7,15 @@ import java.util.Collection;
 /**
  * Created by atzubeli on 6/12/14.
  */
-public interface RecordedMap<K> {
+public interface RecordedMap<K, V> {
 
-    public void createKey(ID id);
+    public void createKey(K key);
 
-    public void add(ID id, K object);
+    public void add(K key, V item);
 
-    public void remove(ID id, K object);
+    public void remove(K key, V item);
 
-    public Collection<ID> readAll(ID id);
+    public Collection<V> readAll(K key);
 
 
 

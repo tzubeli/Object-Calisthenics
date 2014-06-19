@@ -1,5 +1,6 @@
 package com.example.objectcalisthenics.JobLists;
 
+import com.example.objectcalisthenics.Jobs.Job;
 import com.example.objectcalisthenics.User.ID;
 
 import java.util.ArrayList;
@@ -10,20 +11,25 @@ import java.util.Collection;
  */
 public class JobList {
 
-    private ArrayList<ID> jobs = new ArrayList<ID>();
+    private ArrayList<Job> jobs = new ArrayList<Job>();
 
+    public boolean exists(Job job){
 
-    public void addJob(ID jobId){
-
-        jobs.add(jobId);
+        return jobs.contains(job);
     }
 
-    public void removeJob(ID jobId){
 
-        jobs.remove(jobId);
+    public void addJob(Job job){
+
+        jobs.add(job);
     }
 
-    public Collection<ID> readAll(){
+    public void removeJob(Job job){
+
+        jobs.remove(job);
+    }
+
+    public Collection<Job> readAll(){
 
         return jobs;
     }

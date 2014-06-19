@@ -1,10 +1,8 @@
 
 import com.example.objectcalisthenics.Jobs.JobManager;
-import com.example.objectcalisthenics.Jobs.Jobs;
+import com.example.objectcalisthenics.Jobs.PostedJobs;
 import com.example.objectcalisthenics.User.Employer;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import com.example.objectcalisthenics.User.IdMap;
 import com.example.objectcalisthenics.User.Name;
 import org.junit.Assert;
@@ -20,18 +18,26 @@ public class EmployerTest {
 
     Employer employer;
 
-    Jobs jobs = new Jobs();
+    PostedJobs jobs = new PostedJobs();
+
+    JobManager manager = new JobManager(jobs);
+
+    Name theladders, software, designer;
 
 
     @Before
     public void initialize(){
 
-        employer = new Employer(new Name("theladders.com"), new JobManager());
+        theladders = new Name("theladders");
 
-        employer.postJob("software engineer", false, jobs);
+        software = new Name("software");
+
+        designer = new Name("designer");
 
 
-        employer.postJob("developer", true, jobs);
+        employer = new Employer(theladders, manager);
+
+
 
 
     }
@@ -39,13 +45,21 @@ public class EmployerTest {
     @Test
     public void postJobTest(){
 
+        employer.postJob(software, false);
 
-        Assert.assertTrue(jobs.readAll(IdMap.getKey(employer)).size() == 2);
+        employer.postJob(designer, true);
+
+
+        Assert.assertTrue(jobs.readAll(employer).size() == 2);
 
     }
 
     @Test
     public void viewPostedJobsTest(){
+
+        employer.postJob(software, false);
+
+        employer.postJob(designer, true);
 
         Assert.assertTrue(employer.viewPostedJobs().size()==2);
 

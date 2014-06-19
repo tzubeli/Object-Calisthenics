@@ -1,7 +1,8 @@
 package com.example.objectcalisthenics.JobLists;
 
 import com.example.objectcalisthenics.Collections.RecordedMap;
-import com.example.objectcalisthenics.User.ID;
+import com.example.objectcalisthenics.Jobs.Job;
+import com.example.objectcalisthenics.User.Jobseeker;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -9,45 +10,47 @@ import java.util.HashMap;
 /**
  * Created by atzubeli on 5/28/14.
  */
-public class AppliedJobs implements RecordedMap<ID> {
+public class AppliedJobs implements RecordedMap<Jobseeker, Job> {
 
 
+    private HashMap<Jobseeker, JobList> appliedJobs = new HashMap<>();
 
-    private HashMap<ID, JobList> appliedJobs = new HashMap<ID, JobList>();
 
+    public void createKey(Jobseeker jobseeker) {
 
-    public void createKey(ID jobseekerId){
+        if (!appliedJobs.containsKey(jobseeker))
 
-        if (! appliedJobs.containsKey(jobseekerId))
-
-              appliedJobs.put(jobseekerId, new JobList());
-
-    }
-
-    public void add(ID jobseekerId, ID jobId){
-
-        JobList list = appliedJobs.get(jobseekerId);
-
-        list.addJob(jobId);
+            appliedJobs.put(jobseeker, new JobList());
 
     }
 
-    public void remove(ID jobseekerId, ID jobId){
+    public void add(Jobseeker jobseeker, Job job) {
 
-        JobList list = appliedJobs.get(jobseekerId);
+        JobList list = appliedJobs.get(jobseeker);
 
-        list.removeJob(jobId);
+        if (!list.exists(job))
+
+            list.addJob(job);
 
     }
 
-    public Collection<ID> readAll(ID jobseekerId){
+    public void remove(Jobseeker jobseeker, Job job) {
 
-        JobList list = appliedJobs.get(jobseekerId);
+        JobList list = appliedJobs.get(jobseeker);
+
+        list.removeJob(job);
+
+    }
+
+    public Collection<Job> readAll(Jobseeker jobseeker) {
+
+        JobList list = appliedJobs.get(jobseeker);
 
         return list.readAll();
 
     }
-
-
-
 }
+
+
+
+
