@@ -43,11 +43,7 @@ public class RecordedJobManager {
 
     }
 
-//    public boolean isSaved(Jobseeker jobseeker, Job job){
-//
-//
-//
-//    }
+
 
     public Collection<ID> getSavedJobs(Jobseeker jobseeker){
 

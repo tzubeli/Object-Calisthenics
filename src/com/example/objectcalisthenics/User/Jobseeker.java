@@ -13,14 +13,14 @@ public class Jobseeker {
 
     private Name name;
 
-    private ID id;
+
 
 
     public Jobseeker(Name name, RecordedJobManager manager){
 
         this.name = name;
 
-        this.id = IdFactory.createId(this);
+        ID id = IdFactory.createId(this);
 
         manager.createJobseekerLists(this);
 

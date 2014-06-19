@@ -23,6 +23,8 @@ public class Employer {
         this.name = name;
 
         ID id = IdFactory.createId(this); //TODO whats happening with this
+
+
     }
 
     public String toString(){

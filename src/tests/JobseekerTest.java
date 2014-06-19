@@ -41,6 +41,7 @@ public class JobseekerTest {
         avital.saveJob(job, manager);
 
         jay.saveJob(job, manager);
+
         avital.saveJob(job2, manager);
 
     }
