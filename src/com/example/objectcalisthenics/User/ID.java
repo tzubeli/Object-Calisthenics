@@ -22,8 +22,14 @@ public class ID {
 
     }
 
+    public String toString(){
+
+        return getValue().toString();
+    }
+
     public int getId(){
         return id;
     } //TODO get rid of this
 
 }
+

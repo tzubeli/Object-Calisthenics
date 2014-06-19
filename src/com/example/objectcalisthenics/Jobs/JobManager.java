@@ -54,6 +54,15 @@ public class JobManager {
 
         ID employerId = IdMap.getKey(employer);
 
+        Collection<ID> collection = jobs.readAll(employerId);
+
+        for (ID c : collection) {
+
+            System.out.println(c.toString());
+
+        }
+        collection.toArray();
+
         return jobs.readAll(employerId);
 
     }
