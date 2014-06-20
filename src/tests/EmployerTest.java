@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Calendar;
 
 
 /**
@@ -36,6 +37,10 @@ public class EmployerTest {
 
 
         employer = new Employer(theladders, manager);
+
+        Calendar calendar = Calendar.getInstance();
+
+        System.out.println(calendar.getTime());
 
 
 

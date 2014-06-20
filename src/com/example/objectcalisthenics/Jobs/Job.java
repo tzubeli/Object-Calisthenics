@@ -10,6 +10,7 @@ import com.example.objectcalisthenics.User.IdFactory;
 public class Job {
 
     Employer employer;
+
     JobDescription description;
 
 

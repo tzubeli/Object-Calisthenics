@@ -57,4 +57,6 @@ public class RecordedJobManager {
         return applied.readAll(jobseeker);
     }
 
+
+
 }
