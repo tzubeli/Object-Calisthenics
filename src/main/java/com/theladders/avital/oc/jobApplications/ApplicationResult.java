@@ -1,11 +1,8 @@
 package com.theladders.avital.oc.jobApplications;
 
-import com.theladders.avital.oc.jobLists.JobListManager;
 import com.theladders.avital.oc.jobs.Job;
-import com.theladders.avital.oc.user.Employer;
 
 
-import java.util.Collection;
 import java.util.HashMap;
 
 /**

@@ -5,7 +5,6 @@ import com.theladders.avital.oc.jobs.Job;
 import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by atzubeli on 5/21/14.
@@ -24,7 +23,7 @@ public class JobApplication {
         this.applicationDetails = applicationDetails;
     }
 
-    public boolean isDate(LocalDate date){
+    public boolean hasDateOf(LocalDate date){
 
         return (applicationDetails.isDate(date));
 

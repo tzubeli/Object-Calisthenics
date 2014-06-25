@@ -1,11 +1,12 @@
 package com.theladders.avital.oc.jobApplications;
 
-import com.theladders.avital.oc.collections.ListWrapper;
+import com.theladders.avital.oc.collections.CollectionPrinter;
+import com.theladders.avital.oc.collections.CollectionWrapper;
 import com.theladders.avital.oc.collections.RecordedMap;
 import com.theladders.avital.oc.jobs.Job;
 import org.joda.time.LocalDate;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -14,7 +15,6 @@ import java.util.HashMap;
 public class JobApplications implements RecordedMap<Job, JobApplication> {
 
     private HashMap<Job, ApplicationsList> applications = new HashMap<>();
-
 
 
     public void createKey(Job job){
@@ -44,19 +44,41 @@ public class JobApplications implements RecordedMap<Job, JobApplication> {
 
     }
 
-    public ListWrapper readAll(Job job){
+    public CollectionWrapper readAll(Job job){
 
         return applications.get(job);
 
-
     }
 
-    public ApplicationsList getByDate(Job job, LocalDate date){
+    public void getByJob(Job job, CollectionPrinter printer){
+
+        applications.get(job).printCollection(printer);
+    }
+
+    public void getByJobAndDate(Job job, LocalDate date, CollectionPrinter printer){
 
         ApplicationsList list = applications.get(job);
 
-        return new ApplicationsList(list.getByDate(date));  //TODO wrap this
+        ArrayList<JobApplication> newList = new ArrayList<>();
 
+        ApplicationsList resultList = new ApplicationsList(list.addApplicationsHavingDateOf(date, newList));
+
+        resultList.printCollection(printer);
+
+    }
+
+    public void getByDate(LocalDate date, CollectionPrinter printer){
+
+        ApplicationsList apps = new ApplicationsList();
+
+        for (Job job : applications.keySet())
+        {
+            ApplicationsList list = applications.get(job);
+
+            apps = apps.combinedWith(list.filteredByDate(date));
+        }
+
+        apps.printCollection(printer);
     }
 
 }

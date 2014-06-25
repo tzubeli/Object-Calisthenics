@@ -11,7 +11,7 @@ public interface RecordedMap<K, V> {
 
     public void remove(K key, V item);
 
-    public ListWrapper readAll(K key);
+    public CollectionWrapper readAll(K key);
 
 
 

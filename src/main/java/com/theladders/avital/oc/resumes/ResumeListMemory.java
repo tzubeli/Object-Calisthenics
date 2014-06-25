@@ -1,6 +1,6 @@
 package com.theladders.avital.oc.resumes;
 
-import com.theladders.avital.oc.collections.ListWrapper;
+import com.theladders.avital.oc.collections.CollectionPrinter;
 
 import java.util.ArrayList;
 
@@ -44,6 +44,12 @@ public class ResumeListMemory implements ResumeList{
     public boolean delete(Resume resume){
 
         return resumes.remove(resume);
+
+    }
+
+    public void printCollection(CollectionPrinter printer){
+
+        printer.print(resumes);
 
     }
 

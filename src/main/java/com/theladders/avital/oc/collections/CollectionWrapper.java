@@ -5,9 +5,9 @@ import java.util.ArrayList;
 /**
  * Created by atzubeli on 6/23/14.
  */
-public interface ListWrapper<K> {
+public interface CollectionWrapper<K> {
 
-public ArrayList<K> getCollection();
+public void printCollection(CollectionPrinter printer);
 
 public int getSize();
 

@@ -26,11 +26,6 @@ public class Job {
 
     }
 
-    public boolean requiresResume(){
-
-        return description.requiresResume();
-    }
-
     public ArrayList<Object> getReportDetails(){
 
         ArrayList<Object> details = new ArrayList<>();
@@ -44,7 +39,6 @@ public class Job {
 
     public JobseekerInfo createJobSeekerInfo(Jobseeker jobseeker){
 
-        if (this.requiresResume()) return null;
 
         return new JobseekerInfo(jobseeker, new Resume(jobseeker, new Name("null")));
 
@@ -52,7 +46,7 @@ public class Job {
 
     public JobseekerInfo createJobSeekerInfo(Jobseeker jobseeker, Resume resume){
 
-        if (this.requiresResume()) return null;
+
 
         return new JobseekerInfo(jobseeker, resume);
 

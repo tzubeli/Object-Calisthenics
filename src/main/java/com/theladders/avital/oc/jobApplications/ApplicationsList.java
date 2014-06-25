@@ -1,29 +1,29 @@
 package com.theladders.avital.oc.jobApplications;
 
-import com.theladders.avital.oc.collections.ListWrapper;
+import com.theladders.avital.oc.collections.CollectionPrinter;
+import com.theladders.avital.oc.collections.CollectionWrapper;
 import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
+import java.util.List;
 
 /**
  * Created by atzubeli on 6/16/14.
  */
-public class ApplicationsList implements ListWrapper<JobApplication> {
+public class ApplicationsList implements CollectionWrapper<JobApplication> {
 
-    ArrayList<JobApplication> applications = new ArrayList<>();
+    List<JobApplication> applications = new ArrayList<>();  // TODO list
 
     public ApplicationsList(){
 
     }
 
-    public ApplicationsList(ArrayList<JobApplication> applications){
+    public ApplicationsList(List<JobApplication> applications){
 
         this.applications = applications;
 
     }
-
 
     public void addApplication(JobApplication jobApplication){
 
@@ -41,21 +41,40 @@ public class ApplicationsList implements ListWrapper<JobApplication> {
         return applications;
     }
 
-    public ArrayList<JobApplication> getByDate(LocalDate date){
-
-        ArrayList<JobApplication> listByDate = new ArrayList<>();
+    public ArrayList<JobApplication> addApplicationsHavingDateOf(LocalDate date, ArrayList<JobApplication> resultList){
 
         for (JobApplication application : applications)
 
-            if (application.isDate(date)) listByDate.add(application);
+            if (application.hasDateOf(date)) resultList.add(application);
 
-        return listByDate;
+        return resultList;
+
     }
 
+    public ApplicationsList filteredByDate(LocalDate date) {
 
-    public ArrayList<JobApplication> getCollection() {
+        List<JobApplication> filteredApplications = new ArrayList<>();
 
-        return applications;
+        for (JobApplication application : applications)
+
+            if (application.hasDateOf(date)) filteredApplications.add(application);
+
+        return new ApplicationsList(filteredApplications);
+
+    }
+
+    public ApplicationsList combinedWith(ApplicationsList filteredApplications){
+
+        List<JobApplication> combined = new ArrayList<>(applications);
+
+        combined.addAll(filteredApplications.applications);
+
+        return new ApplicationsList(combined);
+    }
+
+    public void printCollection(CollectionPrinter printer){
+
+        printer.print(applications);
     }
 
 

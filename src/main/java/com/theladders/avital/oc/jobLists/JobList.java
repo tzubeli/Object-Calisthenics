@@ -1,6 +1,7 @@
 package com.theladders.avital.oc.jobLists;
 
-import com.theladders.avital.oc.collections.ListWrapper;
+import com.theladders.avital.oc.collections.CollectionPrinter;
+import com.theladders.avital.oc.collections.CollectionWrapper;
 import com.theladders.avital.oc.jobs.Job;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by atzubeli on 5/28/14.
  */
-public class JobList implements ListWrapper<Job> {
+public class JobList implements CollectionWrapper<Job> {
 
     private ArrayList<Job> jobs = new ArrayList<Job>();
 
@@ -37,9 +38,13 @@ public class JobList implements ListWrapper<Job> {
         return jobs.size();
     }
 
-    public ArrayList<Job> getCollection(){
 
-        return jobs;
+
+
+    public void printCollection(CollectionPrinter printer){
+
+        printer.print(jobs);
+
     }
 
 

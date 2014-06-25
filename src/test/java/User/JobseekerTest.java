@@ -18,8 +18,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 public class JobseekerTest {
 
     Jobseeker avital;
@@ -65,28 +63,6 @@ public class JobseekerTest {
     }
     @Test
     public void viewSavedJobsTest(){
-
-        ArrayList<Job> collection = jay.viewSavedJobs(jobListManager).getCollection();
-
-        System.out.println("jay's saved jobs: ");
-
-        for (Job job : collection){
-
-            System.out.println(job.toPrint());
-        }
-
-        ArrayList<Job> collection2 = avital.viewAppliedJobs(jobListManager).getCollection();
-
-        System.out.println("avital's applied jobs: ");
-
-        for (Job job : collection){
-
-            System.out.println(job.toPrint());
-        }
-
-
-        //Assert.assertTrue(collection.size()==1);
-
 
     }
 

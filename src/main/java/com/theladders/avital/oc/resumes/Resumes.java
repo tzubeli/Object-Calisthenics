@@ -1,9 +1,9 @@
 package com.theladders.avital.oc.resumes;
 
-import com.theladders.avital.oc.collections.ListWrapper;
+import com.theladders.avital.oc.collections.CollectionWrapper;
 import com.theladders.avital.oc.collections.RecordedMap;
 import com.theladders.avital.oc.user.Jobseeker;
-import java.util.Collection;
+
 import java.util.HashMap;
 
 /**
@@ -39,7 +39,7 @@ public class Resumes implements RecordedMap<Jobseeker, Resume> {
 
     }
 
-    public ListWrapper readAll(Jobseeker jobseeker){
+    public CollectionWrapper readAll(Jobseeker jobseeker){
 
         ResumeList list = resumes.get(jobseeker);
 

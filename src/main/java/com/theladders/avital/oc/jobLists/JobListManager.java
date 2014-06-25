@@ -1,6 +1,6 @@
 package com.theladders.avital.oc.jobLists;
 
-import com.theladders.avital.oc.collections.ListWrapper;
+import com.theladders.avital.oc.collections.CollectionWrapper;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.user.Jobseeker;
 
@@ -44,7 +44,7 @@ public class JobListManager {
 
 
 
-    public ListWrapper getSavedJobs(Jobseeker jobseeker){
+    public CollectionWrapper getSavedJobs(Jobseeker jobseeker){
 
        return saved.readAll(jobseeker);
 
@@ -63,7 +63,7 @@ public class JobListManager {
     }
 
 
-    public ListWrapper getAppliedJobs(Jobseeker jobseeker){
+    public CollectionWrapper getAppliedJobs(Jobseeker jobseeker){
 
         return applied.readAll(jobseeker);
     }
