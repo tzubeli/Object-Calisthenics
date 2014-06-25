@@ -3,7 +3,7 @@ package com.theladders.avital.oc.user;
 import com.theladders.avital.oc.collections.CollectionWrapper;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobLists.JobListManager;
-import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.resumes.Resume;
 
 /**
@@ -22,25 +22,25 @@ public class Jobseeker {
     }
 
 
-    public void saveJob(Job job, JobListManager jobListManager){
+    public void saveJob(ATSJob job, JobListManager jobListManager){
 
         jobListManager.saveJob(this, job);
 
     }
 
-    public void apply(Job job, Employer employer, Resume resume, ApplicationManager manager, JobListManager jobListManager){
+    public void apply(ATSJob job, Employer employer, Resume resume, ApplicationManager manager, JobListManager jobListManager){
 
         manager.apply(job, this, resume, jobListManager);
 
     }
 
-    public void apply(Job job, Employer employer, ApplicationManager manager, JobListManager jobListManager){
+    public void apply(ATSJob job, Employer employer, ApplicationManager manager, JobListManager jobListManager){
 
         manager.apply(job, this, jobListManager);
 
     }
 
-    public void unSaveJob(Job job, JobListManager jobListManager){
+    public void unSaveJob(ATSJob job, JobListManager jobListManager){
 
         jobListManager.unSaveJob(this, job);
     }

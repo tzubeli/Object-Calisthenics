@@ -1,7 +1,7 @@
 package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.collections.CollectionWrapper;
-import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JobDescription;
 import com.theladders.avital.oc.jobs.JobManager;
 
@@ -33,9 +33,9 @@ public class Employer {
 
     public void postJob(Name name, boolean requiresResume){
 
-        JobDescription description = new JobDescription(name, requiresResume);
+        //JobDescription description = new ATSJobDescription(name, requiresResume);
 
-        jobManager.createJob(this, description);
+        //jobManager.createJob(this, description); TODO postJob
 
     }
 
@@ -45,7 +45,7 @@ public class Employer {
 
     }
 
-    public Collection<Job> viewApplicationsByDate(Date date){
+    public Collection<ATSJob> viewApplicationsByDate(Date date){
 
         return null;
     }

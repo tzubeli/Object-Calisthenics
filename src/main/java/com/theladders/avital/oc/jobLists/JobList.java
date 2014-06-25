@@ -2,28 +2,28 @@ package com.theladders.avital.oc.jobLists;
 
 import com.theladders.avital.oc.collections.CollectionPrinter;
 import com.theladders.avital.oc.collections.CollectionWrapper;
-import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.jobs.ATSJob;
 
 import java.util.ArrayList;
 
 /**
  * Created by atzubeli on 5/28/14.
  */
-public class JobList implements CollectionWrapper<Job> {
+public class JobList implements CollectionWrapper<ATSJob> {
 
-    private ArrayList<Job> jobs = new ArrayList<Job>();
+    private ArrayList<ATSJob> jobs = new ArrayList<ATSJob>();
 
-    public boolean exists(Job job){
+    public boolean exists(ATSJob job){
 
         return jobs.contains(job);
     }
 
-    public void addJob(Job job){
+    public void addJob(ATSJob job){
 
         jobs.add(job);
     }
 
-    public void removeJob(Job job){
+    public void removeJob(ATSJob job){
 
         jobs.remove(job);
     }

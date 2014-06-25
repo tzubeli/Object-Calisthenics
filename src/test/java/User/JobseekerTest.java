@@ -7,7 +7,7 @@ package user;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobLists.JobListManager;
-import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JobDescription;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.PostedJobs;
@@ -24,8 +24,8 @@ public class JobseekerTest {
     Jobseeker jay;
     Employer employer;
     PostedJobs jobs = new PostedJobs();
-    Job job;
-    Job job2;
+    ATSJob job;
+    ATSJob job2;
     JobListManager jobListManager = new JobListManager();
     ApplicationManager applicationManager = new ApplicationManager();
     JobApplications jobApplications = new JobApplications();
@@ -40,9 +40,9 @@ public class JobseekerTest {
 
         employer = new Employer(new Name("theladders"), new JobManager(jobs, jobApplications));
 
-        job = new Job(employer, new JobDescription(new Name("developer"), false));
+        job = new ATSJob(employer, new JobDescription(new Name("developer"), false));
 
-        job2 = new Job(employer, new JobDescription(new Name("designer"), true));
+        job2 = new ATSJob(employer, new JobDescription(new Name("designer"), true));
 
         avital.saveJob(job, jobListManager);
 

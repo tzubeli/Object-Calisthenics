@@ -2,7 +2,7 @@ package com.theladders.avital.oc.jobApplications;
 
 
 import com.theladders.avital.oc.jobLists.JobListManager;
-import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.user.Jobseeker;
 import com.theladders.avital.oc.resumes.Resume;
 import com.theladders.avital.oc.user.JobseekerInfo;
@@ -19,7 +19,7 @@ public class ApplicationManager {
     ApplicationResult result = new ApplicationResult();
 
 
-    public void apply(Job job, Jobseeker jobseeker, Resume resume, JobListManager jobListManager) {
+    public void apply(ATSJob job, Jobseeker jobseeker, Resume resume, JobListManager jobListManager) {
 
         JobseekerInfo jobseekerInfo = new JobseekerInfo(jobseeker, resume);
 
@@ -31,7 +31,7 @@ public class ApplicationManager {
 
     }
 
-    public void apply(Job job, Jobseeker jobseeker, JobListManager jobListManager){
+    public void apply(ATSJob job, Jobseeker jobseeker, JobListManager jobListManager){
 
         JobseekerInfo jobseekerInfo = job.createJobSeekerInfo(jobseeker);
 
@@ -43,7 +43,7 @@ public class ApplicationManager {
 
         }
 
-    public boolean verification(Job job, JobseekerInfo jobseekerInfo){
+    public boolean verification(ATSJob job, JobseekerInfo jobseekerInfo){
 
         if (jobseekerInfo==null) return false;
 
@@ -51,7 +51,7 @@ public class ApplicationManager {
 
     }
 
-    public boolean createJobApplication(Job job, JobseekerInfo jobseekerInfo){
+    public boolean createJobApplication(ATSJob job, JobseekerInfo jobseekerInfo){
 
         LocalDate date = new LocalDate();
 
@@ -65,7 +65,7 @@ public class ApplicationManager {
 
     }
 
-    public void setResult(boolean status, Job job){
+    public void setResult(boolean status, ATSJob job){
 
         result.addResult(status, job);
 

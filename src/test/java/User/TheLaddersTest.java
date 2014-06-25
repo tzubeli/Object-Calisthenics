@@ -2,7 +2,7 @@ package user;
 
 import com.theladders.avital.oc.jobApplications.*;
 import com.theladders.avital.oc.jobLists.JobListManager;
-import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JobDescription;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.PostedJobs;
@@ -15,7 +15,7 @@ public class TheLaddersTest extends TestCase {
 
     Jobseeker jay;
     Employer employer;
-    Job job;
+    ATSJob job;
     JobListManager jobListManager = new JobListManager();
     PostedJobs jobs = new PostedJobs();
     TheLadders ladders = new TheLadders();
@@ -30,7 +30,7 @@ public class TheLaddersTest extends TestCase {
 
         employer = new Employer(new Name("theladders"), new JobManager(jobs, jobApplications));
 
-        job = new Job(employer, new JobDescription(new Name("developer"), false));
+        job = new ATSJob(employer, new JobDescription(new Name("developer"), false));
 
         JobseekerInfo info = new JobseekerInfo(jay, null);
 

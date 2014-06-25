@@ -1,6 +1,6 @@
 package com.theladders.avital.oc.jobApplications;
 
-import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.jobs.ATSJob;
 
 
 import java.util.HashMap;
@@ -12,9 +12,9 @@ public class ApplicationResult {
 
 
 
-    private HashMap<Boolean, Job> result = new HashMap<>();
+    private HashMap<Boolean, ATSJob> result = new HashMap<>();
 
-    public void addResult(boolean status, Job job){
+    public void addResult(boolean status, ATSJob job){
 
         result.put(status, job);
     }

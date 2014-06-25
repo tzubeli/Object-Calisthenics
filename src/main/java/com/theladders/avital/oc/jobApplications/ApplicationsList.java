@@ -41,15 +41,6 @@ public class ApplicationsList implements CollectionWrapper<JobApplication> {
         return applications;
     }
 
-    public ArrayList<JobApplication> addApplicationsHavingDateOf(LocalDate date, ArrayList<JobApplication> resultList){
-
-        for (JobApplication application : applications)
-
-            if (application.hasDateOf(date)) resultList.add(application);
-
-        return resultList;
-
-    }
 
     public ApplicationsList filteredByDate(LocalDate date) {
 

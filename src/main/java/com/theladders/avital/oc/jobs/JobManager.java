@@ -24,13 +24,13 @@ public class JobManager {
 
     public void createJob(Employer employer, JobDescription description){
 
-        Job job = new Job(employer, description);  //creates a new job object
+        ATSJob job = new ATSJob(employer, description);  //creates a new job object
 
         createKeys(job, employer);
 
     }
 
-    private void createKeys(Job job, Employer employer){
+    private void createKeys(ATSJob job, Employer employer){
 
         jobs.createKey(employer);
 
@@ -42,7 +42,7 @@ public class JobManager {
 
     }
 
-    private void postJob(Employer employer, Job job){
+    private void postJob(Employer employer, ATSJob job){
 
         jobs.add(employer, job);
 

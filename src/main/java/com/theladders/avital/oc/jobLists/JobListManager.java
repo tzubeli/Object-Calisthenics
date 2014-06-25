@@ -1,7 +1,7 @@
 package com.theladders.avital.oc.jobLists;
 
 import com.theladders.avital.oc.collections.CollectionWrapper;
-import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.user.Jobseeker;
 
 
@@ -23,19 +23,19 @@ public class JobListManager {
     }
 
 
-    public void saveJob(Jobseeker jobseeker, Job job){
+    public void saveJob(Jobseeker jobseeker, ATSJob job){
 
        saved.add(jobseeker, job);
 
     }
 
-    public void unSaveJob(Jobseeker jobseeker, Job job){
+    public void unSaveJob(Jobseeker jobseeker, ATSJob job){
 
        saved.remove(jobseeker, job);
 
     }
 
-    public void saveAppliedJob(Jobseeker jobseeker, Job job){
+    public void saveAppliedJob(Jobseeker jobseeker, ATSJob job){
 
         applied.add(jobseeker, job);
 
