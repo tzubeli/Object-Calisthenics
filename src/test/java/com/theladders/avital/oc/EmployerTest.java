@@ -1,4 +1,4 @@
-package user;
+package com.theladders.avital.oc;
 
 import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobs.JobManager;
