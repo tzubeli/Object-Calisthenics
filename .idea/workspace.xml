@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/test/java/user/JobseekerTest.java" line="20" mnemonic="4" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="6279c9f3-d869-46ed-a71e-91881c05f27b" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/resumes/Resume.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/resumes/RealResume.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobApplications/ATSApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobApplications/ATSApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/ATSJob.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/ATSJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/ATSJobDescription.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/ATSJobDescription.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobApplications/ApplicationDetails.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobApplications/ApplicationDetails.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobApplications/ApplicationManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobApplications/ApplicationManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobApplications/ApplicationsList.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobApplications/ApplicationsList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobLists/AppliedJobs.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobLists/AppliedJobs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/JReqJob.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/JReqJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/JReqJobDescription.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/JReqJobDescription.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobApplications/JobApplications.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobApplications/JobApplications.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobLists/JobList.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobLists/JobList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobLists/JobListManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobLists/JobListManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/user/Jobseeker.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/user/Jobseeker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/user/JobseekerInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/user/JobseekerInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/resumes/ResumeList.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/resumes/ResumeList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/resumes/ResumeListMemory.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/resumes/ResumeListMemory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/resumes/Resumes.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/resumes/Resumes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobLists/SavedJobs.java" afterPath="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobLists/SavedJobs.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_12_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_1_5_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_client_8_1_7_v20120910.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_continuation_8_1_7_v20120910.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_http_8_1_7_v20120910.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_io_8_1_7_v20120910.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_servlets_8_1_7_v20120910.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_util_8_1_7_v20120910.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Object Calisthenics.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/object-calisthenics.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/objectcalisthenics.iml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/User/EmployerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/theladders/avital/oc/EmployerTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/User/JobseekerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/theladders/avital/oc/JobseekerTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/User/TheLaddersTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/theladders/avital/oc/TheLaddersTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Object Calisthenics.iws" />
@@ -123,22 +129,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EmployerTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/user/EmployerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28264463" vertical-offset="0" max-vertical-offset="1386">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JReqJob.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="JReqJob.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/JReqJob.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
+            <state vertical-scroll-proportion="0.16058394" vertical-offset="0" max-vertical-offset="1233">
               <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
@@ -285,10 +279,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/resumes/NoResume.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/ATSJob.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/user/JobseekerInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/JReqJob.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobLists/SavedJobs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobLists/AppliedJobs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobLists/JobListManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/JReqJob.java" />
       </list>
     </option>
   </component>
@@ -413,10 +407,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1152,27 +1142,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/user/TheLaddersTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78350514" vertical-offset="0" max-vertical-offset="1098">
-          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/user/JobseekerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6701031" vertical-offset="45" max-vertical-offset="1386">
-          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/resumes/ResumeListMemory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1314">
@@ -1363,14 +1332,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/JReqJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/ATSJob.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="209" max-vertical-offset="1440">
@@ -1415,13 +1376,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/user/EmployerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/theladders/avital/oc/jobs/JReqJob.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28264463" vertical-offset="0" max-vertical-offset="1386">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.16058394" vertical-offset="0" max-vertical-offset="1233">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
