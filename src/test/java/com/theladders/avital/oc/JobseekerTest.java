@@ -1,7 +1,7 @@
 /**
  * Created by atzubeli on 6/19/14.
  */
-package user;
+package com.theladders.avital.oc;
 
 
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
