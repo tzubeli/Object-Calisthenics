@@ -42,7 +42,7 @@ public class SavedJobs implements RecordedMap<Jobseeker, ATSJob> {
 
     }
 
-    public JobList readAll(Jobseeker jobseeker){
+    public JobList get(Jobseeker jobseeker){
 
         return savedJobs.get(jobseeker);
 

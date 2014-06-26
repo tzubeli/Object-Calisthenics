@@ -1,6 +1,6 @@
 package com.theladders.avital.oc.jobs;
 
-import com.theladders.avital.oc.resumes.Resume;
+import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.user.Name;
 
 /**
@@ -9,9 +9,9 @@ import com.theladders.avital.oc.user.Name;
 public class JReqJobDescription implements JobDescription {
 
     private Name name;
-    private Resume resume;
+    private RealResume resume;
 
-    public JReqJobDescription(Name name, Resume resume) {
+    public JReqJobDescription(Name name, RealResume resume) {
 
         this.name = name;
         this.resume = resume;

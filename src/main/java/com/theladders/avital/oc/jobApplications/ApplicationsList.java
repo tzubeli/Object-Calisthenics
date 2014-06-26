@@ -1,7 +1,6 @@
 package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.collections.CollectionPrinter;
-import com.theladders.avital.oc.collections.CollectionWrapper;
 import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
@@ -11,7 +10,7 @@ import java.util.List;
 /**
  * Created by atzubeli on 6/16/14.
  */
-public class ApplicationsList implements CollectionWrapper<JobApplication> {
+public class ApplicationsList {
 
     List<JobApplication> applications = new ArrayList<>();  // TODO list
 
@@ -29,11 +28,6 @@ public class ApplicationsList implements CollectionWrapper<JobApplication> {
 
         applications.add(jobApplication);
 
-    }
-
-    public void removeApplication(JobApplication jobApplication){
-
-        applications.remove(jobApplication);
     }
 
     public Collection<JobApplication> readAll(){

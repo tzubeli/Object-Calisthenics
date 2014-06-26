@@ -1,6 +1,9 @@
 package com.theladders.avital.oc.jobs;
 
-import com.theladders.avital.oc.resumes.Resume;
+import com.theladders.avital.oc.jobApplications.ATSApplication;
+import com.theladders.avital.oc.jobLists.JobListManager;
+import com.theladders.avital.oc.resumes.NoResume;
+import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Jobseeker;
 import com.theladders.avital.oc.user.JobseekerInfo;
@@ -15,14 +18,14 @@ public class ATSJob {
 
     Employer employer;
 
-    JobDescription description;
+    Name name;
 
 
 
-    public ATSJob(Employer employer, JobDescription description){
+    public ATSJob(Employer employer, Name name){
 
         this.employer = employer;
-        this.description = description;
+        this.name = name;
 
     }
 
@@ -39,30 +42,29 @@ public class ATSJob {
         //return details;
     }
 
-    public JobseekerInfo createJobSeekerInfo(Jobseeker jobseeker){
+    public void apply(Jobseeker jobseeker, RealResume resume, JobListManager jobListManager){
 
+        JobseekerInfo info = new JobseekerInfo(jobseeker, resume);
 
-        return new JobseekerInfo(jobseeker, new Resume(jobseeker, new Name("null")));
-
-    }
-
-    public JobseekerInfo createJobSeekerInfo(Jobseeker jobseeker, Resume resume){
-
-
-
-        return new JobseekerInfo(jobseeker, resume);
+        new ATSApplication().apply(info, jobListManager);
 
     }
 
+    public void apply(Jobseeker jobseeker, JobListManager jobListManager){
+
+        JobseekerInfo info = new JobseekerInfo(jobseeker, new NoResume());
+
+
+    }
 
     public String toString(){
 
-        return description.toString();
+        return name.toString();
     }
 
     public String toPrint(){
 
-        return employer.toString()+ ": " + description.toString();
+        return employer.toString()+ ": " + name.toString();
 
     }
 

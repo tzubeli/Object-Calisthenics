@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public class ResumeListMemory implements ResumeList{
 
 
-    ArrayList<Resume> resumes = new ArrayList<Resume>();
+    ArrayList<RealResume> resumes = new ArrayList<RealResume>();
 
-    public boolean create(Resume resume){
+    public boolean create(RealResume resume){
         
         resumes.add(resume);
 
@@ -20,7 +20,7 @@ public class ResumeListMemory implements ResumeList{
 
     }
 
-    public Resume read(int id){
+    public RealResume read(int id){
 
 
         return null;
@@ -33,7 +33,7 @@ public class ResumeListMemory implements ResumeList{
 
     }
 
-    public void update(Resume oldResume, Resume newResume){
+    public void update(RealResume oldResume, RealResume newResume){
 
         int index = resumes.indexOf(oldResume);
 
@@ -41,7 +41,7 @@ public class ResumeListMemory implements ResumeList{
 
     }
 
-    public boolean delete(Resume resume){
+    public boolean delete(RealResume resume){
 
         return resumes.remove(resume);
 
@@ -55,7 +55,7 @@ public class ResumeListMemory implements ResumeList{
 
 
     //TODO for testing only
-    public ArrayList<Resume> getCollection() {
+    public ArrayList<RealResume> getCollection() {
 
         return resumes;
     }

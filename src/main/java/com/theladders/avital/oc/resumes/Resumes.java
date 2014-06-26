@@ -9,7 +9,7 @@ import java.util.HashMap;
 /**
 * Created by atzubeli on 6/12/14.
 */
-public class Resumes implements RecordedMap<Jobseeker, Resume> {
+public class Resumes implements RecordedMap<Jobseeker, RealResume> {
 
     HashMap<Jobseeker, ResumeList> resumes = new HashMap<Jobseeker, ResumeList>();
 
@@ -23,7 +23,7 @@ public class Resumes implements RecordedMap<Jobseeker, Resume> {
     }
 
 
-    public void add(Jobseeker jobseeker, Resume resume){
+    public void add(Jobseeker jobseeker, RealResume resume){
 
         ResumeList list = resumes.get(jobseeker);
 
@@ -31,7 +31,7 @@ public class Resumes implements RecordedMap<Jobseeker, Resume> {
 
     }
 
-    public void remove(Jobseeker jobseeker, Resume resume){
+    public void remove(Jobseeker jobseeker, RealResume resume){
 
         ResumeList list = resumes.get(jobseeker);
 
@@ -47,7 +47,7 @@ public class Resumes implements RecordedMap<Jobseeker, Resume> {
 
     }
 
-    public void update(Jobseeker jobseeker, Resume oldResume, Resume newResume){
+    public void update(Jobseeker jobseeker, RealResume oldResume, RealResume newResume){
 
         ResumeList list = resumes.get(jobseeker);
 

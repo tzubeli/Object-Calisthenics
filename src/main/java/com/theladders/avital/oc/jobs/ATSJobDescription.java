@@ -1,6 +1,5 @@
 package com.theladders.avital.oc.jobs;
 
-import com.theladders.avital.oc.resumes.Resume;
 import com.theladders.avital.oc.user.Name;
 
 /**

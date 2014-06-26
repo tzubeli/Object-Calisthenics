@@ -3,8 +3,9 @@ package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.jobLists.JobListManager;
 import com.theladders.avital.oc.jobs.ATSJob;
+import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.user.Jobseeker;
-import com.theladders.avital.oc.resumes.Resume;
 import com.theladders.avital.oc.user.JobseekerInfo;
 import org.joda.time.LocalDate;
 
@@ -18,16 +19,14 @@ public class ApplicationManager {
 
     ApplicationResult result = new ApplicationResult();
 
+    public void application(Job job, JobseekerInfo jobseekerInfo){
 
-    public void apply(ATSJob job, Jobseeker jobseeker, Resume resume, JobListManager jobListManager) {
 
-        JobseekerInfo jobseekerInfo = new JobseekerInfo(jobseeker, resume);
+    }
 
-        boolean status = verification(job, jobseekerInfo);
 
-        if (status) jobListManager.saveAppliedJob(jobseeker, job);
+    public void apply(ATSJob job, Jobseeker jobseeker, RealResume resume, JobListManager jobListManager) {
 
-        setResult(status, job);
 
     }
 

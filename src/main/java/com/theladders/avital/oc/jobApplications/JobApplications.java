@@ -1,12 +1,9 @@
 package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.collections.CollectionPrinter;
-import com.theladders.avital.oc.collections.CollectionWrapper;
-import com.theladders.avital.oc.collections.RecordedMap;
 import com.theladders.avital.oc.jobs.ATSJob;
 import org.joda.time.LocalDate;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**

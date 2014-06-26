@@ -2,6 +2,7 @@ package com.theladders.avital.oc.jobLists;
 
 import com.theladders.avital.oc.collections.CollectionWrapper;
 import com.theladders.avital.oc.jobs.ATSJob;
+import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.user.Jobseeker;
 
 
@@ -22,7 +23,6 @@ public class JobListManager {
 
     }
 
-
     public void saveJob(Jobseeker jobseeker, ATSJob job){
 
        saved.add(jobseeker, job);
@@ -35,24 +35,16 @@ public class JobListManager {
 
     }
 
-    public void saveAppliedJob(Jobseeker jobseeker, ATSJob job){
+    public void saveAppliedJob(Jobseeker jobseeker, Job job){
 
         applied.add(jobseeker, job);
 
-        saved.remove(jobseeker, job);
-    }
-
-
-
-    public CollectionWrapper getSavedJobs(Jobseeker jobseeker){
-
-       return saved.readAll(jobseeker);
-
+       // saved.remove(jobseeker, job); TODO check if contains
     }
 
     public int getSizeApplied(Jobseeker jobseeker){
 
-        return applied.readAll(jobseeker).getSize();
+        return applied.get(jobseeker).getSize();
 
     }
 
@@ -63,9 +55,9 @@ public class JobListManager {
     }
 
 
-    public CollectionWrapper getAppliedJobs(Jobseeker jobseeker){
+    public JobList getAppliedJobs(Jobseeker jobseeker){
 
-        return applied.readAll(jobseeker);
+        return applied.get(jobseeker);
     }
 
 

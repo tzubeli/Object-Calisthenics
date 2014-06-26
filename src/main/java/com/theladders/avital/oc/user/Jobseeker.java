@@ -4,7 +4,8 @@ import com.theladders.avital.oc.collections.CollectionWrapper;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobLists.JobListManager;
 import com.theladders.avital.oc.jobs.ATSJob;
-import com.theladders.avital.oc.resumes.Resume;
+import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.resumes.RealResume;
 
 /**
  * Created by atzubeli on 5/21/14.
@@ -28,15 +29,27 @@ public class Jobseeker {
 
     }
 
-    public void apply(ATSJob job, Employer employer, Resume resume, ApplicationManager manager, JobListManager jobListManager){
+    public void application(Job job, Employer employer, RealResume resume, ApplicationManager applicationManager, JobListManager jobListManager){
 
-        manager.apply(job, this, resume, jobListManager);
+        jobListManager.saveAppliedJob(this, job);
+
+        job.apply();
+    }
+
+    public void apply(Job job, Employer employer, ApplicationManager manager, JobListManager jobListManager){
+
+        job.apply();
 
     }
 
     public void apply(ATSJob job, Employer employer, ApplicationManager manager, JobListManager jobListManager){
 
         manager.apply(job, this, jobListManager);
+
+    }
+
+    public void saveApplied(Job job, JobListManager jobListManager){
+
 
     }
 
@@ -59,7 +72,7 @@ public class Jobseeker {
 
     public void createResume(Name name){
 
-        Resume resume = new Resume(this, name);  //TODO then what
+        RealResume resume = new RealResume(this, name);  //TODO then what
 
 
     }

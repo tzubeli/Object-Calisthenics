@@ -1,12 +1,11 @@
 package com.theladders.avital.oc.jobApplications;
 
-import com.theladders.avital.oc.resumes.Resume;
+import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.user.Jobseeker;
 import com.theladders.avital.oc.user.JobseekerInfo;
 import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by atzubeli on 6/13/14.
@@ -31,7 +30,7 @@ public class ApplicationDetails {
 
     }
 
-    public Object[] createApplicationReport(Jobseeker jobseeker, Resume resume){
+    public Object[] createApplicationReport(Jobseeker jobseeker, RealResume resume){
 
         Object[] details = {jobseeker, resume, date};
 

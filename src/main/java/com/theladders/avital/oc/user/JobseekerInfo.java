@@ -1,5 +1,6 @@
 package com.theladders.avital.oc.user;
 
+import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.resumes.Resume;
 
 import java.util.ArrayList;
