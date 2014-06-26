@@ -1,6 +1,5 @@
 package com.theladders.avital.oc.jobs;
 
-
 import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.user.Employer;
@@ -23,7 +22,6 @@ public class JobManager {
 
         this.jobApplications = jobApplications;
     }
-
 
     public void createATSJob(Employer employer, JobDescription description){
 

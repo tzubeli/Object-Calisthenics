@@ -34,7 +34,6 @@ public class EmployerTest {
 
         designer = new Name("designer");
 
-
         employer = new Employer(theladders, manager);
 
         Calendar calendar = Calendar.getInstance();
@@ -49,7 +48,6 @@ public class EmployerTest {
         employer.postATSJob(software);
 
         employer.postATSJob(designer);
-
 
         Assert.assertTrue(jobs.readAll(employer).getSize() == 2);
 
