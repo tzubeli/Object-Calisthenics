@@ -6,7 +6,7 @@ import com.theladders.avital.oc.user.Name;
 /**
  * Created by atzubeli on 6/25/14.
  */
-public class JReqJobDescription implements JobDescription {
+public class JReqJobDescription {
 
     private Name name;
     private RealResume resume;

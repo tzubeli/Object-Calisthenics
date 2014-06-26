@@ -2,6 +2,7 @@ package com.theladders.avital.oc.jobLists;
 
 import com.theladders.avital.oc.collections.RecordedMap;
 import com.theladders.avital.oc.jobs.ATSJob;
+import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.user.Jobseeker;
 
 import java.util.HashMap;
@@ -10,7 +11,7 @@ import java.util.HashMap;
 /**
  * Created by atzubeli on 5/28/14.
  */
-public class SavedJobs implements RecordedMap<Jobseeker, ATSJob> {
+public class SavedJobs {
 
 
     private HashMap<Jobseeker, JobList> savedJobs = new HashMap<>();
@@ -24,7 +25,7 @@ public class SavedJobs implements RecordedMap<Jobseeker, ATSJob> {
 
     }
 
-    public void add(Jobseeker jobseeker, ATSJob job){
+    public void add(Jobseeker jobseeker, Job job){
 
         JobList list = savedJobs.get(jobseeker);
 
@@ -34,7 +35,7 @@ public class SavedJobs implements RecordedMap<Jobseeker, ATSJob> {
 
     }
 
-    public void remove(Jobseeker jobseeker, ATSJob job){
+    public void remove(Jobseeker jobseeker, Job job){
 
         JobList list = savedJobs.get(jobseeker);
 

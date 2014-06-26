@@ -3,7 +3,9 @@ package com.theladders.avital.oc.jobs;
 
 import com.theladders.avital.oc.collections.CollectionWrapper;
 import com.theladders.avital.oc.jobApplications.JobApplications;
+import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.user.Employer;
+import com.theladders.avital.oc.user.Name;
 
 /**
  * Created by atzubeli on 6/16/14.
@@ -24,13 +26,15 @@ public class JobManager {
 
     public void createJob(Employer employer, JobDescription description){
 
-        ATSJob job = new ATSJob(employer, description);  //creates a new job object
+        Job job = new ATSJob(employer, new Name("job"));  //creates a new job object
 
         createKeys(job, employer);
 
     }
 
-    private void createKeys(ATSJob job, Employer employer){
+
+
+    private void createKeys(Job job, Employer employer){
 
         jobs.createKey(employer);
 
@@ -42,13 +46,13 @@ public class JobManager {
 
     }
 
-    private void postJob(Employer employer, ATSJob job){
+    private void postJob(Employer employer, Job job){
 
         jobs.add(employer, job);
 
     }
 
-    public CollectionWrapper viewPostedJobs(Employer employer){
+    public JobList viewPostedJobs(Employer employer){
 
 
         return jobs.readAll(employer);

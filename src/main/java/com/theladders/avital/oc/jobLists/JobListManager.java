@@ -23,16 +23,21 @@ public class JobListManager {
 
     }
 
-    public void saveJob(Jobseeker jobseeker, ATSJob job){
+    public void saveJob(Jobseeker jobseeker, Job job){
 
        saved.add(jobseeker, job);
 
     }
 
-    public void unSaveJob(Jobseeker jobseeker, ATSJob job){
+    public void unSaveJob(Jobseeker jobseeker, Job job){
 
        saved.remove(jobseeker, job);
 
+    }
+
+    public JobList getSavedJobs(Jobseeker jobseeker){
+
+        return saved.get(jobseeker);
     }
 
     public void saveAppliedJob(Jobseeker jobseeker, Job job){
@@ -50,7 +55,7 @@ public class JobListManager {
 
     public int getSizeSaved(Jobseeker jobseeker){
 
-        return saved.readAll(jobseeker).getSize();
+        return saved.get(jobseeker).getSize();
 
     }
 

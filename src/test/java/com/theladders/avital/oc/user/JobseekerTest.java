@@ -36,9 +36,9 @@ public class JobseekerTest {
 
         employer = new Employer(new Name("theladders"), new JobManager(jobs, jobApplications));
 
-        job = new ATSJob(employer, new JobDescription(new Name("developer"), false));
+        job = new ATSJob(employer, new Name("developer"));
 
-        job2 = new ATSJob(employer, new JobDescription(new Name("designer"), true));
+        job2 = new ATSJob(employer, new Name("designer"));
 
         avital.saveJob(job, jobListManager);
 

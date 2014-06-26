@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by atzubeli on 5/21/14.
  */
-public class ATSJob {
+public class ATSJob implements Job{
 
     Employer employer;
 
@@ -57,9 +57,17 @@ public class ATSJob {
 
     }
 
+    public void apply() {
+
+    }
+
     public String toString(){
 
         return name.toString();
+    }
+
+    public void reportDetails() {
+
     }
 
     public String toPrint(){

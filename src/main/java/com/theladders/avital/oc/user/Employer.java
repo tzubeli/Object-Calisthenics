@@ -1,6 +1,7 @@
 package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.collections.CollectionWrapper;
+import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JobDescription;
 import com.theladders.avital.oc.jobs.JobManager;
@@ -39,7 +40,7 @@ public class Employer {
 
     }
 
-    public CollectionWrapper viewPostedJobs(){
+    public JobList viewPostedJobs(){
 
         return jobManager.viewPostedJobs(this);
 

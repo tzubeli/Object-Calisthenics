@@ -30,7 +30,7 @@ public class TheLaddersTest extends TestCase {
 
         employer = new Employer(new Name("theladders"), new JobManager(jobs, jobApplications));
 
-        job = new ATSJob(employer, new JobDescription(new Name("developer"), false));
+        job = new ATSJob(employer, new Name("developer"));
 
         JobseekerInfo info = new JobseekerInfo(jay, null);
 

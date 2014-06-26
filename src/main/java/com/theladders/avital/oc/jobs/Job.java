@@ -12,4 +12,5 @@ public interface Job {
     public void reportDetails();
 
 
+
 }

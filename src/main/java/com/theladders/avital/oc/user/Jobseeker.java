@@ -2,6 +2,7 @@ package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.collections.CollectionWrapper;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
+import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobLists.JobListManager;
 import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.Job;
@@ -23,7 +24,7 @@ public class Jobseeker {
     }
 
 
-    public void saveJob(ATSJob job, JobListManager jobListManager){
+    public void saveJob(Job job, JobListManager jobListManager){
 
         jobListManager.saveJob(this, job);
 
@@ -44,7 +45,7 @@ public class Jobseeker {
 
     public void apply(ATSJob job, Employer employer, ApplicationManager manager, JobListManager jobListManager){
 
-        manager.apply(job, this, jobListManager);
+
 
     }
 
@@ -53,18 +54,20 @@ public class Jobseeker {
 
     }
 
-    public void unSaveJob(ATSJob job, JobListManager jobListManager){
+    public void unSaveJob(Job job, JobListManager jobListManager){
 
         jobListManager.unSaveJob(this, job);
     }
 
-    public CollectionWrapper viewSavedJobs(JobListManager jobListManager){
+    public JobList viewSavedJobs(JobListManager jobListManager){
 
         return jobListManager.getSavedJobs(this);
 
     }
 
-    public CollectionWrapper viewAppliedJobs(JobListManager jobListManager){
+
+
+    public JobList viewAppliedJobs(JobListManager jobListManager){
 
         return jobListManager.getAppliedJobs(this);
 

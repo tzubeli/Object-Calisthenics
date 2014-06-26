@@ -2,6 +2,7 @@ package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.collections.CollectionPrinter;
 import com.theladders.avital.oc.jobs.ATSJob;
+import com.theladders.avital.oc.jobs.Job;
 import org.joda.time.LocalDate;
 
 import java.util.HashMap;
@@ -11,10 +12,10 @@ import java.util.HashMap;
 */
 public class JobApplications{
 
-    private HashMap<ATSJob, ApplicationsList> applications = new HashMap<>();
+    private HashMap<Job, ApplicationsList> applications = new HashMap<>();
 
 
-    public void createKey(ATSJob job){
+    public void createKey(Job job){
 
         if (!applications.containsKey(job))
 
@@ -22,7 +23,7 @@ public class JobApplications{
 
     }
 
-    public void add(ATSJob job, JobApplication application){
+    public void add(Job job, JobApplication application){
 
         createKey(job);
 
@@ -32,14 +33,14 @@ public class JobApplications{
 
     }
 
-    public void getByJob(ATSJob job, CollectionPrinter printer){
+    public void getByJob(Job job, CollectionPrinter printer){
 
         ApplicationsList list = applications.get(job);
 
         list.printCollection(printer);
     }
 
-    public void getByJobAndDate(ATSJob job, LocalDate date, CollectionPrinter printer){
+    public void getByJobAndDate(Job job, LocalDate date, CollectionPrinter printer){
 
         ApplicationsList list = applications.get(job);
 
@@ -53,7 +54,7 @@ public class JobApplications{
 
         ApplicationsList apps = new ApplicationsList();
 
-        for (ATSJob job : applications.keySet())
+        for (Job job : applications.keySet())
         {
             ApplicationsList list = applications.get(job);
 
