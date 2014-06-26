@@ -1,8 +1,6 @@
 package com.theladders.avital.oc.jobLists;
 
 import com.theladders.avital.oc.collections.CollectionPrinter;
-import com.theladders.avital.oc.collections.CollectionWrapper;
-import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.Job;
 
 import java.util.ArrayList;

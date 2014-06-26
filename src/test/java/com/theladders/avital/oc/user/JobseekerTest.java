@@ -4,7 +4,6 @@ import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobLists.JobListManager;
 import com.theladders.avital.oc.jobs.ATSJob;
-import com.theladders.avital.oc.jobs.JobDescription;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.PostedJobs;
 import org.junit.Assert;

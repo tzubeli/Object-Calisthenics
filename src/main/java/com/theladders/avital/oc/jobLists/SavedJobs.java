@@ -1,7 +1,5 @@
 package com.theladders.avital.oc.jobLists;
 
-import com.theladders.avital.oc.collections.RecordedMap;
-import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.user.Jobseeker;
 

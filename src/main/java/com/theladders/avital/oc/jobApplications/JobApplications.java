@@ -1,7 +1,6 @@
 package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.collections.CollectionPrinter;
-import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.Job;
 import org.joda.time.LocalDate;
 

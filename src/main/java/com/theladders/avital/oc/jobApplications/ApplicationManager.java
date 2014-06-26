@@ -2,9 +2,7 @@ package com.theladders.avital.oc.jobApplications;
 
 
 import com.theladders.avital.oc.jobLists.JobListManager;
-import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.Job;
-import com.theladders.avital.oc.resumes.NoResume;
 import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.user.Jobseeker;
 import com.theladders.avital.oc.user.JobseekerInfo;
@@ -26,7 +24,7 @@ public class ApplicationManager {
     }
 
 
-    public void apply(ATSJob job, Jobseeker jobseeker, RealResume resume, JobListManager jobListManager) {
+    public void apply(Job job, Jobseeker jobseeker, RealResume resume, JobListManager jobListManager) {
 
 
     }
@@ -37,7 +35,7 @@ public class ApplicationManager {
         }
 
 
-    public boolean createJobApplication(ATSJob job, JobseekerInfo jobseekerInfo){
+    public boolean createJobApplication(Job job, JobseekerInfo jobseekerInfo){
 
         LocalDate date = new LocalDate();
 
@@ -51,7 +49,7 @@ public class ApplicationManager {
 
     }
 
-    public void setResult(boolean status, ATSJob job){
+    public void setResult(boolean status, Job job){
 
         result.addResult(status, job);
 

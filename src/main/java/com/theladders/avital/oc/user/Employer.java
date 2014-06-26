@@ -1,9 +1,7 @@
 package com.theladders.avital.oc.user;
 
-import com.theladders.avital.oc.collections.CollectionWrapper;
 import com.theladders.avital.oc.jobLists.JobList;
-import com.theladders.avital.oc.jobs.ATSJob;
-import com.theladders.avital.oc.jobs.JobDescription;
+import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.jobs.JobManager;
 
 import java.util.Collection;
@@ -46,7 +44,7 @@ public class Employer {
 
     }
 
-    public Collection<ATSJob> viewApplicationsByDate(Date date){
+    public Collection<Job> viewApplicationsByDate(Date date){
 
         return null;
     }

@@ -1,7 +1,6 @@
 package com.theladders.avital.oc.jobs;
 
 
-import com.theladders.avital.oc.collections.CollectionWrapper;
 import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.user.Employer;
@@ -24,11 +23,16 @@ public class JobManager {
     }
 
 
-    public void createJob(Employer employer, JobDescription description){
+    public void createATSJob(Employer employer, JobDescription description){
 
         Job job = new ATSJob(employer, new Name("job"));  //creates a new job object
 
         createKeys(job, employer);
+
+    }
+
+    public void createJReqJob(Employer employer, JobDescription description){
+
 
     }
 

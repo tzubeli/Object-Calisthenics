@@ -1,7 +1,7 @@
 package com.theladders.avital.oc.jobApplications;
 
 
-import com.theladders.avital.oc.jobs.ATSJob;
+import com.theladders.avital.oc.jobs.Job;
 import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
@@ -11,12 +11,12 @@ import java.util.ArrayList;
  */
 public class JobApplication {
 
-    ATSJob job;
+    Job job;
 
     ApplicationDetails applicationDetails;
 
 
-    public JobApplication(ATSJob job, ApplicationDetails applicationDetails) {
+    public JobApplication(Job job, ApplicationDetails applicationDetails) {
 
         this.job = job;
 
