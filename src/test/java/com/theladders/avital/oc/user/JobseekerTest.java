@@ -1,8 +1,4 @@
-/**
- * Created by atzubeli on 6/19/14.
- */
-package com.theladders.avital.oc;
-
+package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobApplications.JobApplications;
@@ -11,13 +7,13 @@ import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JobDescription;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.PostedJobs;
-import com.theladders.avital.oc.user.Employer;
-import com.theladders.avital.oc.user.Jobseeker;
-import com.theladders.avital.oc.user.Name;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Created by atzubeli on 6/26/14.
+ */
 public class JobseekerTest {
 
     Jobseeker avital;
