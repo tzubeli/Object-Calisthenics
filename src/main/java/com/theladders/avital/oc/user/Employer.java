@@ -2,6 +2,7 @@ package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.jobs.JobDescription;
 import com.theladders.avital.oc.jobs.JobManager;
 
 import java.util.Collection;
@@ -22,19 +23,21 @@ public class Employer {
 
         this.name = name;
 
+    }
+
+    public void postATSJob(Name name){
+
+        JobDescription description = new JobDescription(name);
+
+        jobManager.createJReqJob(this, description);
 
     }
 
-    public String toString(){
+    public void postJREQJob(Name name){
 
-        return name.toString();
-    }
+        JobDescription description = new JobDescription(name);
 
-    public void postJob(Name name, boolean requiresResume){
-
-        //JobDescription description = new ATSJobDescription(name, requiresResume);
-
-        //jobManager.createJob(this, description); TODO postJob
+        jobManager.createATSJob(this, description);
 
     }
 
@@ -44,10 +47,16 @@ public class Employer {
 
     }
 
-    public Collection<Job> viewApplicationsByDate(Date date){
+    public void viewApplicationsByDate(Date date){
 
-        return null;
+
     }
+
+    public String toString(){
+
+        return name.toString();
+    }
+
 
 
 

@@ -46,9 +46,9 @@ public class EmployerTest {
     @Test
     public void postJobTest(){
 
-        employer.postJob(software, false);
+        employer.postATSJob(software);
 
-        employer.postJob(designer, true);
+        employer.postATSJob(designer);
 
 
         Assert.assertTrue(jobs.readAll(employer).getSize() == 2);
@@ -58,9 +58,9 @@ public class EmployerTest {
     @Test
     public void viewPostedJobsTest(){
 
-        employer.postJob(software, false);
+        employer.postJREQJob(software);
 
-        employer.postJob(designer, true);
+        employer.postJREQJob(designer);
 
         Assert.assertTrue(employer.viewPostedJobs().getSize()==2);
 

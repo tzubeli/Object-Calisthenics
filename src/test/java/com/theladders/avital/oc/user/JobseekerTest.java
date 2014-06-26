@@ -3,7 +3,7 @@ package com.theladders.avital.oc.user;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobLists.JobListManager;
-import com.theladders.avital.oc.jobs.ATSJob;
+import com.theladders.avital.oc.jobs.JobATS;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.PostedJobs;
 import org.junit.Assert;
@@ -19,8 +19,8 @@ public class JobseekerTest {
     Jobseeker jay;
     Employer employer;
     PostedJobs jobs = new PostedJobs();
-    ATSJob job;
-    ATSJob job2;
+    JobATS job;
+    JobATS job2;
     JobListManager jobListManager = new JobListManager();
     ApplicationManager applicationManager = new ApplicationManager();
     JobApplications jobApplications = new JobApplications();
@@ -29,23 +29,23 @@ public class JobseekerTest {
     public void initialize(){
 
 
-        avital = new Jobseeker(new Name("Avital"), jobListManager);
+        avital = new Jobseeker(new Name("Avital"));
 
-        jay = new Jobseeker(new Name("Jay"), jobListManager);
+        jay = new Jobseeker(new Name("Jay"));
 
         employer = new Employer(new Name("theladders"), new JobManager(jobs, jobApplications));
 
-        job = new ATSJob(employer, new Name("developer"));
+        job = new JobATS(employer, new Name("developer"));
 
-        job2 = new ATSJob(employer, new Name("designer"));
+        job2 = new JobATS(employer, new Name("designer"));
 
-        avital.saveJob(job, jobListManager);
+        avital.saveJob(job);
 
-        jay.saveJob(job, jobListManager);
+        jay.saveJob(job);
 
-        avital.saveJob(job2, jobListManager);
+        avital.saveJob(job2);
 
-        avital.apply(job2, employer, applicationManager, jobListManager);
+        avital.apply(job2, employer, applicationManager);
 
 
     }

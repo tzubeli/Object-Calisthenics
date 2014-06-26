@@ -2,12 +2,10 @@ package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.jobApplications.*;
 import com.theladders.avital.oc.jobLists.JobListManager;
-import com.theladders.avital.oc.jobs.ATSJob;
-import com.theladders.avital.oc.jobs.JobDescription;
+import com.theladders.avital.oc.jobs.JobATS;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.PostedJobs;
 import com.theladders.avital.oc.report.CSVGenerator;
-import com.theladders.avital.oc.user.*;
 import junit.framework.TestCase;
 import org.joda.time.LocalDate;
 
@@ -15,7 +13,7 @@ public class TheLaddersTest extends TestCase {
 
     Jobseeker jay;
     Employer employer;
-    ATSJob job;
+    JobATS job;
     JobListManager jobListManager = new JobListManager();
     PostedJobs jobs = new PostedJobs();
     TheLadders ladders = new TheLadders();
@@ -26,11 +24,11 @@ public class TheLaddersTest extends TestCase {
 
     public void testGetApplicationReport() {
 
-        jay = new Jobseeker(new Name("Jay"), jobListManager);
+        jay = new Jobseeker(new Name("Jay"));
 
         employer = new Employer(new Name("theladders"), new JobManager(jobs, jobApplications));
 
-        job = new ATSJob(employer, new Name("developer"));
+        job = new JobATS(employer, new Name("developer"));
 
         JobseekerInfo info = new JobseekerInfo(jay, null);
 

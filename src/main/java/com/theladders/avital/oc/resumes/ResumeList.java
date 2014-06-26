@@ -1,25 +1,64 @@
 package com.theladders.avital.oc.resumes;
 
-import com.theladders.avital.oc.collections.CollectionWrapper;
+import com.theladders.avital.oc.collections.CollectionPrinter;
 
+import java.util.ArrayList;
 
 /**
  * Created by atzubeli on 6/12/14.
  */
-public interface ResumeList extends CollectionWrapper<RealResume> {
+public class ResumeList {
 
 
-    public boolean create(RealResume resume);
-    
+    ArrayList<Resume> resumes = new ArrayList<>();
 
-    public RealResume read(int id);
+    public boolean create(Resume resume){
+        
+        resumes.add(resume);
+
+        return true;
+
+    }
+
+    public RealResume read(int id){
+
+        return null;
+    }
+
+    public ResumeList readAll(){
+
+        return this;
+    }
+
+    public void update(Resume oldResume, Resume newResume){
+
+        int index = resumes.indexOf(oldResume);
+
+        resumes.set(index, newResume);
+
+    }
+
+    public boolean delete(Resume resume){
+
+        return resumes.remove(resume);
+
+    }
+
+    public void printCollection(CollectionPrinter printer){
+
+        printer.print(resumes);
+
+    }
 
 
-    public CollectionWrapper readAll();
+    //TODO for testing only
+    public ArrayList<Resume> getCollection() {
 
+        return resumes;
+    }
 
-    public void update(RealResume oldResume, RealResume newResume);
+    public int getSize() {
 
-
-    public boolean delete(RealResume resume);
+        return resumes.size();
+    }
 }

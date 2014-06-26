@@ -2,8 +2,11 @@ package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobLists.JobList;
-import com.theladders.avital.oc.jobLists.JobListManager;
+import com.theladders.avital.oc.jobLists.JobseekerJobList;
+import com.theladders.avital.oc.jobs.JobATS;
+import com.theladders.avital.oc.jobs.JobJREQ;
 import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.resumes.NoResume;
 import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.resumes.Resume;
 
@@ -14,68 +17,71 @@ public class Jobseeker {
 
     private Name name;
 
+    private JobseekerJobList jobList;
 
-    public Jobseeker(Name name, JobListManager manager){
+
+    public Jobseeker(Name name){
 
         this.name = name;
 
-        manager.createJobseekerLists(this);
-    }
-
-
-    public void saveJob(Job job, JobListManager jobListManager){
-
-        jobListManager.saveJob(this, job);
+        this.jobList = new JobseekerJobList();
 
     }
 
-    public void application(Job job, Employer employer, RealResume resume, ApplicationManager applicationManager, JobListManager jobListManager){
+    public void apply(JobATS job, Employer employer, RealResume resume, ApplicationManager manager) {
 
-        jobListManager.saveAppliedJob(this, job);
+        jobList.saveAppliedJob(job);
 
-        job.apply();
+        JobseekerInfo info = new JobseekerInfo(this, resume);
+
+        manager.apply(job, info);
     }
 
-    public void apply(Job job, Employer employer, ApplicationManager manager, JobListManager jobListManager){
+    public void apply(JobATS job, Employer employer, ApplicationManager manager){
 
-        job.apply();
+        jobList.saveAppliedJob(job);
 
+        JobseekerInfo info = new JobseekerInfo(this, new NoResume());
+
+        manager.apply(job, info);
     }
 
-    public void apply(Job job, Employer employer, Resume resume, ApplicationManager manager, JobListManager jobListManager){
+    public void apply(JobJREQ job, Employer employer, Resume resume, ApplicationManager manager){
 
+        jobList.saveAppliedJob(job);
 
+        JobseekerInfo info = new JobseekerInfo(this, resume);
 
-    }
-
-    public void saveApplied(Job job, JobListManager jobListManager){
-
-
-    }
-
-    public void unSaveJob(Job job, JobListManager jobListManager){
-
-        jobListManager.unSaveJob(this, job);
-    }
-
-    public JobList viewSavedJobs(JobListManager jobListManager){
-
-        return jobListManager.getSavedJobs(this);
+        manager.apply(job, info);
 
     }
 
+    public void saveJob(Job job){
 
+        jobList.saveJob(job);
 
-    public JobList viewAppliedJobs(JobListManager jobListManager){
+    }
 
-        return jobListManager.getAppliedJobs(this);
+    public void unSaveJob(Job job){
+
+        jobList.unSaveJob(job);
+    }
+
+    public JobList viewSavedJobs(){
+
+        return jobList.getSavedJobs();
+
+    }
+
+    public JobList viewAppliedJobs(){
+
+        return jobList.getAppliedJobs();
 
     }
 
     public void createResume(Name name){
 
         RealResume resume = new RealResume(this, name);  //TODO then what
-
 
     }
 
