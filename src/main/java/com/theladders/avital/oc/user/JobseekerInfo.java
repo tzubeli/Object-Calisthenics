@@ -19,12 +19,6 @@ public class JobseekerInfo {
         this.resume = resume;
     }
 
-    public JobseekerInfo(Jobseeker jobseeker){
-
-        this.jobseeker = jobseeker;
-    }
-
-
     public ArrayList<Object> getReportDetails(){
 
         ArrayList<Object> details = new ArrayList<>();

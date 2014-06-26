@@ -1,10 +1,11 @@
 package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
+
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobLists.JobseekerJobList;
 import com.theladders.avital.oc.jobs.JobATS;
-import com.theladders.avital.oc.jobs.JobJREQ;
+import com.theladders.avital.oc.jobs.JobJReq;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.resumes.NoResume;
 import com.theladders.avital.oc.resumes.RealResume;
@@ -46,7 +47,7 @@ public class Jobseeker {
         manager.apply(job, info);
     }
 
-    public void apply(JobJREQ job, Employer employer, Resume resume, ApplicationManager manager){
+    public void apply(JobJReq job, Employer employer, Resume resume, ApplicationManager manager){
 
         jobList.saveAppliedJob(job);
 

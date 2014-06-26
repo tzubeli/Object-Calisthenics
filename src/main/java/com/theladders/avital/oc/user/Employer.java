@@ -1,11 +1,10 @@
 package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.jobLists.JobList;
-import com.theladders.avital.oc.jobs.Job;
+
 import com.theladders.avital.oc.jobs.JobDescription;
 import com.theladders.avital.oc.jobs.JobManager;
 
-import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -48,6 +47,7 @@ public class Employer {
     }
 
     public void viewApplicationsByDate(Date date){
+
 
 
     }

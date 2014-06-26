@@ -1,13 +1,15 @@
 package com.theladders.avital.oc.collections;
 
+import com.theladders.avital.oc.jobApplications.ApplicationsList;
+
 import java.util.Collection;
 
 /**
  * Created by atzubeli on 6/25/14.
  */
-public class PrintToCSVReport implements CollectionPrinter{
+public class PrintToCSVReport implements ApplicationsPrinter {
 
-    public void print(Collection collection) {
+    public void print(ApplicationsList applicationsList) {
 
         //applications method for creating a report
 

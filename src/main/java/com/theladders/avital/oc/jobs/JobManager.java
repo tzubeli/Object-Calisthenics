@@ -63,6 +63,7 @@ public class JobManager {
 
     public void getApplicationsByEmployer(Employer employer){
 
+       //TODO change name of classes
 
     }
 

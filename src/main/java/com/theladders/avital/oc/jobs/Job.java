@@ -5,11 +5,8 @@ package com.theladders.avital.oc.jobs;
  */
 public interface Job {
 
-    public void apply();
-
     public String toString();
 
-    public void reportDetails();
 
 
 

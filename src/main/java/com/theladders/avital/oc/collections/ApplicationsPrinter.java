@@ -7,14 +7,11 @@ import java.util.Collection;
 /**
  * Created by atzubeli on 6/25/14.
  */
-public class PrintToConsole implements ApplicationsPrinter {
+public interface ApplicationsPrinter {
 
-
-    public void print(ApplicationsList applicationsList) {
-
+    public void print(ApplicationsList applicationsList);
 
 
 
     }
-}
 

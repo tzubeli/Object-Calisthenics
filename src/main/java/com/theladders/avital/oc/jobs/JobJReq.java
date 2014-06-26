@@ -1,16 +1,35 @@
 package com.theladders.avital.oc.jobs;
 
+import com.theladders.avital.oc.user.Employer;
+import com.theladders.avital.oc.user.Name;
+
 /**
  * Created by atzubeli on 6/25/14.
  */
-public class JobJREQ implements Job{
+public class JobJReq implements Job{
 
 
-    public void apply() {
+    Employer employer;
+
+    Name name;
+
+
+    public JobJReq(Employer employer, Name name){
+
+        this.employer = employer;
+        this.name = name;
 
     }
 
-    public void reportDetails() {
+    public String toString(){
+
+        return name.toString();
+
+    }
+
+    public String toPrint(){
+
+        return employer.toString()+ ": " + name.toString();
 
     }
 }

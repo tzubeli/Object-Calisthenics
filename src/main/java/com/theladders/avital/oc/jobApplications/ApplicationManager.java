@@ -12,7 +12,7 @@ public class ApplicationManager {
 
     JobApplications applications = new JobApplications();
 
-    ApplicationResult result = new ApplicationResult();
+    ApplicationResult result = new ApplicationResult(); //TODO result
 
 
     public void apply(Job job, JobseekerInfo jobseekerInfo){

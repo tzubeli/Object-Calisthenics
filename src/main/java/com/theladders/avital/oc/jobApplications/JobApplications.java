@@ -1,6 +1,5 @@
 package com.theladders.avital.oc.jobApplications;
 
-import com.theladders.avital.oc.collections.CollectionPrinter;
 import com.theladders.avital.oc.jobs.Job;
 import org.joda.time.LocalDate;
 
@@ -19,7 +18,6 @@ public class JobApplications{
         if (!applications.containsKey(job))
 
             applications.put(job, new ApplicationsList());
-
     }
 
     public void add(Job job, JobApplication application){
@@ -32,35 +30,49 @@ public class JobApplications{
 
     }
 
-    public void getByJob(Job job, CollectionPrinter printer){
+    public ApplicationsList getByJob(Job job){
 
         ApplicationsList list = applications.get(job);
 
-        list.printCollection(printer);
+        return list;
     }
 
-    public void getByJobAndDate(Job job, LocalDate date, CollectionPrinter printer){
+    public ApplicationsList getByJobAndDate(Job job, LocalDate date){
 
         ApplicationsList list = applications.get(job);
 
         ApplicationsList resultList = list.filteredByDate(date);
 
-        resultList.printCollection(printer);
+        return resultList;
 
     }
 
-    public void getByDate(LocalDate date, CollectionPrinter printer){
+    public ApplicationsList getByDate(LocalDate date){
 
-        ApplicationsList apps = new ApplicationsList();
+        ApplicationsList resultList = new ApplicationsList();
 
         for (Job job : applications.keySet())
         {
             ApplicationsList list = applications.get(job);
 
-            apps = apps.combinedWith(list.filteredByDate(date));
+            resultList = resultList.combinedWith(list.filteredByDate(date));
         }
 
-        apps.printCollection(printer);
+        return resultList;
+    }
+
+    public ApplicationsList getAllApplications(){
+
+        ApplicationsList resultList = new ApplicationsList();
+
+        for (Job job : applications.keySet())
+        {
+            ApplicationsList list = applications.get(job);
+
+            resultList = resultList.combinedWith(list);
+        }
+        return resultList;
+
     }
 
 }

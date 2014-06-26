@@ -15,7 +15,6 @@ public class JobATS implements Job{
     Name name;
 
 
-
     public JobATS(Employer employer, Name name){
 
         this.employer = employer;
@@ -23,30 +22,9 @@ public class JobATS implements Job{
 
     }
 
-    public void getReportDetails(){
-
-        //TODO report stuff
-
-        ArrayList<Object> details = new ArrayList<>();
-
-        details.add(this);
-
-        details.add(employer);
-
-        //return details;
-    }
-
-    public void apply() {
-
-    }
-
     public String toString(){
 
         return name.toString();
-    }
-
-    public void reportDetails() {
-
     }
 
     public String toPrint(){

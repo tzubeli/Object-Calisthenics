@@ -1,6 +1,6 @@
 package com.theladders.avital.oc.jobApplications;
 
-import com.theladders.avital.oc.collections.CollectionPrinter;
+import com.theladders.avital.oc.collections.ApplicationsPrinter;
 import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
@@ -57,9 +57,9 @@ public class ApplicationsList {
         return new ApplicationsList(combined);
     }
 
-    public void printCollection(CollectionPrinter printer){
+    public void printApplicationsList(ApplicationsPrinter printer){
 
-        printer.print(applications);
+        printer.print(this);
     }
 
 

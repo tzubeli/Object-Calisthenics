@@ -1,6 +1,6 @@
 package com.theladders.avital.oc.user;
 
-import com.theladders.avital.oc.collections.CollectionPrinter;
+import com.theladders.avital.oc.collections.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobs.Job;
@@ -23,19 +23,19 @@ public class TheLadders {
 
     }
 
-    public void getJobApplicationsByDate(LocalDate date, CollectionPrinter printer){
+    public void getJobApplicationsByDate(LocalDate date, ApplicationsPrinter printer){
 
-        applications.getByDate(date, printer);
-
-    }
-
-    public void getJobApplicationsByJobAndDate(LocalDate date, Job job, CollectionPrinter printer){
-
-        applications.getByJobAndDate(job, date, printer);
+        applications.getByDate(date);
 
     }
 
-    public void getJobApplicationsByJob(Job job, CollectionPrinter printer){
+    public void getJobApplicationsByJobAndDate(LocalDate date, Job job, ApplicationsPrinter printer){
+
+        applications.getByJobAndDate(job, date);
+
+    }
+
+    public void getJobApplicationsByJob(Job job, ApplicationsPrinter printer){
 
 
     }

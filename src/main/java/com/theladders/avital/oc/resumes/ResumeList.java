@@ -1,6 +1,6 @@
 package com.theladders.avital.oc.resumes;
 
-import com.theladders.avital.oc.collections.CollectionPrinter;
+import com.theladders.avital.oc.collections.ApplicationsPrinter;
 
 import java.util.ArrayList;
 
@@ -41,12 +41,6 @@ public class ResumeList {
     public boolean delete(Resume resume){
 
         return resumes.remove(resume);
-
-    }
-
-    public void printCollection(CollectionPrinter printer){
-
-        printer.print(resumes);
 
     }
 
