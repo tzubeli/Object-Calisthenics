@@ -39,13 +39,13 @@ private HashMap<Employer, JobApplications> postedJobs = new HashMap<>();
         applications.add(job, application);
     }
 
-    public void addApplication(Job job, JobApplication application){
+    public void addApplication(Job job, JobApplication application){ //would be easier with a get
 
         for (Employer employer : postedJobs.keySet()){
 
             JobApplications applications = postedJobs.get(employer);
 
-            if (applications.containsKey(job)){
+            if (applications.contains(job)){
 
                 addApplication(employer, job, application);
 
@@ -62,6 +62,22 @@ private HashMap<Employer, JobApplications> postedJobs = new HashMap<>();
 
     }
 
+    public ApplicationsList getAllApplications(){
+
+        ApplicationsList resultList = new ApplicationsList();
+
+        for (Employer employer : postedJobs.keySet()){
+
+            JobApplications applications = postedJobs.get(employer);
+
+            ApplicationsList list = applications.getAllApplications();
+
+            resultList = resultList.combinedWith(list);
+
+            }
+        return resultList;
+
+    }
 
 
     public ApplicationsList getAllApplicationsByEmployer(Employer employer){

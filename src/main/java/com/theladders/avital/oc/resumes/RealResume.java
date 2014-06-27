@@ -23,5 +23,10 @@ public class RealResume implements Resume{
 
         return name.toString();
     }
+
+    public boolean isOwnedBy(Jobseeker thatJobseeker){
+
+        return (jobseeker == thatJobseeker);
+    }
 }
 

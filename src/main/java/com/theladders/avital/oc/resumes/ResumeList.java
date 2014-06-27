@@ -17,7 +17,6 @@ public class ResumeList {
         resumes.add(resume);
 
         return true;
-
     }
 
     public RealResume read(int id){
@@ -35,20 +34,17 @@ public class ResumeList {
         int index = resumes.indexOf(oldResume);
 
         resumes.set(index, newResume);
+    }
 
+    public boolean contains(Resume resume){
+
+        return resumes.contains(resume);
     }
 
     public boolean delete(Resume resume){
 
         return resumes.remove(resume);
 
-    }
-
-
-    //TODO for testing only
-    public ArrayList<Resume> getCollection() {
-
-        return resumes;
     }
 
     public int getSize() {

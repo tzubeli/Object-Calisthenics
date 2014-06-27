@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class ApplicationsList {
 
-    List<JobApplication> applications = new ArrayList<>();  // TODO list
+    List<JobApplication> applications = new ArrayList<>();
 
     public ApplicationsList(){
 
@@ -57,10 +57,7 @@ public class ApplicationsList {
         return new ApplicationsList(combined);
     }
 
-    public void printApplicationsList(ApplicationsPrinter printer){
 
-        printer.print(this);
-    }
 
 
     public int getSize() {

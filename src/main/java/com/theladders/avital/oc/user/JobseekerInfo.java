@@ -1,5 +1,6 @@
 package com.theladders.avital.oc.user;
 
+import com.theladders.avital.oc.collections.ApplicationsPrinter;
 import com.theladders.avital.oc.resumes.Resume;
 
 import java.util.ArrayList;
@@ -28,5 +29,11 @@ public class JobseekerInfo {
         details.add(resume);
 
         return details;
+    }
+
+    public void print(ApplicationsPrinter printer){
+
+        jobseeker.print(printer);
+
     }
 }

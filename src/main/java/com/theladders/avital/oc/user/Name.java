@@ -1,5 +1,7 @@
 package com.theladders.avital.oc.user;
 
+import com.theladders.avital.oc.collections.ApplicationsPrinter;
+
 /**
  * Created by atzubeli on 6/13/14.
  */
@@ -16,5 +18,15 @@ public class Name {
     public String toString() {
 
         return name;
+    }
+
+
+    public void print(ApplicationsPrinter printer){
+
+        printer.print(name);
+
+
+
+
     }
 }

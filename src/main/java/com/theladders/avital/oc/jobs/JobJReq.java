@@ -1,5 +1,6 @@
 package com.theladders.avital.oc.jobs;
 
+import com.theladders.avital.oc.collections.ApplicationsPrinter;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Name;
 
@@ -30,6 +31,15 @@ public class JobJReq implements Job{
     public String toPrint(){
 
         return employer.toString()+ ": " + name.toString();
+
+    }
+
+    public void print(ApplicationsPrinter printer){
+
+        name.print(printer);
+
+        employer.print(printer);
+
 
     }
 }

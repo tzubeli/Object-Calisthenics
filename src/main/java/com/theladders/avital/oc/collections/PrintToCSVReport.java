@@ -9,9 +9,11 @@ import java.util.Collection;
  */
 public class PrintToCSVReport implements ApplicationsPrinter {
 
-    public void print(ApplicationsList applicationsList) {
 
-        //applications method for creating a report
+    public void print(String toString){
+
 
     }
+
+
 }

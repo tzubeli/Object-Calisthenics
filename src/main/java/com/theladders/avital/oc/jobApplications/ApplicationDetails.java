@@ -1,5 +1,6 @@
 package com.theladders.avital.oc.jobApplications;
 
+import com.theladders.avital.oc.collections.ApplicationsPrinter;
 import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.user.Jobseeker;
 import com.theladders.avital.oc.user.JobseekerInfo;
@@ -45,6 +46,15 @@ public class ApplicationDetails {
         reportDetails.add(date);
 
         return reportDetails;
+
+    }
+
+    public void print(ApplicationsPrinter printer){
+
+        jobseekerInfo.print(printer);
+
+        printer.print(date.toString());
+
 
     }
 }

@@ -24,7 +24,7 @@ public class JobApplications{
             applications.put(job, new ApplicationsList());
     }
 
-    public boolean containsKey(Job job){
+    public boolean contains(Job job){
 
         return applications.containsKey(job);
     }

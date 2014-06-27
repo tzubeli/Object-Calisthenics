@@ -3,7 +3,9 @@ package com.theladders.avital.oc.jobs;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobLists.JobList;
+import com.theladders.avital.oc.resumes.Resumes;
 import com.theladders.avital.oc.user.Employer;
+import com.theladders.avital.oc.user.Jobseeker;
 import com.theladders.avital.oc.user.Name;
 import org.joda.time.LocalDate;
 
@@ -12,14 +14,16 @@ import org.joda.time.LocalDate;
  */
 public class JobManager {
 
-
-
     Jobs jobs;
 
+    Resumes resumes;
+
     
-    public JobManager(Jobs jobsToApplications){
+    public JobManager(Jobs jobsToApplications, Resumes resumes){
 
         this.jobs = jobsToApplications;
+
+        this.resumes = resumes;
     }
 
     public void createEmployerKey(Employer employer){
@@ -56,7 +60,7 @@ public class JobManager {
 
     public ApplicationsList getAllApplications(){
 
-        return null;
+        return jobs.getAllApplications();
     }
 
     public ApplicationsList getApplicationsByEmployer(Employer employer){

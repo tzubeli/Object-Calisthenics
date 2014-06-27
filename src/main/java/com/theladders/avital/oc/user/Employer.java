@@ -68,9 +68,10 @@ public class Employer {
         return jobManager.getApplicationsByJob(this, job);
     }
 
-    public void printApplicationsList(ApplicationsList applicationsList, ApplicationsPrinter printer){
+    public void print(ApplicationsPrinter printer){
 
-        applicationsList.printApplicationsList(printer);
+        name.print(printer);
+
     }
 
     public String toString(){

@@ -1,6 +1,6 @@
 package com.theladders.avital.oc.collections;
 
-import com.theladders.avital.oc.jobApplications.ApplicationsList;
+
 
 import java.util.Collection;
 
@@ -10,11 +10,11 @@ import java.util.Collection;
 public class PrintToConsole implements ApplicationsPrinter {
 
 
-    public void print(ApplicationsList applicationsList) {
+    public void print(String string) {
 
-
-
+        System.out.print(string+", ");
 
     }
 }
+
 

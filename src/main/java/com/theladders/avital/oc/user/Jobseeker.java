@@ -1,5 +1,6 @@
 package com.theladders.avital.oc.user;
 
+import com.theladders.avital.oc.collections.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 
 import com.theladders.avital.oc.jobLists.JobList;
@@ -7,9 +8,7 @@ import com.theladders.avital.oc.jobLists.JobseekerJobList;
 import com.theladders.avital.oc.jobs.JobATS;
 import com.theladders.avital.oc.jobs.JobJReq;
 import com.theladders.avital.oc.jobs.Job;
-import com.theladders.avital.oc.resumes.NoResume;
-import com.theladders.avital.oc.resumes.RealResume;
-import com.theladders.avital.oc.resumes.Resume;
+import com.theladders.avital.oc.resumes.*;
 
 /**
  * Created by atzubeli on 5/21/14.
@@ -29,7 +28,11 @@ public class Jobseeker {
 
     }
 
-    public void apply(JobATS job, Employer employer, RealResume resume, ApplicationManager manager) {
+    public void apply(JobATS job, Employer employer, Resume resume, ApplicationManager manager) {
+
+        if (!resume.isOwnedBy(this)) {
+            //TODO something
+        }
 
         jobList.saveAppliedJob(job);
 
@@ -48,6 +51,11 @@ public class Jobseeker {
     }
 
     public void apply(JobJReq job, Employer employer, Resume resume, ApplicationManager manager){
+
+        if (!resume.isOwnedBy(this)) {
+
+            //TODO something
+        }
 
         jobList.saveAppliedJob(job);
 
@@ -89,6 +97,18 @@ public class Jobseeker {
     public String toString(){
 
         return name.toString();
+    }
+
+    public ResumeList getResumes(Resumes resumes){
+
+        return resumes.readAll(this);
+
+    }
+
+    public void print(ApplicationsPrinter printer){
+
+        name.print(printer);
+
     }
 
 

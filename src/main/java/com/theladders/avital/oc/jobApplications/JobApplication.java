@@ -1,6 +1,7 @@
 package com.theladders.avital.oc.jobApplications;
 
 
+import com.theladders.avital.oc.collections.ApplicationsPrinter;
 import com.theladders.avital.oc.jobs.Job;
 import org.joda.time.LocalDate;
 
@@ -29,17 +30,12 @@ public class JobApplication {
 
     }
 
-    public ArrayList<Object> getReportDetails(){
+    public void print(ApplicationsPrinter printer){
 
-//        ArrayList<Object> details = job.getReportDetails();  //job and employer
-//
-//        ArrayList<Object> jobseekerDetails = applicationDetails.getReportDetails();  //jobseeker, resume, date
-//
-//        details.addAll(jobseekerDetails);
-//
-//        return details;
+        job.print(printer);
 
-        return null;
+        applicationDetails.print(printer);
 
     }
+
 }
