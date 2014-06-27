@@ -1,6 +1,7 @@
 package com.theladders.avital.oc.jobs;
 
-import com.theladders.avital.oc.jobApplications.JobApplications;
+import com.theladders.avital.oc.jobApplications.ApplicationsList;
+import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Name;
@@ -11,74 +12,74 @@ import org.joda.time.LocalDate;
  */
 public class JobManager {
 
-    PostedJobs jobs;
 
-    JobApplications jobApplications;
+
+    Jobs jobs;
 
     
-    public JobManager(PostedJobs jobs, JobApplications jobApplications){
+    public JobManager(Jobs jobsToApplications){
 
-        this.jobs = jobs;
-
-        this.jobApplications = jobApplications;
+        this.jobs = jobsToApplications;
     }
 
-    public void createATSJob(Employer employer, JobDescription description){
+    public void createEmployerKey(Employer employer){
+
+        jobs.createEmployerKey(employer);
+    }
+
+    public void postATSJob(Employer employer, JobDescription description){
 
         Job job = new JobATS(employer, new Name("job"));  //creates a new job object
 
-        createKeys(job, employer);
+        jobs.addJob(employer, job);
 
     }
 
-    public void createJReqJob(Employer employer, JobDescription description){ //TODO what is happening here
+    public void postJReqJob(Employer employer, JobDescription description){
 
         Job job = new JobATS(employer, new Name("job"));  //creates a new job object
 
-        createKeys(job, employer);
+        jobs.addJob(employer, job);
 
     }
 
-    private void createKeys(Job job, Employer employer){ //TODO and here
+    public void addApplication(Job job, JobApplication application){
 
-        jobs.createKey(employer);
-
-        jobApplications.createKey(job);  //adds this id to the applications map (????)
-
-        postJob(employer, job);  //posts job --> sends to list of posted jobs
+        jobs.addApplication(job, application);
 
     }
 
-    private void postJob(Employer employer, Job job){
+    public JobList getPostedJobs(Employer employer){
 
-        jobs.add(employer, job);
+        return jobs.getAllJobsByEmployer(employer);
+    }
+
+    public ApplicationsList getAllApplications(){
+
+        return null;
+    }
+
+    public ApplicationsList getApplicationsByEmployer(Employer employer){
+
+       return jobs.getAllApplicationsByEmployer(employer);
 
     }
 
-    public JobList viewPostedJobs(Employer employer){
+    public ApplicationsList getApplicationsByJob(Employer employer, Job job){
 
-        return jobs.readAll(employer);
-
-    }
-
-    public void getApplicationsByEmployer(Employer employer){
-
-       //TODO change name of classes
+        return jobs.getByJob(employer, job);
 
     }
 
-    public void getApplicationsByJob(Employer employer, Job job){
+    public ApplicationsList getApplicationsByJobAndDate(Employer employer, Job job, LocalDate date){
 
-
-    }
-
-    public void getApplicationsByJobAndDate(Employer employer, Job job, LocalDate date){
-
+        return jobs.getByJobAndDate(employer, job, date);
 
     }
 
-    public void getApplicationsByDate(Employer employer, LocalDate date){
+    public ApplicationsList getApplicationsByDate(Employer employer, LocalDate date){
 
+        return jobs.getByDate(employer, date);
 
     }
 

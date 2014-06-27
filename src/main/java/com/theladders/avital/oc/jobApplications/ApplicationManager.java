@@ -1,6 +1,7 @@
 package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.jobs.Jobs;
 import com.theladders.avital.oc.user.JobseekerInfo;
 import org.joda.time.LocalDate;
 
@@ -11,6 +12,8 @@ import org.joda.time.LocalDate;
 public class ApplicationManager {
 
     JobApplications applications = new JobApplications();
+
+    Jobs jobsToApplications = new Jobs();
 
     ApplicationResult result = new ApplicationResult(); //TODO result
 
@@ -24,6 +27,8 @@ public class ApplicationManager {
         JobApplication application = new JobApplication(job, details);
 
         applications.add(job, application);
+
+        //jobsToApplications.addApplication();
 
         //success stuff??
 

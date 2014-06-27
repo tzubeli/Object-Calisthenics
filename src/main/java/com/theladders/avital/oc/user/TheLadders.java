@@ -2,8 +2,8 @@ package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.collections.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.JobApplication;
-import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.report.ApplicationReportManager;
 import com.theladders.avital.oc.report.ReportGenerator;
 import org.joda.time.LocalDate;
@@ -13,25 +13,32 @@ import org.joda.time.LocalDate;
  */
 public class TheLadders {
 
-    ApplicationReportManager manager = new ApplicationReportManager();
-    JobApplications applications = new JobApplications();
+    ApplicationReportManager applicationReportManager = new ApplicationReportManager();
+
+    private JobManager jobManager;
+
+    public TheLadders(JobManager jobManager) {
+
+        this.jobManager = jobManager;
+    }
+
 
     public void getApplicationReport(JobApplication application, ReportGenerator generator){
 
 
-        manager.printApplicationReport(generator, application);
+        applicationReportManager.printApplicationReport(generator, application);
 
     }
 
-    public void getJobApplicationsByDate(LocalDate date, ApplicationsPrinter printer){
+    public void getJobApplicationsByDate(LocalDate date){
 
-        applications.getByDate(date);
+        //jobManager.getApplicationsByDate(date);
 
     }
 
     public void getJobApplicationsByJobAndDate(LocalDate date, Job job, ApplicationsPrinter printer){
 
-        applications.getByJobAndDate(job, date);
+        //applications.getByJobAndDate(job, date);
 
     }
 

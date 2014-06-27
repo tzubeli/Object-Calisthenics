@@ -1,9 +1,13 @@
 package com.theladders.avital.oc.jobApplications;
 
+import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
 import org.joda.time.LocalDate;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 
 /**
 * Created by atzubeli on 5/22/14.
@@ -20,6 +24,11 @@ public class JobApplications{
             applications.put(job, new ApplicationsList());
     }
 
+    public boolean containsKey(Job job){
+
+        return applications.containsKey(job);
+    }
+
     public void add(Job job, JobApplication application){
 
         createKey(job);
@@ -27,6 +36,16 @@ public class JobApplications{
         ApplicationsList list = applications.get(job);
 
         list.addApplication(application);
+
+    }
+
+    public JobList getAllJobsByEmployer(){
+
+        Set<Job> jobSet = applications.keySet();
+
+        List<Job> jobList = new ArrayList<>(jobSet);
+
+        return new JobList(jobList);
 
     }
 

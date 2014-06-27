@@ -3,6 +3,7 @@ package com.theladders.avital.oc.jobs;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobApplications.JobApplications;
+import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.user.Employer;
 import org.joda.time.LocalDate;
 
@@ -11,17 +12,18 @@ import java.util.HashMap;
 /**
  * Created by atzubeli on 6/26/14.
  */
-public class PostedJobsToApplications {
+public class Jobs {
 
 private HashMap<Employer, JobApplications> postedJobs = new HashMap<>();
 
 
-    public void createKey(Employer employer) {
+    public void createEmployerKey(Employer employer) {
 
         if (! postedJobs.containsKey(employer))
 
             postedJobs.put(employer, new JobApplications());
     }
+
 
     public void addJob(Employer employer, Job job){
 
@@ -37,7 +39,32 @@ private HashMap<Employer, JobApplications> postedJobs = new HashMap<>();
         applications.add(job, application);
     }
 
-    public ApplicationsList getAllApplications(Employer employer){
+    public void addApplication(Job job, JobApplication application){
+
+        for (Employer employer : postedJobs.keySet()){
+
+            JobApplications applications = postedJobs.get(employer);
+
+            if (applications.containsKey(job)){
+
+                addApplication(employer, job, application);
+
+                break;
+            }
+        }
+    }
+
+    public JobList getAllJobsByEmployer(Employer employer){
+
+        JobApplications applications = postedJobs.get(employer);
+
+        return applications.getAllJobsByEmployer();
+
+    }
+
+
+
+    public ApplicationsList getAllApplicationsByEmployer(Employer employer){
 
         JobApplications applications = postedJobs.get(employer);
 
