@@ -24,6 +24,14 @@ private HashMap<Employer, JobApplications> postedJobs = new HashMap<>();
             postedJobs.put(employer, new JobApplications());
     }
 
+    public void createJobKey(Employer employer, Job job){
+
+        JobApplications applications = postedJobs.get(employer);
+
+        applications.createKey(job);
+
+    }
+
 
     public void addJob(Employer employer, Job job){
 
@@ -32,14 +40,8 @@ private HashMap<Employer, JobApplications> postedJobs = new HashMap<>();
        applications.createKey(job);
     }
 
-    public void addApplication(Employer employer, Job job, JobApplication application){
 
-        JobApplications applications = postedJobs.get(employer);
-
-        applications.add(job, application);
-    }
-
-    public void addApplication(Job job, JobApplication application){ //would be easier with a get
+    public void addApplication(Job job, JobApplication application){
 
         for (Employer employer : postedJobs.keySet()){
 
@@ -47,7 +49,7 @@ private HashMap<Employer, JobApplications> postedJobs = new HashMap<>();
 
             if (applications.contains(job)){
 
-                addApplication(employer, job, application);
+                applications.add(job, application);
 
                 break;
             }

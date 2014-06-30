@@ -15,10 +15,13 @@ public class JobJReq implements Job{
     Name name;
 
 
-    public JobJReq(Employer employer, Name name){
+    public JobJReq(Employer employer, Name name, JobManager jobManager){
+
 
         this.employer = employer;
         this.name = name;
+
+        jobManager.createJobKey(employer, this);
 
     }
 

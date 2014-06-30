@@ -58,6 +58,25 @@ public class ApplicationsList {
     }
 
 
+    public void printList(ApplicationsPrinter printer){
+
+        printer.createHeader();
+
+        for (JobApplication application : applications){
+
+            application.print(printer);
+        }
+        printer.close();
+
+    }
+
+    public void toPrint(){
+
+        for (JobApplication application : applications){
+
+            System.out.println(application.job.toString());
+        }
+    }
 
 
     public int getSize() {

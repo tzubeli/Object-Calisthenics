@@ -2,12 +2,12 @@ import com.theladders.avital.oc.collections.ApplicationsPrinter;
 import com.theladders.avital.oc.collections.PrintToCSVReport;
 import com.theladders.avital.oc.collections.PrintToConsole;
 import com.theladders.avital.oc.jobApplications.ApplicationDetails;
+import com.theladders.avital.oc.jobApplications.ApplicationManager;
+import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
-import com.theladders.avital.oc.jobs.Job;
-import com.theladders.avital.oc.jobs.JobATS;
-import com.theladders.avital.oc.jobs.JobManager;
-import com.theladders.avital.oc.jobs.Jobs;
+import com.theladders.avital.oc.jobs.*;
 import com.theladders.avital.oc.resumes.NoResume;
+import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.resumes.Resumes;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Jobseeker;
@@ -21,13 +21,18 @@ import org.junit.Test;
  */
 public class PrinterTest {
 
+    JobManager jobManager = new JobManager(new Jobs(), new Resumes());
+
+    ApplicationManager applicationManager = new ApplicationManager(jobManager);
 
     @Test
-    public void testCSVPrinter() {
+    public void testCSVPrinterOneApplication() {
 
-        Employer theladders = new Employer(new Name("theladders"), new JobManager(new Jobs(), new Resumes()));
+        jobManager = new JobManager(new Jobs(), new Resumes());
 
-        Job software = new JobATS(theladders, new Name("engineer"));
+        Employer theladders = new Employer(new Name("theladders"), jobManager);
+
+        Job software = new JobATS(theladders, new Name("engineer"), jobManager);
 
         Jobseeker avital = new Jobseeker(new Name("Avital"));
 
@@ -43,11 +48,13 @@ public class PrinterTest {
     }
 
     @Test
-    public void testConsolePrinter(){
+    public void testConsolePrinterOneApplication(){
 
-        Employer theladders = new Employer(new Name("theladders"), new JobManager(new Jobs(), new Resumes()));
 
-        Job software = new JobATS(theladders, new Name("engineer"));
+
+        Employer theladders = new Employer(new Name("theladders"), jobManager);
+
+        Job software = new JobATS(theladders, new Name("engineer"), jobManager);
 
         Jobseeker avital = new Jobseeker(new Name("Avital"));
 
@@ -62,9 +69,40 @@ public class PrinterTest {
         application.print(printer);
 
 
-
-
-
  }
+
+    @Test
+    public void testConsolePrinterApplicationsList(){
+
+        jobManager = new JobManager(new Jobs(), new Resumes());
+
+        ApplicationManager applicationManager = new ApplicationManager(jobManager);
+
+        Employer theladders = new Employer(new Name("theladders"), jobManager);
+
+        JobATS engineer = new JobATS(theladders, new Name("engineer"), jobManager);
+
+        JobJReq design = new JobJReq(theladders, new Name("designer"), jobManager);
+
+        Jobseeker avital = new Jobseeker(new Name("Avital"));
+
+        Jobseeker jay = new Jobseeker(new Name("Jay"));
+
+        avital.apply(engineer, theladders, applicationManager);
+
+        jay.apply(engineer, theladders, applicationManager);
+
+        avital.apply(design, theladders, new RealResume(avital, new Name("avital's resume")), applicationManager);
+
+        ApplicationsList newList = theladders.getAllApplications();
+
+        newList.toPrint();
+
+        System.out.println("----");
+
+        newList.printList(new PrintToConsole());
+
+
+    }
 
 }

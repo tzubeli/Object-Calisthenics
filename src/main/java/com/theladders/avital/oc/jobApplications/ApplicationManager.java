@@ -14,8 +14,6 @@ public class ApplicationManager {
 
     JobManager jobManager;
 
-    ApplicationResult result = new ApplicationResult(); //TODO result
-
     public ApplicationManager(JobManager jobManager){
 
         this.jobManager = jobManager;
@@ -30,10 +28,6 @@ public class ApplicationManager {
         JobApplication application = new JobApplication(job, details);
 
         jobManager.addApplication(job, application);
-
-        //jobsToApplications.addApplication();
-
-        //success stuff??
 
     }
 

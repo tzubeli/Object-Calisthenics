@@ -1,10 +1,6 @@
 package com.theladders.avital.oc.collections;
 
-
-
-
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * Created by atzubeli on 6/25/14.
@@ -13,6 +9,12 @@ public class PrintToConsole implements ApplicationsPrinter {
 
     ArrayList<String> list = new ArrayList<>();
 
+
+    public void createHeader() {
+
+        System.out.println("Date    Jobseeker   Job     Employer");
+
+    }
 
     public void print(String string) {
 
@@ -24,8 +26,14 @@ public class PrintToConsole implements ApplicationsPrinter {
 
         for (int i=0; i<4; i++){
 
-            System.out.print(list.get(i)+" ");
+            System.out.print(list.get(i) + "\t");
         }
+        System.out.println(" ");
+
+    }
+
+    public void close() {
+
 
     }
 }

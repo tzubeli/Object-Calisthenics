@@ -30,16 +30,12 @@ public class Employer {
 
     public void postATSJob(Name name){
 
-        JobDescription description = new JobDescription(name);
-
-        jobManager.postJReqJob(this, description);
+        jobManager.postJReqJob(this, name, jobManager);
     }
 
     public void postJREQJob(Name name){
 
-        JobDescription description = new JobDescription(name);
-
-        jobManager.postATSJob(this, description);
+        jobManager.postATSJob(this, name, jobManager);
 
     }
 

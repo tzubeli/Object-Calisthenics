@@ -16,10 +16,12 @@ public class JobATS implements Job{
     Name name;
 
 
-    public JobATS(Employer employer, Name name){
+    public JobATS(Employer employer, Name name, JobManager jobManager){
 
         this.employer = employer;
         this.name = name;
+        jobManager.createJobKey(employer, this);
+
 
     }
 

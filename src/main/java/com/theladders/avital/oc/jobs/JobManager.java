@@ -2,6 +2,7 @@ package com.theladders.avital.oc.jobs;
 
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
+import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.resumes.Resumes;
 import com.theladders.avital.oc.user.Employer;
@@ -31,17 +32,23 @@ public class JobManager {
         jobs.createEmployerKey(employer);
     }
 
-    public void postATSJob(Employer employer, JobDescription description){
+    public void createJobKey(Employer employer, Job job){
 
-        Job job = new JobATS(employer, new Name("job"));  //creates a new job object
+        jobs.createJobKey(employer, job);
+
+    }
+
+    public void postATSJob(Employer employer, Name name, JobManager jobManager){
+
+        Job job = new JobATS(employer, name, jobManager);
 
         jobs.addJob(employer, job);
 
     }
 
-    public void postJReqJob(Employer employer, JobDescription description){
+    public void postJReqJob(Employer employer, Name name, JobManager jobManager){
 
-        Job job = new JobATS(employer, new Name("job"));  //creates a new job object
+        Job job = new JobATS(employer, name, jobManager);
 
         jobs.addJob(employer, job);
 
