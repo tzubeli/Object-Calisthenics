@@ -3,6 +3,7 @@ package com.theladders.avital.oc.resumes;
 import com.theladders.avital.oc.collections.ApplicationsPrinter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by atzubeli on 6/12/14.
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 public class ResumeList {
 
 
-    ArrayList<Resume> resumes = new ArrayList<>();
+    List<Resume> resumes = new ArrayList<>();
 
     public boolean create(Resume resume){
         

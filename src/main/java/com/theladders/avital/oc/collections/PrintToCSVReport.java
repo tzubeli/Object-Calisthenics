@@ -3,13 +3,14 @@ package com.theladders.avital.oc.collections;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by atzubeli on 6/25/14.
  */
 public class PrintToCSVReport implements ApplicationsPrinter {
 
-    ArrayList<String> list = new ArrayList<>();
+    List<String> list = new ArrayList<>();
     FileWriter writer;
 
 
