@@ -9,12 +9,14 @@ import org.joda.time.LocalDate;
 
 
 import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by atzubeli on 6/26/14.
  */
 public class Jobs {
 
-private HashMap<Employer, JobApplications> postedJobs = new HashMap<>();
+private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
 
     public void createEmployerKey(Employer employer) {
