@@ -32,7 +32,6 @@ private HashMap<Employer, JobApplications> postedJobs = new HashMap<>();
 
     }
 
-
     public void addJob(Employer employer, Job job){
 
        JobApplications applications = postedJobs.get(employer);
@@ -112,6 +111,25 @@ private HashMap<Employer, JobApplications> postedJobs = new HashMap<>();
 
         return applications.getByDate(date);
 
+    }
+
+    public int numberOfApplications(){
+
+        return getAllApplications().getSize();
+    }
+
+    public int numberOfJobs(){
+
+        int numberOfJobs =0;
+
+        for (Employer employer : postedJobs.keySet()){
+
+            JobApplications applications = postedJobs.get(employer);
+
+            numberOfJobs += applications.numberOfJobs();
+
+        }
+        return numberOfJobs;
     }
 
 

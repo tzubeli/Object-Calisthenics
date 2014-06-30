@@ -66,6 +66,8 @@ public class ApplicationsList {
 
             application.print(printer);
         }
+
+        printer.run();
         printer.close();
 
     }

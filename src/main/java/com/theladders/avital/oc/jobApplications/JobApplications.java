@@ -94,4 +94,9 @@ public class JobApplications{
 
     }
 
+    public int numberOfJobs(){
+
+        return applications.size();
+    }
+
 }

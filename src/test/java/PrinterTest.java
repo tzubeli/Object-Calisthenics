@@ -21,9 +21,9 @@ import org.junit.Test;
  */
 public class PrinterTest {
 
-    JobManager jobManager = new JobManager(new Jobs(), new Resumes());
+    JobManager jobManager;
 
-    ApplicationManager applicationManager = new ApplicationManager(jobManager);
+
 
     @Test
     public void testCSVPrinterOneApplication() {
@@ -50,7 +50,7 @@ public class PrinterTest {
     @Test
     public void testConsolePrinterOneApplication(){
 
-
+        jobManager = new JobManager(new Jobs(), new Resumes());
 
         Employer theladders = new Employer(new Name("theladders"), jobManager);
 
