@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class ApplicationReports {
 
-    ArrayList<Object[]> listOfReports = new ArrayList<Object[]>();
+    List<Object[]> listOfReports = new ArrayList<Object[]>();
 
     public void addReport(Object[] details){
 
