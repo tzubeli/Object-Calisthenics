@@ -2,6 +2,8 @@ package com.theladders.avital.oc.collections;
 
 
 
+
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -9,10 +11,21 @@ import java.util.Collection;
  */
 public class PrintToConsole implements ApplicationsPrinter {
 
+    ArrayList<String> list = new ArrayList<>();
+
 
     public void print(String string) {
 
-        System.out.print(string+", ");
+        list.add(string);
+
+    }
+
+    public void run() {
+
+        for (int i=0; i<4; i++){
+
+            System.out.print(list.get(i)+" ");
+        }
 
     }
 }

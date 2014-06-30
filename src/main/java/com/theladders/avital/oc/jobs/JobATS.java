@@ -40,6 +40,8 @@ public class JobATS implements Job{
 
         employer.print(printer);
 
+        printer.run();
+
 
     }
 

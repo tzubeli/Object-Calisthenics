@@ -32,9 +32,9 @@ public class JobApplication {
 
     public void print(ApplicationsPrinter printer){
 
-        job.print(printer);
-
         applicationDetails.print(printer);
+
+        job.print(printer);
 
     }
 

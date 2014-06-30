@@ -1,4 +1,5 @@
 import com.theladders.avital.oc.collections.ApplicationsPrinter;
+import com.theladders.avital.oc.collections.PrintToCSVReport;
 import com.theladders.avital.oc.collections.PrintToConsole;
 import com.theladders.avital.oc.jobApplications.ApplicationDetails;
 import com.theladders.avital.oc.jobApplications.JobApplication;
@@ -22,11 +23,31 @@ public class PrinterTest {
 
 
     @Test
-    public void testPrinter(){
+    public void testCSVPrinter() {
 
         Employer theladders = new Employer(new Name("theladders"), new JobManager(new Jobs(), new Resumes()));
 
-        Job software = new JobATS(theladders, new Name("Software"));
+        Job software = new JobATS(theladders, new Name("engineer"));
+
+        Jobseeker avital = new Jobseeker(new Name("Avital"));
+
+        JobseekerInfo info = new JobseekerInfo(avital, new NoResume());
+
+        ApplicationDetails details = new ApplicationDetails(info, new LocalDate());
+
+        JobApplication application = new JobApplication(software, details);
+
+        ApplicationsPrinter printer = new PrintToCSVReport();
+
+        application.print(printer);
+    }
+
+    @Test
+    public void testConsolePrinter(){
+
+        Employer theladders = new Employer(new Name("theladders"), new JobManager(new Jobs(), new Resumes()));
+
+        Job software = new JobATS(theladders, new Name("engineer"));
 
         Jobseeker avital = new Jobseeker(new Name("Avital"));
 
@@ -39,7 +60,6 @@ public class PrinterTest {
         ApplicationsPrinter printer = new PrintToConsole();
 
         application.print(printer);
-
 
 
 

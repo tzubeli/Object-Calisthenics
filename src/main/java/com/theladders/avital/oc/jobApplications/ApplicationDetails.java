@@ -51,9 +51,11 @@ public class ApplicationDetails {
 
     public void print(ApplicationsPrinter printer){
 
+        printer.print(date.toString());
+
         jobseekerInfo.print(printer);
 
-        printer.print(date.toString());
+
 
 
     }
