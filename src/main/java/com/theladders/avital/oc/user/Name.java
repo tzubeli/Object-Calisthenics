@@ -1,6 +1,6 @@
 package com.theladders.avital.oc.user;
 
-import com.theladders.avital.oc.collections.ApplicationsPrinter;
+import com.theladders.avital.oc.print.ApplicationsPrinter;
 
 /**
  * Created by atzubeli on 6/13/14.

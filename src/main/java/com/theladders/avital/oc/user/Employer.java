@@ -1,13 +1,13 @@
 package com.theladders.avital.oc.user;
 
-import com.theladders.avital.oc.collections.ApplicationsPrinter;
+import com.theladders.avital.oc.jobs.JobATS;
+import com.theladders.avital.oc.jobs.JobJReq;
+import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobLists.JobList;
 
 import com.theladders.avital.oc.jobs.Job;
-import com.theladders.avital.oc.jobs.JobDescription;
 import com.theladders.avital.oc.jobs.JobManager;
-import javafx.application.Application;
 import org.joda.time.LocalDate;
 
 /**
@@ -28,14 +28,14 @@ public class Employer {
         jobManager.createEmployerKey(this);
     }
 
-    public void postATSJob(Name name){
+    public JobATS postATSJob(Name name){
 
-        jobManager.postJReqJob(this, name, jobManager);
+       return (JobATS)jobManager.postATSJob(this, name, jobManager);
     }
 
-    public void postJREQJob(Name name){
+    public JobJReq postJREQJob(Name name){
 
-        jobManager.postATSJob(this, name, jobManager);
+       return (JobJReq)jobManager.postJReqJob(this, name, jobManager);
 
     }
 

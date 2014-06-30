@@ -38,19 +38,23 @@ public class JobManager {
 
     }
 
-    public void postATSJob(Employer employer, Name name, JobManager jobManager){
+    public Job postATSJob(Employer employer, Name name, JobManager jobManager){
 
         Job job = new JobATS(employer, name, jobManager);
 
         jobs.addJob(employer, job);
+
+        return job;
 
     }
 
-    public void postJReqJob(Employer employer, Name name, JobManager jobManager){
+    public Job postJReqJob(Employer employer, Name name, JobManager jobManager){
 
-        Job job = new JobATS(employer, name, jobManager);
+        Job job = new JobJReq(employer, name, jobManager);
 
         jobs.addJob(employer, job);
+
+        return job;
 
     }
 

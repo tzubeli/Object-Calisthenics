@@ -1,10 +1,8 @@
 package com.theladders.avital.oc.jobs;
 
-import com.theladders.avital.oc.collections.ApplicationsPrinter;
+import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Name;
-
-import java.util.ArrayList;
 
 /**
  * Created by atzubeli on 5/21/14.

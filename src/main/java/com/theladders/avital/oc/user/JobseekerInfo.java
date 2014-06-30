@@ -1,6 +1,6 @@
 package com.theladders.avital.oc.user;
 
-import com.theladders.avital.oc.collections.ApplicationsPrinter;
+import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.resumes.Resume;
 
 import java.util.ArrayList;

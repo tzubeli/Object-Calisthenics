@@ -1,6 +1,6 @@
-import com.theladders.avital.oc.collections.ApplicationsPrinter;
-import com.theladders.avital.oc.collections.PrintToCSVReport;
-import com.theladders.avital.oc.collections.PrintToConsole;
+import com.theladders.avital.oc.print.ApplicationsPrinter;
+import com.theladders.avital.oc.print.PrintToCSVReport;
+import com.theladders.avital.oc.print.PrintToConsole;
 import com.theladders.avital.oc.jobApplications.ApplicationDetails;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;

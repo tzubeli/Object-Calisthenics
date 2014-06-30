@@ -1,8 +1,4 @@
-package com.theladders.avital.oc.collections;
-
-import com.theladders.avital.oc.jobApplications.ApplicationsList;
-
-import java.io.IOException;
+package com.theladders.avital.oc.print;
 
 /**
  * Created by atzubeli on 6/25/14.

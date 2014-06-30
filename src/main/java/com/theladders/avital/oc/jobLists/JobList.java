@@ -1,7 +1,7 @@
 package com.theladders.avital.oc.jobLists;
 
-import com.theladders.avital.oc.collections.ApplicationsPrinter;
 import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.print.JobPrinter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +45,13 @@ public class JobList {
     public int getSize(){
 
         return jobs.size();
+    }
+
+    public void printJobs(JobPrinter printer){
+        for (Job job : jobs){
+
+            printer.print(job.toString());
+        }
     }
 
 

@@ -1,7 +1,5 @@
 package com.theladders.avital.oc.resumes;
 
-import com.theladders.avital.oc.collections.ApplicationsPrinter;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.theladders.avital.oc.collections;
+package com.theladders.avital.oc.print;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +25,12 @@ public class PrintToConsole implements ApplicationsPrinter {
 
     public void run() {
 
+        if (list.size()>0){
+
         for (int i=0; i<4; i++){
 
             System.out.print(list.get(i) + "\t");
-        }
+        }}
         System.out.println(" ");
 
     }
