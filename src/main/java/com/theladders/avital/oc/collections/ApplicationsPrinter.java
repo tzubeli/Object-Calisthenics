@@ -9,9 +9,9 @@ import java.io.IOException;
  */
 public interface ApplicationsPrinter {
 
-    public void print(String string);
+     void print(String string);
 
-    public void run();
+     void run();
 
 
 

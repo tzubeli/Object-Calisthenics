@@ -7,9 +7,9 @@ import com.theladders.avital.oc.collections.ApplicationsPrinter;
  */
 public interface Job {
 
-    public String toString();
+     String toString();
 
-    public void print(ApplicationsPrinter printer);
+     void print(ApplicationsPrinter printer);
 
 
 
