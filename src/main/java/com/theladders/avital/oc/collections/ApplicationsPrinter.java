@@ -9,13 +9,13 @@ import java.io.IOException;
  */
 public interface ApplicationsPrinter {
 
-    public void createHeader();
+    void createHeader();
 
-    public void print(String string);
+    void print(String string);
 
-    public void run();
+    void run();
 
-    public void close();
+    void close();
 
 
 

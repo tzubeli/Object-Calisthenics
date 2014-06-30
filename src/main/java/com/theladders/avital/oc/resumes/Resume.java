@@ -7,8 +7,8 @@ import com.theladders.avital.oc.user.Jobseeker;
  */
 public interface Resume {
 
-   public String toString();
+    String toString();
 
-    public boolean isOwnedBy(Jobseeker thatJobseeker);
+     boolean isOwnedBy(Jobseeker thatJobseeker);
 
 }

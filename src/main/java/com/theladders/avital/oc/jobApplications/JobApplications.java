@@ -4,17 +4,14 @@ import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
 import org.joda.time.LocalDate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
 * Created by atzubeli on 5/22/14.
 */
 public class JobApplications{
 
-    private HashMap<Job, ApplicationsList> applications = new HashMap<>();
+    private Map<Job, ApplicationsList> applications = new HashMap<>();
 
 
     public void createKey(Job job){
