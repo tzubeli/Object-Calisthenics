@@ -5,7 +5,6 @@ import com.theladders.avital.oc.jobs.JobJReq;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobLists.JobList;
-
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.jobs.JobManager;
 import org.joda.time.LocalDate;

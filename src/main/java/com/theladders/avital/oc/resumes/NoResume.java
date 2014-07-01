@@ -12,6 +12,10 @@ public class NoResume implements Resume {
 
     Name name = new Name("none");
 
+    public NoResume(){
+
+    }
+
 
     public String toString(){
 

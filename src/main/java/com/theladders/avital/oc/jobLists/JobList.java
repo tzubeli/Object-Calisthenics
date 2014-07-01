@@ -1,7 +1,7 @@
 package com.theladders.avital.oc.jobLists;
 
 import com.theladders.avital.oc.jobs.Job;
-import com.theladders.avital.oc.print.JobPrinter;
+import com.theladders.avital.oc.print.ListPrinter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class JobList {
         jobs.remove(job);
     }
 
-    public void printJobs(JobPrinter printer){
+    public void printJobs(ListPrinter printer){
         for (Job job : jobs){
 
             printer.print(job.toString());

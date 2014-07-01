@@ -6,6 +6,7 @@ import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobs.*;
+import com.theladders.avital.oc.print.PrintToHTMLReport;
 import com.theladders.avital.oc.resumes.NoResume;
 import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.resumes.Resumes;
@@ -88,17 +89,15 @@ public class PrinterTest {
 
         Jobseeker jay = new Jobseeker(new Name("Jay"));
 
-        avital.apply(engineer, theladders, applicationManager);
+        avital.apply(engineer, applicationManager);
 
-        jay.apply(engineer, theladders, applicationManager);
+        jay.apply(engineer, applicationManager);
 
-        avital.apply(design, theladders, new RealResume(avital, new Name("avital's resume")), applicationManager);
+        avital.apply(design, new RealResume(avital, new Name("avital's resume")), applicationManager);
 
         ApplicationsList newList = theladders.getAllApplications();
 
-        System.out.println("----");
-
-        newList.printList(new PrintToConsole());
+        newList.printList(new PrintToHTMLReport());
 
 
     }

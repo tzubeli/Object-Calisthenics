@@ -23,6 +23,8 @@ public class Resumes{
 
     public void add(Jobseeker jobseeker, RealResume resume){
 
+        createKey(jobseeker);
+
         ResumeList list = resumes.get(jobseeker);
 
         list.create(resume);
@@ -52,6 +54,8 @@ public class Resumes{
         list.update(oldResume, newResume);
 
     }
+
+
 
 
 

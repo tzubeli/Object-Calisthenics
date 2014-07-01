@@ -3,7 +3,7 @@ package com.theladders.avital.oc.print;
 /**
  * Created by atzubeli on 6/30/14.
  */
-public interface JobPrinter {
+public interface ListPrinter<Job> {
 
     void print(String string);
 }

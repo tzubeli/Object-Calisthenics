@@ -1,5 +1,7 @@
 package com.theladders.avital.oc.resumes;
 
+import com.theladders.avital.oc.print.ListPrinter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,5 +51,13 @@ public class ResumeList {
     public int getSize() {
 
         return resumes.size();
+    }
+
+    public void printResumes(ListPrinter printer){
+
+        for (Resume resume : resumes){
+
+            printer.print(resume.toString());
+        }
     }
 }

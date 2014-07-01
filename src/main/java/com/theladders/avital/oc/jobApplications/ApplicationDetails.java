@@ -27,7 +27,7 @@ public class ApplicationDetails {
 
     public boolean isDate(LocalDate date){
 
-        return (this.date == date);
+        return (this.date.equals(date));
 
     }
 
