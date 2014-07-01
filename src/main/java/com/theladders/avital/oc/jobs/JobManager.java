@@ -4,7 +4,6 @@ import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.print.AggregateCount;
-import com.theladders.avital.oc.resumes.Resumes;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Name;
 import org.joda.time.LocalDate;
@@ -64,6 +63,11 @@ public class JobManager {
         return jobs.getAllApplications();
     }
 
+    public ApplicationsList getByDate(LocalDate date){
+
+        return jobs.getByDate(date);
+    }
+
     public ApplicationsList getApplicationsByEmployer(Employer employer){
 
        return jobs.getAllApplicationsByEmployer(employer);
@@ -84,7 +88,7 @@ public class JobManager {
 
     public ApplicationsList getApplicationsByDate(Employer employer, LocalDate date){
 
-        return jobs.getByDate(employer, date);
+        return jobs.getByDateAndEmployer(employer, date);
 
     }
 

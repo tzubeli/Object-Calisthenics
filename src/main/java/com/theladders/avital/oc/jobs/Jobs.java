@@ -86,6 +86,24 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
     }
 
+    public ApplicationsList getByDate(LocalDate date){
+
+        ApplicationsList resultList = new ApplicationsList();
+
+        for (Employer employer : postedJobs.keySet()){
+
+            JobApplications applications = postedJobs.get(employer);
+
+            ApplicationsList list = applications.getByDate(date);
+
+            resultList = resultList.combinedWith(list);
+
+        }
+        return resultList;
+
+
+    }
+
 
     public ApplicationsList getAllApplicationsByEmployer(Employer employer){
 
@@ -111,13 +129,15 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
     }
 
-    public ApplicationsList getByDate(Employer employer, LocalDate date){
+    public ApplicationsList getByDateAndEmployer(Employer employer, LocalDate date){
 
         JobApplications applications = postedJobs.get(employer);
 
         return applications.getByDate(date);
 
     }
+
+
 
     public int numberOfApplications(){
 
@@ -137,6 +157,8 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
         }
         return numberOfJobs;
     }
+
+
 
     public AggregateCount getApplicationCountByEmployerAndJob(){
 

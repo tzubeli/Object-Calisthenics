@@ -1,5 +1,6 @@
 package com.theladders.avital.oc.user;
 
+import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.print.AggregateCount;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
@@ -22,27 +23,14 @@ public class TheLadders {
         this.jobManager = jobManager;
     }
 
-
-    public void getJobApplicationsByDate(LocalDate date){
-
-        //jobManager.getApplicationsByDate(date);
-
-    }
-
-    public void getJobApplicationsByJobAndDate(LocalDate date, Job job, ApplicationsPrinter printer){
-
-        //applications.getByJobAndDate(job, date);
-
-    }
-
-    public void getJobApplicationsByJob(Job job, ApplicationsPrinter printer){
-
-
-    }
-
     public ApplicationsList getAllApplications(){
 
         return jobManager.getAllApplications();
+    }
+
+    public ApplicationsList getByDate(LocalDate date){
+
+        return jobManager.getByDate(date);
     }
 
     public AggregateCount getApplicationCountByEmployerAndJob(){
