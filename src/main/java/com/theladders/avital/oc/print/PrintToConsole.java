@@ -35,15 +35,17 @@ public class PrintToConsole implements ApplicationsPrinter {
 
     }
 
+    public void clear(){
+
+        list.clear();
+    }
+
     public void close() {
 
 
     }
 
-    public void clear(){
 
-        list.clear();
-    }
 }
 
 

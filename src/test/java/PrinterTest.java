@@ -96,8 +96,6 @@ public class PrinterTest {
 
         ApplicationsList newList = theladders.getAllApplications();
 
-        newList.toPrint();
-
         System.out.println("----");
 
         newList.printList(new PrintToConsole());

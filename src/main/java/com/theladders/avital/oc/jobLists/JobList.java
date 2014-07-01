@@ -22,10 +22,6 @@ public class JobList {
         this.jobs = jobs;
 
     }
-    public boolean exists(Job job){
-
-        return jobs.contains(job);
-    }
 
     public void addJob(Job job){
 
@@ -35,16 +31,6 @@ public class JobList {
     public void removeJob(Job job){
 
         jobs.remove(job);
-    }
-
-    public JobList readAll(){
-
-        return this;
-    }
-
-    public int getSize(){
-
-        return jobs.size();
     }
 
     public void printJobs(JobPrinter printer){

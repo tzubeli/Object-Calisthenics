@@ -31,24 +31,6 @@ public class ApplicationDetails {
 
     }
 
-    public Object[] createApplicationReport(Jobseeker jobseeker, RealResume resume){
-
-        Object[] details = {jobseeker, resume, date};
-
-        return details;
-
-    }
-
-    public ArrayList<Object> getReportDetails(){
-
-        ArrayList<Object> reportDetails = jobseekerInfo.getReportDetails();
-
-        reportDetails.add(date);
-
-        return reportDetails;
-
-    }
-
     public void print(ApplicationsPrinter printer){
 
         printer.print(date.toString());

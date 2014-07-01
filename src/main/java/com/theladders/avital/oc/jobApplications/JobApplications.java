@@ -2,8 +2,6 @@ package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
-import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.print.PrintToConsole;
 import org.joda.time.LocalDate;
 
 import java.util.*;

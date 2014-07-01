@@ -1,11 +1,8 @@
 package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.print.PrintToConsole;
 import org.joda.time.LocalDate;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -30,12 +27,6 @@ public class ApplicationsList {
         applications.add(jobApplication);
 
     }
-
-    public void printAll(){
-
-        System.out.println(applications.toString());
-    }
-
 
     public ApplicationsList filteredByDate(LocalDate date) {
 
@@ -69,19 +60,9 @@ public class ApplicationsList {
             printer.clear();
         }
 
-
         printer.close();
 
     }
-
-    public void toPrint(){
-
-        for (JobApplication application : applications){
-
-            System.out.println(application.job.toString());
-        }
-    }
-
 
     public int getSize() {
 

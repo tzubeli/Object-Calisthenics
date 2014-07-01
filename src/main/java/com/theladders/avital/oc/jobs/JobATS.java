@@ -20,18 +20,11 @@ public class JobATS implements Job{
         this.name = name;
         jobManager.createJobKey(employer, this);
 
-
     }
 
     public String toString(){
 
         return name.toString();
-    }
-
-    public String toPrint(){
-
-        return employer.toString()+ ": " + name.toString();
-
     }
 
     public void print(ApplicationsPrinter printer){

@@ -61,7 +61,7 @@ public class EmployerTest{
 
         jay.apply(design, theladders, new RealResume(avital, new Name("avital resume")), manager);
 
-        ApplicationsPrinter printer = new PrintToCSVReport();
+        ApplicationsPrinter printer = new PrintToConsole();
 
         theladders.getAllApplications().printList(printer);
 
