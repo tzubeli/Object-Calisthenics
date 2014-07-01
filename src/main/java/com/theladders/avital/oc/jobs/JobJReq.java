@@ -1,6 +1,7 @@
 package com.theladders.avital.oc.jobs;
 
 import com.theladders.avital.oc.print.ApplicationsPrinter;
+import com.theladders.avital.oc.print.CountPrinterConsole;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Name;
 
@@ -15,26 +16,16 @@ public class JobJReq implements Job{
     Name name;
 
 
-    public JobJReq(Employer employer, Name name, JobManager jobManager){
-
+    public JobJReq(Employer employer, Name name){
 
         this.employer = employer;
         this.name = name;
-
-        jobManager.createJobKey(employer, this); //TODO only need this for testing
 
     }
 
     public String toString(){
 
         return name.toString();
-
-    }
-
-    public String toPrint(){
-
-        return employer.toString()+ ": " + name.toString();
-
     }
 
     public void print(ApplicationsPrinter printer){
@@ -45,6 +36,13 @@ public class JobJReq implements Job{
 
         printer.run();
 
+    }
+
+    public void print(CountPrinterConsole printer){
+
+        employer.print(printer);
+
+        name.print(printer);
 
     }
 }

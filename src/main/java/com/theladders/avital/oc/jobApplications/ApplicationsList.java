@@ -64,7 +64,7 @@ public class ApplicationsList {
 
     }
 
-    public int getSize() {
+    public int size() {
 
         return applications.size();
     }

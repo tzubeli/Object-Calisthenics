@@ -66,11 +66,6 @@ public class Jobseeker {
 
     }
 
-    public void unSaveJob(Job job){
-
-        jobList.unSaveJob(job);
-    }
-
     public JobList viewSavedJobs(){
 
         return jobList.getSavedJobs();

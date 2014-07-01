@@ -7,7 +7,6 @@ import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.ListPrinterConsole;
 import com.theladders.avital.oc.print.PrintToConsole;
 import com.theladders.avital.oc.resumes.RealResume;
-import com.theladders.avital.oc.resumes.Resumes;
 import static org.junit.Assert.assertTrue;
 import org.joda.time.LocalDate;
 import org.junit.Before;
@@ -30,19 +29,15 @@ public class EmployerTest{
     @Before
     public void initialize(){
 
-        jobManager = new JobManager(jobs, new Resumes());
-
         jobs = new Jobs();
+
+        jobManager = new JobManager(jobs);
 
         applicationManager = new ApplicationManager(jobManager);
 
-        theladders = new Employer(new Name("theladders"), jobManager);
+        theladders = new Employer(new Name("employer"), jobManager);
 
         abc = new Employer(new Name("abc"), jobManager);
-
-        software = theladders.postATSJob(new Name("software"));
-
-        design = theladders.postJREQJob(new Name("design"));
 
         avital = new Jobseeker(new Name("avital"));
 
@@ -58,6 +53,8 @@ public class EmployerTest{
         theladders.postATSJob(new Name("software"));
 
         abc.postJREQJob(new Name("design"));
+
+        System.out.println(jobs.numberOfJobs());
 
         assertTrue(jobs.numberOfJobs() == 2);
     }
@@ -76,11 +73,19 @@ public class EmployerTest{
     @Test
     public void testApplicationsByJob(){
 
+        software = theladders.postATSJob(new Name("software"));
+
+        design = theladders.postJREQJob(new Name("design"));
+
         avital.apply(software, applicationManager);
 
-        jay.apply(design, new RealResume(avital, new Name("avital resume")), applicationManager);
+        jay.apply(software, applicationManager);
+
+        jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
         theladders.getAllApplications().printList(printer);
+
+
 
 
     }
@@ -90,7 +95,7 @@ public class EmployerTest{
 
         avital.apply(software, applicationManager);
 
-        jay.apply(design, new RealResume(avital, new Name("avital resume")), applicationManager);
+        jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
         theladders.getApplicationsByDate(new LocalDate(2014, 07, 01)).printList(printer);
 
@@ -99,9 +104,13 @@ public class EmployerTest{
     @Test
     public void testGetByJobAndDate(){
 
+        software = theladders.postATSJob(new Name("software"));
+
+        design = theladders.postJREQJob(new Name("design"));
+
         avital.apply(software, applicationManager);
 
-        jay.apply(design, new RealResume(avital, new Name("avital resume")), applicationManager);
+        jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
         theladders.getApplicationsByJobAndDate(software, new LocalDate(2014, 07, 01)).printList(printer);
 
@@ -110,11 +119,15 @@ public class EmployerTest{
     @Test
     public void testGetByJob(){
 
+        software = theladders.postATSJob(new Name("software"));
+
+        design = theladders.postJREQJob(new Name("design"));
+
         avital.apply(software, applicationManager);
 
         jay.apply(software, applicationManager);
 
-        jay.apply(design, new RealResume(avital, new Name("avital resume")), applicationManager);
+        jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
         theladders.getApplicationsByJob(software).printList(printer);
 

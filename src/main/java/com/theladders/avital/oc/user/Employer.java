@@ -2,11 +2,13 @@ package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.jobs.JobATS;
 import com.theladders.avital.oc.jobs.JobJReq;
+import com.theladders.avital.oc.print.AggregateCount;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.jobs.JobManager;
+import com.theladders.avital.oc.print.CountPrinterConsole;
 import org.joda.time.LocalDate;
 
 /**
@@ -67,6 +69,16 @@ public class Employer {
 
         name.print(printer);
 
+    }
+
+    public AggregateCount getApplicationCountByEmployerAndJob(){
+
+        return jobManager.getApplicationCountByEmployerAndJob();
+    }
+
+    public void print(CountPrinterConsole printer){
+
+        name.print(printer);
     }
 
     public String toString(){

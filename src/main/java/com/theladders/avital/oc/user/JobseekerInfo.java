@@ -20,17 +20,6 @@ public class JobseekerInfo {
         this.resume = resume;
     }
 
-    public ArrayList<Object> getReportDetails(){
-
-        ArrayList<Object> details = new ArrayList<>();
-
-        details.add(jobseeker);
-
-        details.add(resume);
-
-        return details;
-    }
-
     public void print(ApplicationsPrinter printer){
 
         jobseeker.print(printer);

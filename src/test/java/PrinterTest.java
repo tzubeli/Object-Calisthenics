@@ -29,11 +29,11 @@ public class PrinterTest {
     @Test
     public void testCSVPrinterOneApplication() {
 
-        jobManager = new JobManager(new Jobs(), new Resumes());
+        jobManager = new JobManager(new Jobs());
 
         Employer theladders = new Employer(new Name("theladders"), jobManager);
 
-        Job software = new JobATS(theladders, new Name("engineer"), jobManager);
+        Job software = new JobATS(theladders, new Name("engineer"));
 
         Jobseeker avital = new Jobseeker(new Name("Avital"));
 
@@ -51,11 +51,11 @@ public class PrinterTest {
     @Test
     public void testConsolePrinterOneApplication(){
 
-        jobManager = new JobManager(new Jobs(), new Resumes());
+        jobManager = new JobManager(new Jobs());
 
         Employer theladders = new Employer(new Name("theladders"), jobManager);
 
-        Job software = new JobATS(theladders, new Name("engineer"), jobManager);
+        Job software = new JobATS(theladders, new Name("engineer"));
 
         Jobseeker avital = new Jobseeker(new Name("Avital"));
 
@@ -75,15 +75,15 @@ public class PrinterTest {
     @Test
     public void testConsolePrinterApplicationsList(){
 
-        jobManager = new JobManager(new Jobs(), new Resumes());
+        jobManager = new JobManager(new Jobs());
 
         ApplicationManager applicationManager = new ApplicationManager(jobManager);
 
         Employer theladders = new Employer(new Name("theladders"), jobManager);
 
-        JobATS engineer = new JobATS(theladders, new Name("engineer"), jobManager);
+        JobATS engineer = new JobATS(theladders, new Name("engineer"));
 
-        JobJReq design = new JobJReq(theladders, new Name("designer"), jobManager);
+        JobJReq design = new JobJReq(theladders, new Name("designer"));
 
         Jobseeker avital = new Jobseeker(new Name("Avital"));
 

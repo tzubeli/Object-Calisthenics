@@ -27,7 +27,6 @@ public class PrintToHTMLReport implements ApplicationsPrinter{
             writer.append("<th>Employer</th>\n");
             writer.append("<tr>\n");
 
-
         }
         catch(IOException e) {
 
@@ -38,7 +37,6 @@ public class PrintToHTMLReport implements ApplicationsPrinter{
     public void print(String string) {
 
         list.add(string);
-
     }
 
     public void run() {

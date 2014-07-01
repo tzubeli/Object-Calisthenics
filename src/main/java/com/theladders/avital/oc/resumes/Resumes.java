@@ -31,27 +31,11 @@ public class Resumes{
 
     }
 
-    public void remove(Jobseeker jobseeker, RealResume resume){
-
-        ResumeList list = resumes.get(jobseeker);
-
-        list.delete(resume);
-
-    }
-
     public ResumeList readAll(Jobseeker jobseeker){
 
         ResumeList list = resumes.get(jobseeker);
 
         return list.readAll();
-
-    }
-
-    public void update(Jobseeker jobseeker, RealResume oldResume, RealResume newResume){
-
-        ResumeList list = resumes.get(jobseeker);
-
-        list.update(oldResume, newResume);
 
     }
 

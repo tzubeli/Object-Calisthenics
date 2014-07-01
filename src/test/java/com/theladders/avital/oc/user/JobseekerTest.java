@@ -30,11 +30,11 @@ public class JobseekerTest {
 
         Jobs jobs = new Jobs();
 
-        JobManager jobManager = new JobManager(jobs, new Resumes());
+        JobManager jobManager = new JobManager(jobs);
 
         manager = new ApplicationManager(jobManager);
 
-        theladders = new Employer(new Name("theladders"), jobManager);
+        theladders = new Employer(new Name("employer"), jobManager);
 
         avital = new Jobseeker(new Name("avital"));
 

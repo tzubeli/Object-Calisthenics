@@ -18,11 +18,6 @@ public class JobseekerJobList {
 
     }
 
-    public void unSaveJob(Job job){
-
-        saved.removeJob(job);
-    }
-
     public JobList getSavedJobs(){
 
         return saved;

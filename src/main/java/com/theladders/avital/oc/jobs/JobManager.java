@@ -3,6 +3,7 @@ package com.theladders.avital.oc.jobs;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobLists.JobList;
+import com.theladders.avital.oc.print.AggregateCount;
 import com.theladders.avital.oc.resumes.Resumes;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Name;
@@ -15,14 +16,11 @@ public class JobManager {
 
     Jobs jobs;
 
-    Resumes resumes;
 
-    
-    public JobManager(Jobs jobsToApplications, Resumes resumes){
+    public JobManager(Jobs jobsToApplications){
 
         this.jobs = jobsToApplications;
 
-        this.resumes = resumes;
     }
 
     public void createEmployerKey(Employer employer){
@@ -30,15 +28,9 @@ public class JobManager {
         jobs.createEmployerKey(employer);
     }
 
-    public void createJobKey(Employer employer, Job job){
-
-        jobs.createJobKey(employer, job);
-
-    }
-
     public Job postATSJob(Employer employer, Name name, JobManager jobManager){
 
-        Job job = new JobATS(employer, name, jobManager);
+        Job job = new JobATS(employer, name);
 
         jobs.addJob(employer, job);
 
@@ -48,7 +40,7 @@ public class JobManager {
 
     public Job postJReqJob(Employer employer, Name name, JobManager jobManager){
 
-        Job job = new JobJReq(employer, name, jobManager);
+        Job job = new JobJReq(employer, name);
 
         jobs.addJob(employer, job);
 
@@ -94,6 +86,11 @@ public class JobManager {
 
         return jobs.getByDate(employer, date);
 
+    }
+
+    public AggregateCount getApplicationCountByEmployerAndJob(){
+
+        return jobs.getApplicationCountByEmployerAndJob();
     }
 
 

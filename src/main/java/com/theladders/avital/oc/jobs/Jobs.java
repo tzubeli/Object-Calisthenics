@@ -4,6 +4,8 @@ import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobLists.JobList;
+import com.theladders.avital.oc.print.AggregateCount;
+import com.theladders.avital.oc.print.CountPrinterConsole;
 import com.theladders.avital.oc.user.Employer;
 import org.joda.time.LocalDate;
 
@@ -35,6 +37,8 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
     }
 
     public void addJob(Employer employer, Job job){
+
+       createEmployerKey(employer);
 
        JobApplications applications = postedJobs.get(employer);
 
@@ -117,7 +121,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
     public int numberOfApplications(){
 
-        return getAllApplications().getSize();
+        return getAllApplications().size();
     }
 
     public int numberOfJobs(){
@@ -132,6 +136,24 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
         }
         return numberOfJobs;
+    }
+
+    public AggregateCount getApplicationCountByEmployerAndJob(){
+
+        AggregateCount resultList = new AggregateCount();
+
+        for (Employer employer : postedJobs.keySet()) {
+
+            JobApplications applications = postedJobs.get(employer);
+
+            AggregateCount list = applications.getAggregateCount();
+
+            resultList = resultList.combinedWith(list);
+
+        }
+
+         return resultList;
+
     }
 
 

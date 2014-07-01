@@ -2,6 +2,7 @@ package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.print.AggregateCount;
 import org.joda.time.LocalDate;
 
 import java.util.*;
@@ -13,12 +14,15 @@ public class JobApplications{
 
     private Map<Job, ApplicationsList> applications = new HashMap<>();
 
+    Map<Job, Integer> count = new HashMap<>();
+
 
     public void createJobKey(Job job){
 
         if (!applications.containsKey(job))
 
             applications.put(job, new ApplicationsList());
+
     }
 
     public boolean contains(Job job){
@@ -92,6 +96,22 @@ public class JobApplications{
     public int numberOfJobs(){
 
         return applications.size();
+    }
+
+    public AggregateCount getAggregateCount(){
+
+        AggregateCount aggregateCount = new AggregateCount();
+
+        for (Job job : applications.keySet())
+        {
+            ApplicationsList list = applications.get(job);
+
+            aggregateCount.add(job, list.size());
+
+        }
+
+        return aggregateCount;
+
     }
 
 }
