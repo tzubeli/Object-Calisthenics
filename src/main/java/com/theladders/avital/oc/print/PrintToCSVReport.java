@@ -37,7 +37,6 @@ public class PrintToCSVReport implements ApplicationsPrinter {
 
         list.add(string);
 
-
     }
 
     public void run() {
@@ -59,6 +58,11 @@ public class PrintToCSVReport implements ApplicationsPrinter {
             e.printStackTrace();
         }
 
+    }
+
+    public void clear(){
+
+        list.clear();
     }
 
     public void close() {

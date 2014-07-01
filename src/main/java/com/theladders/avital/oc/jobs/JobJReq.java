@@ -21,7 +21,7 @@ public class JobJReq implements Job{
         this.employer = employer;
         this.name = name;
 
-        jobManager.createJobKey(employer, this);
+        jobManager.createJobKey(employer, this); //TODO only need this for testing
 
     }
 
@@ -42,6 +42,8 @@ public class JobJReq implements Job{
         name.print(printer);
 
         employer.print(printer);
+
+        printer.run();
 
 
     }

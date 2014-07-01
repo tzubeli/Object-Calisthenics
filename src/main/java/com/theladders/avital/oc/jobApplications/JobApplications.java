@@ -2,7 +2,7 @@ package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
-import com.theladders.avital.oc.print.PrintToCSVReport;
+import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.PrintToConsole;
 import org.joda.time.LocalDate;
 
@@ -16,7 +16,7 @@ public class JobApplications{
     private Map<Job, ApplicationsList> applications = new HashMap<>();
 
 
-    public void createKey(Job job){
+    public void createJobKey(Job job){
 
         if (!applications.containsKey(job))
 
@@ -28,9 +28,7 @@ public class JobApplications{
         return applications.containsKey(job);
     }
 
-    public void add(Job job, JobApplication application){
-
-        createKey(job);
+    public void addApplication(Job job, JobApplication application){
 
         ApplicationsList list = applications.get(job);
 

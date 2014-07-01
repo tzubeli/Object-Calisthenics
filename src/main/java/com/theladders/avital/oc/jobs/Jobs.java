@@ -30,7 +30,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
         JobApplications applications = postedJobs.get(employer);
 
-        applications.createKey(job);
+        applications.createJobKey(job);
 
     }
 
@@ -38,7 +38,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
        JobApplications applications = postedJobs.get(employer);
 
-       applications.createKey(job);
+       applications.createJobKey(job);
     }
 
 
@@ -50,7 +50,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
             if (applications.contains(job)){
 
-                applications.add(job, application);
+                applications.addApplication(job, application);
 
                 break;
             }

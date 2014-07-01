@@ -39,6 +39,11 @@ public class PrintToConsole implements ApplicationsPrinter {
 
 
     }
+
+    public void clear(){
+
+        list.clear();
+    }
 }
 
 

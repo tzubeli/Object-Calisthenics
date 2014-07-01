@@ -4,7 +4,9 @@ package com.theladders.avital.oc.user;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.*;
+import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.JobPrinterConsole;
+import com.theladders.avital.oc.print.PrintToCSVReport;
 import com.theladders.avital.oc.print.PrintToConsole;
 import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.resumes.Resumes;
@@ -38,14 +40,12 @@ public class EmployerTest{
         theladders.postATSJob(new Name("software"));
         theladders.postJREQJob(new Name("design"));
 
-
         theladders.getPostedJobs().printJobs(new JobPrinterConsole());
 
     }
 
     @Test
     public void testApplicationsByJob(){
-
 
 
         ApplicationManager manager = new ApplicationManager(jobManager);
@@ -61,8 +61,9 @@ public class EmployerTest{
 
         jay.apply(design, theladders, new RealResume(avital, new Name("avital resume")), manager);
 
+        ApplicationsPrinter printer = new PrintToCSVReport();
 
-        theladders.getAllApplications(); //TODO FIX THIS !!!!!!!!
+        theladders.getAllApplications().printList(printer);
 
 
     }

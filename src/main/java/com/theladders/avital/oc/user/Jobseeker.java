@@ -30,9 +30,9 @@ public class Jobseeker {
 
     public void apply(JobATS job, Employer employer, Resume resume, ApplicationManager manager) {
 
-        if (!resume.isOwnedBy(this)) {
-            //TODO something
-        }
+//        if (!resume.isOwnedBy(this)) {
+//            //TODO something
+//        }
 
         jobList.saveAppliedJob(job);
 
@@ -52,10 +52,10 @@ public class Jobseeker {
 
     public void apply(JobJReq job, Employer employer, Resume resume, ApplicationManager manager){
 
-        if (!resume.isOwnedBy(this)) {
-
-            //TODO something
-        }
+//        if (!resume.isOwnedBy(this)) {
+//
+//            //TODO something
+//        }
 
         jobList.saveAppliedJob(job);
 

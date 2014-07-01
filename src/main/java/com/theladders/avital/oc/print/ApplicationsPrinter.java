@@ -11,6 +11,8 @@ public interface ApplicationsPrinter {
 
     void run();
 
+    void clear();
+
     void close();
 
 
