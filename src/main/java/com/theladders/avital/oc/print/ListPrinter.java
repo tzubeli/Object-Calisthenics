@@ -5,5 +5,13 @@ package com.theladders.avital.oc.print;
  */
 public interface ListPrinter<Job> {
 
+    void createHeader();
+
     void print(String string);
+
+    void run();
+
+    void clear();
+
+    void close();
 }

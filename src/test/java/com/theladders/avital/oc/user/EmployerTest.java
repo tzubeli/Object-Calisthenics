@@ -5,7 +5,7 @@ import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobs.*;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.ListPrinterConsole;
-import com.theladders.avital.oc.print.PrintToConsole;
+import com.theladders.avital.oc.print.PrintAppToConsole;
 import com.theladders.avital.oc.resumes.RealResume;
 import static org.junit.Assert.assertTrue;
 import org.joda.time.LocalDate;
@@ -35,7 +35,7 @@ public class EmployerTest{
 
         applicationManager = new ApplicationManager(jobManager);
 
-        theladders = new Employer(new Name("employer"), jobManager);
+        theladders = new Employer(new Name("theladders"), jobManager);
 
         abc = new Employer(new Name("abc"), jobManager);
 
@@ -43,7 +43,7 @@ public class EmployerTest{
 
         jay = new Jobseeker(new Name("jay"));
 
-        printer = new PrintToConsole();
+        printer = new PrintAppToConsole();
 
     }
 
@@ -121,7 +121,7 @@ public class EmployerTest{
 
         software = theladders.postATSJob(new Name("software"));
 
-        design = theladders.postJREQJob(new Name("design"));
+        design = abc.postJREQJob(new Name("design"));
 
         avital.apply(software, applicationManager);
 

@@ -34,7 +34,7 @@ public class JobseekerTest {
 
         manager = new ApplicationManager(jobManager);
 
-        theladders = new Employer(new Name("employer"), jobManager);
+        theladders = new Employer(new Name("theladders"), jobManager);
 
         avital = new Jobseeker(new Name("avital"));
 

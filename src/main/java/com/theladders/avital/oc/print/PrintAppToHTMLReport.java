@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by atzubeli on 7/1/14.
  */
-public class PrintToHTMLReport implements ApplicationsPrinter{
+public class PrintAppToHTMLReport implements ApplicationsPrinter{
 
     List<String> list = new ArrayList<>();
     FileWriter writer;

@@ -14,9 +14,6 @@ public class JobApplications{
 
     private Map<Job, ApplicationsList> applications = new HashMap<>();
 
-    Map<Job, Integer> count = new HashMap<>();
-
-
     public void createJobKey(Job job){
 
         if (!applications.containsKey(job))

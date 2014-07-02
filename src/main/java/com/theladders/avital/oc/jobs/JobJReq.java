@@ -2,6 +2,7 @@ package com.theladders.avital.oc.jobs;
 
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.CountPrinterConsole;
+import com.theladders.avital.oc.print.ListPrinter;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Name;
 
@@ -9,7 +10,6 @@ import com.theladders.avital.oc.user.Name;
  * Created by atzubeli on 6/25/14.
  */
 public class JobJReq implements Job{
-
 
     Employer employer;
 
@@ -44,5 +44,14 @@ public class JobJReq implements Job{
 
         name.print(printer);
 
+    }
+
+    public void print(ListPrinter printer){
+
+        employer.print(printer);
+
+        name.print(printer);
+
+        printer.run();
     }
 }

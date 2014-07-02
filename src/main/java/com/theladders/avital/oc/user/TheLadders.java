@@ -23,6 +23,7 @@ public class TheLadders {
         this.jobManager = jobManager;
     }
 
+
     public ApplicationsList getAllApplications(){
 
         return jobManager.getAllApplications();
@@ -36,6 +37,13 @@ public class TheLadders {
     public AggregateCount getApplicationCountByEmployerAndJob(){
 
         return jobManager.getApplicationCountByEmployerAndJob();
+    }
+
+    public int getNumberOfApplications(){
+
+        return jobManager.getNumberOfApplications();
+
+
     }
 
 }

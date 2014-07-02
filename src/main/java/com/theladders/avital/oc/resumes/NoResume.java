@@ -12,10 +12,11 @@ public class NoResume implements Resume {
 
     Name name = new Name("none");
 
-    public NoResume(){
+    public NoResume(Jobseeker jobseeker){
+
+        this.jobseeker = jobseeker;
 
     }
-
 
     public String toString(){
 

@@ -27,7 +27,7 @@ public class JobManager {
         jobs.createEmployerKey(employer);
     }
 
-    public Job postATSJob(Employer employer, Name name, JobManager jobManager){
+    public Job postATSJob(Employer employer, Name name){
 
         Job job = new JobATS(employer, name);
 
@@ -37,7 +37,7 @@ public class JobManager {
 
     }
 
-    public Job postJReqJob(Employer employer, Name name, JobManager jobManager){
+    public Job postJReqJob(Employer employer, Name name){
 
         Job job = new JobJReq(employer, name);
 
@@ -95,6 +95,11 @@ public class JobManager {
     public AggregateCount getApplicationCountByEmployerAndJob(){
 
         return jobs.getApplicationCountByEmployerAndJob();
+    }
+
+    public int getNumberOfApplications(){
+
+        return jobs.numberOfApplications();
     }
 
 

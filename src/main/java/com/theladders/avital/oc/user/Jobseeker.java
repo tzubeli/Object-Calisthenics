@@ -43,7 +43,7 @@ public class Jobseeker {
 
         jobList.saveAppliedJob(job);
 
-        JobseekerInfo info = new JobseekerInfo(this, new NoResume());
+        JobseekerInfo info = new JobseekerInfo(this, new NoResume(this));
 
         manager.apply(job, info);
     }

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by atzubeli on 6/25/14.
  */
-public class PrintToConsole implements ApplicationsPrinter {
+public class PrintAppToConsole implements ApplicationsPrinter {
 
     List<String> list = new ArrayList<>();
 

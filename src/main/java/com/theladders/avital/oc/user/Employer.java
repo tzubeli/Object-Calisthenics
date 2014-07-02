@@ -9,6 +9,7 @@ import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.print.CountPrinterConsole;
+import com.theladders.avital.oc.print.ListPrinter;
 import org.joda.time.LocalDate;
 
 /**
@@ -31,12 +32,12 @@ public class Employer {
 
     public JobATS postATSJob(Name name){
 
-       return (JobATS)jobManager.postATSJob(this, name, jobManager);
+       return (JobATS)jobManager.postATSJob(this, name);
     }
 
     public JobJReq postJREQJob(Name name){
 
-       return (JobJReq)jobManager.postJReqJob(this, name, jobManager);
+       return (JobJReq)jobManager.postJReqJob(this, name);
 
     }
 
@@ -65,18 +66,19 @@ public class Employer {
         return jobManager.getApplicationsByJob(this, job);
     }
 
+
     public void print(ApplicationsPrinter printer){
 
         name.print(printer);
-
     }
 
-    public AggregateCount getApplicationCountByEmployerAndJob(){
-
-        return jobManager.getApplicationCountByEmployerAndJob();
-    }
 
     public void print(CountPrinterConsole printer){
+
+        name.print(printer);
+    }
+
+    public void print(ListPrinter printer){
 
         name.print(printer);
     }

@@ -2,6 +2,7 @@ package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.CountPrinterConsole;
+import com.theladders.avital.oc.print.ListPrinter;
 
 /**
  * Created by atzubeli on 6/13/14.
@@ -32,6 +33,12 @@ public class Name {
         printer.print(name);
 
     }
+    public void print(ListPrinter printer){
+
+        printer.print(name);
+
+    }
+
 
 
 

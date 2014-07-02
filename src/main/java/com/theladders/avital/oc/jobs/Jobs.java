@@ -28,14 +28,6 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
             postedJobs.put(employer, new JobApplications());
     }
 
-    public void createJobKey(Employer employer, Job job){
-
-        JobApplications applications = postedJobs.get(employer);
-
-        applications.createJobKey(job);
-
-    }
-
     public void addJob(Employer employer, Job job){
 
        createEmployerKey(employer);
@@ -136,8 +128,6 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
         return applications.getByDate(date);
 
     }
-
-
 
     public int numberOfApplications(){
 

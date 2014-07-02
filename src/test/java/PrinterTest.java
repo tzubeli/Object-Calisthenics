@@ -1,15 +1,14 @@
 import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.print.PrintToCSVReport;
-import com.theladders.avital.oc.print.PrintToConsole;
+import com.theladders.avital.oc.print.PrintAppToCSVReport;
+import com.theladders.avital.oc.print.PrintAppToConsole;
 import com.theladders.avital.oc.jobApplications.ApplicationDetails;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobs.*;
-import com.theladders.avital.oc.print.PrintToHTMLReport;
+import com.theladders.avital.oc.print.PrintAppToHTMLReport;
 import com.theladders.avital.oc.resumes.NoResume;
 import com.theladders.avital.oc.resumes.RealResume;
-import com.theladders.avital.oc.resumes.Resumes;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Jobseeker;
 import com.theladders.avital.oc.user.JobseekerInfo;
@@ -37,13 +36,13 @@ public class PrinterTest {
 
         Jobseeker avital = new Jobseeker(new Name("Avital"));
 
-        JobseekerInfo info = new JobseekerInfo(avital, new NoResume());
+        JobseekerInfo info = new JobseekerInfo(avital, new NoResume(avital));
 
         ApplicationDetails details = new ApplicationDetails(info, new LocalDate());
 
         JobApplication application = new JobApplication(software, details);
 
-        ApplicationsPrinter printer = new PrintToCSVReport();
+        ApplicationsPrinter printer = new PrintAppToCSVReport();
 
         application.print(printer);
     }
@@ -59,13 +58,13 @@ public class PrinterTest {
 
         Jobseeker avital = new Jobseeker(new Name("Avital"));
 
-        JobseekerInfo info = new JobseekerInfo(avital, new NoResume());
+        JobseekerInfo info = new JobseekerInfo(avital, new NoResume(avital));
 
         ApplicationDetails details = new ApplicationDetails(info, new LocalDate());
 
         JobApplication application = new JobApplication(software, details);
 
-        ApplicationsPrinter printer = new PrintToConsole();
+        ApplicationsPrinter printer = new PrintAppToConsole();
 
         application.print(printer);
 
@@ -97,7 +96,7 @@ public class PrinterTest {
 
         ApplicationsList newList = theladders.getAllApplications();
 
-        newList.printList(new PrintToHTMLReport());
+        newList.printList(new PrintAppToHTMLReport());
 
 
     }

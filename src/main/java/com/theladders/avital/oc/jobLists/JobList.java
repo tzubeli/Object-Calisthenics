@@ -28,15 +28,16 @@ public class JobList {
         jobs.add(job);
     }
 
-    public void removeJob(Job job){
-
-        jobs.remove(job);
-    }
-
     public void printJobs(ListPrinter printer){
+
+        printer.createHeader();
+
         for (Job job : jobs){
 
-            printer.print(job.toString());
+            job.print(printer);
+
+            printer.clear();
+
         }
     }
 
