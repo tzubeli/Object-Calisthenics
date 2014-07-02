@@ -40,7 +40,7 @@ public class PrinterTest {
 
         JobApplication application = new JobApplication(software, details);
 
-        ApplicationsPrinter printer = new PrintAppToCSVReport();
+        ApplicationsPrinter printer = new CSVAppPrinter();
 
         application.print(printer);
     }
@@ -62,7 +62,7 @@ public class PrinterTest {
 
         JobApplication application = new JobApplication(software, details);
 
-        ApplicationsPrinter printer = new PrintAppToConsole();
+        ApplicationsPrinter printer = new ConsoleAppPrinter();
 
         application.print(printer);
 
@@ -94,7 +94,7 @@ public class PrinterTest {
 
         ApplicationsList newList = theladders.getAllApplications();
 
-        newList.printList(new PrintAppToHTMLReport());
+        newList.printList(new HTMLAppPrinter());
 
 
     }

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by atzubeli on 6/25/14.
  */
-public class PrintAppToConsole implements ApplicationsPrinter {
+public class ConsoleAppPrinter implements ApplicationsPrinter {
 
     private List<String> list = new ArrayList<>();
 
@@ -25,13 +25,19 @@ public class PrintAppToConsole implements ApplicationsPrinter {
 
     public void run() {
 
-        if (list.size()>0){
+        if (list.size()>0)
 
-        for (int i=0; i<4; i++){
+            printList();
+
+        System.out.println(" ");
+
+    }
+
+    private void printList(){
+
+        for (int i=0; i<4; i++)
 
             System.out.print(list.get(i) + "\t");
-        }}
-        System.out.println(" ");
 
     }
 

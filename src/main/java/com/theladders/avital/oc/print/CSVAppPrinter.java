@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by atzubeli on 6/25/14.
  */
-public class PrintAppToCSVReport implements ApplicationsPrinter {
+public class CSVAppPrinter implements ApplicationsPrinter {
 
     private List<String> list = new ArrayList<>();
     private FileWriter writer;

@@ -6,8 +6,8 @@ import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.Jobs;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
+import com.theladders.avital.oc.print.ConsoleAppPrinter;
 import com.theladders.avital.oc.print.ConsoleCountPrinter;
-import com.theladders.avital.oc.print.PrintAppToConsole;
 import com.theladders.avital.oc.resumes.RealResume;
 import org.joda.time.LocalDate;
 import org.junit.Before;
@@ -47,7 +47,7 @@ public class TheLaddersTest {
 
         jay = new Jobseeker(new Name("jay"));
 
-        printer = new PrintAppToConsole();
+        printer = new ConsoleAppPrinter();
 
         theLadders = new TheLadders(jobManager);
     }
@@ -90,7 +90,7 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getByDate(new LocalDate(2014, 07, 02)).printList(new PrintAppToConsole());
+        theLadders.getByDate(new LocalDate(2014, 07, 02)).printList(new ConsoleAppPrinter());
 
     }
 
@@ -113,7 +113,7 @@ public class TheLaddersTest {
 
         assertTrue(theLadders.getNumberOfApplications() == 4);
 
-        theLadders.getAllApplications().printList(new PrintAppToConsole());
+        theLadders.getAllApplications().printList(new ConsoleAppPrinter());
 
     }
 

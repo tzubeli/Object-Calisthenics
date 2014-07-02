@@ -4,8 +4,8 @@ package com.theladders.avital.oc.user;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobs.*;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
+import com.theladders.avital.oc.print.ConsoleAppPrinter;
 import com.theladders.avital.oc.print.ConsoleListPrinter;
-import com.theladders.avital.oc.print.PrintAppToConsole;
 import com.theladders.avital.oc.resumes.RealResume;
 import static org.junit.Assert.assertTrue;
 import org.joda.time.LocalDate;
@@ -42,7 +42,7 @@ public class EmployerTest{
 
         jay = new Jobseeker(new Name("jay"));
 
-        printer = new PrintAppToConsole();
+        printer = new ConsoleAppPrinter();
 
     }
 
