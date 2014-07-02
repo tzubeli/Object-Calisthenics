@@ -94,7 +94,7 @@ public class PrinterTest {
 
         ApplicationsList newList = theladders.getAllApplications();
 
-        newList.printList(new HTMLAppPrinter());
+        newList.printAppList(new HTMLAppPrinter());
 
 
     }

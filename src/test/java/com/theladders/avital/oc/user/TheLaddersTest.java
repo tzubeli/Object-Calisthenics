@@ -5,9 +5,9 @@ import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.Jobs;
-import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.ConsoleAppPrinter;
 import com.theladders.avital.oc.print.ConsoleCountPrinter;
+import com.theladders.avital.oc.print.HTMLAppPrinter;
 import com.theladders.avital.oc.resumes.RealResume;
 import org.joda.time.LocalDate;
 import org.junit.Before;
@@ -28,7 +28,7 @@ public class TheLaddersTest {
     private JobManager jobManager;
     private Employer employer, abcde;
     private TheLadders theLadders;
-    private ApplicationsPrinter printer;
+
 
     @Before
     public void initialize(){
@@ -47,30 +47,7 @@ public class TheLaddersTest {
 
         jay = new Jobseeker(new Name("jay"));
 
-        printer = new ConsoleAppPrinter();
-
         theLadders = new TheLadders(jobManager);
-    }
-
-    @Test
-    public void getApplicationsByJobTest(){
-
-        software = employer.postATSJob(new Name("software"));
-
-        design = employer.postJREQJob(new Name("design"));
-
-        intern = abcde.postATSJob(new Name("intern"));
-
-        avital.apply(software, applicationManager);
-
-        jay.apply(software, applicationManager);
-
-        jay.apply(intern, applicationManager);
-
-        jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
-
-        theLadders.getApplicationCountByEmployerAndJob().printCount(new ConsoleCountPrinter());
-
     }
 
     @Test
@@ -90,12 +67,12 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getByDate(new LocalDate(2014, 07, 02)).printList(new ConsoleAppPrinter());
+        theLadders.getByDate(new LocalDate(2014, 07, 02)).printAppList(new ConsoleAppPrinter());
 
     }
 
     @Test
-    public void getAllApplicationsTest(){
+    public void getAllApplicationsTest(){  //HTML
 
         software = employer.postATSJob(new Name("software"));
 
@@ -113,8 +90,29 @@ public class TheLaddersTest {
 
         assertTrue(theLadders.getNumberOfApplications() == 4);
 
-        theLadders.getAllApplications().printList(new ConsoleAppPrinter());
+        theLadders.getAllApplications().printAppList(new HTMLAppPrinter());
 
     }
+
+    @Test
+    public void getAggregateApplicationCount() {
+
+        software = employer.postATSJob(new Name("software"));
+
+        design = employer.postJREQJob(new Name("design"));
+
+        intern = abcde.postATSJob(new Name("intern"));
+
+        avital.apply(software, applicationManager);
+
+        jay.apply(software, applicationManager);
+
+        jay.apply(intern, applicationManager);
+
+        jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
+
+        theLadders.getApplicationCountByEmployerAndJob().printCount(new ConsoleCountPrinter());
+    }
+
 
 }

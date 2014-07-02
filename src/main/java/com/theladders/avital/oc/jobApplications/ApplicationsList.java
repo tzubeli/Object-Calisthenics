@@ -50,7 +50,7 @@ public class ApplicationsList {
     }
 
 
-    public void printList(ApplicationsPrinter printer){
+    public void printAppList(ApplicationsPrinter printer){
 
         printer.createHeader();
 

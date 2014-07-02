@@ -4,6 +4,7 @@ package com.theladders.avital.oc.user;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobs.*;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
+import com.theladders.avital.oc.print.CSVAppPrinter;
 import com.theladders.avital.oc.print.ConsoleAppPrinter;
 import com.theladders.avital.oc.print.ConsoleListPrinter;
 import com.theladders.avital.oc.resumes.RealResume;
@@ -59,7 +60,7 @@ public class EmployerTest{
     }
 
     @Test
-    public void testPostedJobs(){
+    public void testGetPostedJobs(){
 
         theladders.postATSJob(new Name("software"));
 
@@ -70,7 +71,7 @@ public class EmployerTest{
     }
 
     @Test
-    public void testApplicationsByJob(){
+    public void testApplicationsByJob(){ //CSV
 
         software = theladders.postATSJob(new Name("software"));
 
@@ -82,9 +83,7 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getAllApplications().printList(printer);
-
-
+        theladders.getAllApplications().printAppList(new CSVAppPrinter());
 
 
     }
@@ -92,11 +91,17 @@ public class EmployerTest{
     @Test
     public void testGetByDate(){
 
+        software = theladders.postATSJob(new Name("software"));
+
+        design = theladders.postJREQJob(new Name("design"));
+
         avital.apply(software, applicationManager);
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByDate(new LocalDate(2014, 07, 01)).printList(printer);
+        theladders.getApplicationsByDate(new LocalDate(2014, 07, 02)).printAppList(printer);
+
+
 
     }
 
@@ -111,7 +116,7 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByJobAndDate(software, new LocalDate(2014, 07, 01)).printList(printer);
+        theladders.getApplicationsByJobAndDate(software, new LocalDate(2014, 07, 02)).printAppList(printer);
 
     }
 
@@ -128,7 +133,7 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByJob(software).printList(printer);
+        theladders.getApplicationsByJob(software).printAppList(printer);
 
     }
 

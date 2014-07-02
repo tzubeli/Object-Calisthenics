@@ -40,4 +40,9 @@ public class TheLadders {
 
     }
 
+    public void getApplicationSuccess(){
+
+        //TODO
+    }
+
 }
