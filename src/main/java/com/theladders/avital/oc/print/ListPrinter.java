@@ -13,5 +13,4 @@ public interface ListPrinter<Job> {
 
     void clear();
 
-    void close();
 }

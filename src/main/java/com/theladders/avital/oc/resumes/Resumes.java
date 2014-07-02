@@ -10,10 +10,10 @@ import java.util.Map;
 */
 public class Resumes{
 
-    Map<Jobseeker, ResumeList> resumes = new HashMap<Jobseeker, ResumeList>();
+    private Map<Jobseeker, ResumeList> resumes = new HashMap<Jobseeker, ResumeList>();
 
 
-    public void createKey(Jobseeker jobseeker) {
+    void createKey(Jobseeker jobseeker) {
 
         if (!resumes.containsKey(jobseeker))
 

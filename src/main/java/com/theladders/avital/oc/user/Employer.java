@@ -1,14 +1,13 @@
 package com.theladders.avital.oc.user;
 
-import com.theladders.avital.oc.jobs.JobATS;
-import com.theladders.avital.oc.jobs.JobJReq;
-import com.theladders.avital.oc.print.AggregateCount;
+import com.theladders.avital.oc.jobs.ATSJob;
+import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.jobs.JobManager;
-import com.theladders.avital.oc.print.CountPrinterConsole;
+import com.theladders.avital.oc.print.ConsoleCountPrinter;
 import com.theladders.avital.oc.print.ListPrinter;
 import org.joda.time.LocalDate;
 
@@ -30,14 +29,14 @@ public class Employer {
         jobManager.createEmployerKey(this);
     }
 
-    public JobATS postATSJob(Name name){
+    public ATSJob postATSJob(Name name){
 
-       return (JobATS)jobManager.postATSJob(this, name);
+       return (ATSJob)jobManager.postATSJob(this, name);
     }
 
-    public JobJReq postJREQJob(Name name){
+    public JReqJob postJREQJob(Name name){
 
-       return (JobJReq)jobManager.postJReqJob(this, name);
+       return (JReqJob)jobManager.postJReqJob(this, name);
 
     }
 
@@ -73,7 +72,7 @@ public class Employer {
     }
 
 
-    public void print(CountPrinterConsole printer){
+    public void print(ConsoleCountPrinter printer){
 
         name.print(printer);
     }

@@ -4,7 +4,7 @@ package com.theladders.avital.oc.user;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobs.*;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.print.ListPrinterConsole;
+import com.theladders.avital.oc.print.ConsoleListPrinter;
 import com.theladders.avital.oc.print.PrintAppToConsole;
 import com.theladders.avital.oc.resumes.RealResume;
 import static org.junit.Assert.assertTrue;
@@ -16,15 +16,14 @@ import org.junit.Test;
 
 public class EmployerTest{
 
-    Jobs jobs;
-    ApplicationManager applicationManager;
-    JobATS software;
-    JobJReq design;
-    Jobseeker avital, jay;
-    JobManager jobManager;
-    Employer theladders, abc;
-
-    ApplicationsPrinter printer;
+    private Jobs jobs;
+    private ApplicationManager applicationManager;
+    private ATSJob software;
+    private JReqJob design;
+    private Jobseeker avital, jay;
+    private JobManager jobManager;
+    private Employer theladders, abc;
+    private ApplicationsPrinter printer;
 
     @Before
     public void initialize(){
@@ -66,7 +65,7 @@ public class EmployerTest{
 
         theladders.postJREQJob(new Name("design"));
 
-        theladders.getPostedJobs().printJobs(new ListPrinterConsole());
+        theladders.getPostedJobs().printJobs(new ConsoleListPrinter());
 
     }
 

@@ -1,20 +1,14 @@
 package com.theladders.avital.oc.user;
 
-import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.print.AggregateCount;
-import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
-import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.jobs.JobManager;
-import com.theladders.avital.oc.print.CountPrinterConsole;
 import org.joda.time.LocalDate;
 
 /**
  * Created by atzubeli on 6/20/14.
  */
 public class TheLadders {
-
-
 
     private JobManager jobManager;
 

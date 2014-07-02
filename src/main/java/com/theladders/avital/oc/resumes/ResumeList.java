@@ -11,7 +11,7 @@ import java.util.List;
 public class ResumeList {
 
 
-    List<Resume> resumes = new ArrayList<>();
+    private List<Resume> resumes = new ArrayList<>();
 
     public void create(Resume resume){
         

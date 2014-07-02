@@ -10,8 +10,9 @@ import java.util.List;
  */
 public class PrintAppToHTMLReport implements ApplicationsPrinter{
 
-    List<String> list = new ArrayList<>();
-    FileWriter writer;
+    private List<String> list = new ArrayList<>();
+
+    private  FileWriter writer;
 
 
     public void createHeader() {

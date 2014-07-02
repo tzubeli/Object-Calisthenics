@@ -6,9 +6,9 @@ import java.util.List;
 /**
  * Created by atzubeli on 7/1/14.
  */
-public class CountPrinterConsole {
+public class ConsoleCountPrinter {
 
-    List<String> list = new ArrayList<>();
+    private List<String> list = new ArrayList<>();
 
 
     public void createHeader() {

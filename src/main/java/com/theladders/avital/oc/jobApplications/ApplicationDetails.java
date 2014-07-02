@@ -1,21 +1,17 @@
 package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.resumes.RealResume;
-import com.theladders.avital.oc.user.Jobseeker;
 import com.theladders.avital.oc.user.JobseekerInfo;
 import org.joda.time.LocalDate;
-
-import java.util.ArrayList;
 
 /**
  * Created by atzubeli on 6/13/14.
  */
 public class ApplicationDetails {
 
-    JobseekerInfo jobseekerInfo;
+    private JobseekerInfo jobseekerInfo;
 
-    LocalDate date;
+    private LocalDate date;
 
     public ApplicationDetails(JobseekerInfo jobseekerDetails, LocalDate date){
 
@@ -25,7 +21,7 @@ public class ApplicationDetails {
     }
 
 
-    public boolean isDate(LocalDate date){
+    public boolean hasDateOf(LocalDate date){
 
         return (this.date.equals(date));
 

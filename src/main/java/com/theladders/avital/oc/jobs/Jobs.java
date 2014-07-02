@@ -5,7 +5,6 @@ import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.print.AggregateCount;
-import com.theladders.avital.oc.print.CountPrinterConsole;
 import com.theladders.avital.oc.user.Employer;
 import org.joda.time.LocalDate;
 
@@ -21,7 +20,7 @@ public class Jobs {
 private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
 
-    public void createEmployerKey(Employer employer) {
+    public void createEmployer(Employer employer) {
 
         if (! postedJobs.containsKey(employer))
 
@@ -30,7 +29,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
     public void addJob(Employer employer, Job job){
 
-       createEmployerKey(employer);
+       createEmployer(employer);
 
        JobApplications applications = postedJobs.get(employer);
 

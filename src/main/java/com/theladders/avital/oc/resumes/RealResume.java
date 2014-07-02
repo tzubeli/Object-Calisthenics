@@ -8,9 +8,9 @@ import com.theladders.avital.oc.user.Name;
  */
 public class RealResume implements Resume{
 
-    Jobseeker jobseeker;
+    private Jobseeker jobseeker;
 
-    Name name;
+    private Name name;
 
     public RealResume(Jobseeker jobseeker, Name name) {
 
@@ -26,7 +26,7 @@ public class RealResume implements Resume{
 
     public boolean isOwnedBy(Jobseeker thatJobseeker){
 
-        return (jobseeker == thatJobseeker);
+        return thatJobseeker.equals(jobseeker);
     }
 }
 

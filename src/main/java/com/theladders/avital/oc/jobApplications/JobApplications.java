@@ -47,18 +47,14 @@ public class JobApplications{
 
     public ApplicationsList getByJob(Job job){
 
-        ApplicationsList list = applications.get(job);
-
-        return list;
+        return applications.get(job);
     }
 
     public ApplicationsList getByJobAndDate(Job job, LocalDate date){
 
         ApplicationsList list = applications.get(job);
 
-        ApplicationsList resultList = list.filteredByDate(date);
-
-        return resultList;
+        return list.filteredByDate(date);
 
     }
 

@@ -6,9 +6,9 @@ import java.util.List;
 /**
  * Created by atzubeli on 6/30/14.
  */
-public class ListPrinterConsole implements ListPrinter {
+public class ConsoleListPrinter implements ListPrinter {
 
-    List<String> list = new ArrayList<>();
+    private List<String> list = new ArrayList<>();
 
     public void createHeader() {
 

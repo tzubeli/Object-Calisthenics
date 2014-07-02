@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class PrintAppToCSVReport implements ApplicationsPrinter {
 
-    List<String> list = new ArrayList<>();
-    FileWriter writer;
+    private List<String> list = new ArrayList<>();
+    private FileWriter writer;
 
 
     public void createHeader() {

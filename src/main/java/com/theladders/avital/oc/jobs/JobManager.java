@@ -13,7 +13,7 @@ import org.joda.time.LocalDate;
  */
 public class JobManager {
 
-    Jobs jobs;
+    private Jobs jobs;
 
 
     public JobManager(Jobs jobsToApplications){
@@ -24,12 +24,12 @@ public class JobManager {
 
     public void createEmployerKey(Employer employer){
 
-        jobs.createEmployerKey(employer);
+        jobs.createEmployer(employer);
     }
 
     public Job postATSJob(Employer employer, Name name){
 
-        Job job = new JobATS(employer, name);
+        Job job = new ATSJob(employer, name);
 
         jobs.addJob(employer, job);
 
@@ -39,7 +39,7 @@ public class JobManager {
 
     public Job postJReqJob(Employer employer, Name name){
 
-        Job job = new JobJReq(employer, name);
+        Job job = new JReqJob(employer, name);
 
         jobs.addJob(employer, job);
 

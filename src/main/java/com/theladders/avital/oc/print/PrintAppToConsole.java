@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class PrintAppToConsole implements ApplicationsPrinter {
 
-    List<String> list = new ArrayList<>();
+    private List<String> list = new ArrayList<>();
 
 
     public void createHeader() {

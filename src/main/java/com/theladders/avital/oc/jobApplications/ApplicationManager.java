@@ -2,7 +2,6 @@ package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.jobs.JobManager;
-import com.theladders.avital.oc.jobs.Jobs;
 import com.theladders.avital.oc.user.JobseekerInfo;
 import org.joda.time.LocalDate;
 
@@ -12,7 +11,7 @@ import org.joda.time.LocalDate;
  */
 public class ApplicationManager {
 
-    JobManager jobManager;
+    private JobManager jobManager;
 
     public ApplicationManager(JobManager jobManager){
 

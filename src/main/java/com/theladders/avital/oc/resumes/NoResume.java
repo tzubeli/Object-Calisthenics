@@ -8,23 +8,23 @@ import com.theladders.avital.oc.user.Name;
  */
 public class NoResume implements Resume {
 
-    Jobseeker jobseeker;
+    private Jobseeker jobseeker;
 
-    Name name = new Name("none");
+    private Name name = new Name("none");
 
     public NoResume(Jobseeker jobseeker){
 
         this.jobseeker = jobseeker;
 
     }
-
     public String toString(){
 
         return name.toString();
     }
 
     public boolean isOwnedBy(Jobseeker thatJobseeker) {
-        return false;
+
+        return thatJobseeker.equals(jobseeker);
     }
 
 

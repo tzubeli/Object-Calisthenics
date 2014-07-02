@@ -1,11 +1,11 @@
 package com.theladders.avital.oc.user;
 
+import com.theladders.avital.oc.jobs.ATSJob;
+import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobLists.JobseekerJobList;
-import com.theladders.avital.oc.jobs.JobATS;
-import com.theladders.avital.oc.jobs.JobJReq;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.resumes.*;
 import com.theladders.avital.oc.exception.*;
@@ -28,7 +28,7 @@ public class Jobseeker {
 
     }
 
-    public void apply(JobATS job, Resume resume, ApplicationManager manager) {
+    public void apply(ATSJob job, Resume resume, ApplicationManager manager) {
 
         if (!resume.isOwnedBy(this)) throw new InvalidResumeException();
 
@@ -39,7 +39,7 @@ public class Jobseeker {
         manager.apply(job, info);
     }
 
-    public void apply(JobATS job, ApplicationManager manager){
+    public void apply(ATSJob job, ApplicationManager manager){
 
         jobList.saveAppliedJob(job);
 
@@ -48,7 +48,7 @@ public class Jobseeker {
         manager.apply(job, info);
     }
 
-    public void apply(JobJReq job, Resume resume, ApplicationManager manager){
+    public void apply(JReqJob job, Resume resume, ApplicationManager manager){
 
         if (!resume.isOwnedBy(this)) throw new InvalidResumeException();
 

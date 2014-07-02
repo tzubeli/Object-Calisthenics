@@ -10,13 +10,13 @@ import java.util.List;
  */
 public class ApplicationsList {
 
-    List<JobApplication> applications = new ArrayList<>();
+    private List<JobApplication> applications = new ArrayList<>();
 
     public ApplicationsList(){
 
     }
 
-    public ApplicationsList(List<JobApplication> applications){
+    private ApplicationsList(List<JobApplication> applications){
 
         this.applications = applications;
 

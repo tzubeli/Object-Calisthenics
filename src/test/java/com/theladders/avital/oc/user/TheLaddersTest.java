@@ -1,12 +1,12 @@
 package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
-import com.theladders.avital.oc.jobs.JobATS;
-import com.theladders.avital.oc.jobs.JobJReq;
+import com.theladders.avital.oc.jobs.ATSJob;
+import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.Jobs;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.print.CountPrinterConsole;
+import com.theladders.avital.oc.print.ConsoleCountPrinter;
 import com.theladders.avital.oc.print.PrintAppToConsole;
 import com.theladders.avital.oc.resumes.RealResume;
 import org.joda.time.LocalDate;
@@ -20,16 +20,15 @@ import static org.junit.Assert.assertTrue;
  */
 public class TheLaddersTest {
 
-    Jobs jobs;
-    ApplicationManager applicationManager;
-    JobATS software, intern;
-    JobJReq design;
-    Jobseeker avital, jay;
-    JobManager jobManager;
-    Employer employer, abcde;
-    TheLadders theLadders;
-
-    ApplicationsPrinter printer;
+    private Jobs jobs;
+    private ApplicationManager applicationManager;
+    private ATSJob software, intern;
+    private JReqJob design;
+    private Jobseeker avital, jay;
+    private JobManager jobManager;
+    private Employer employer, abcde;
+    private TheLadders theLadders;
+    private ApplicationsPrinter printer;
 
     @Before
     public void initialize(){
@@ -70,7 +69,7 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getApplicationCountByEmployerAndJob().printCount(new CountPrinterConsole());
+        theLadders.getApplicationCountByEmployerAndJob().printCount(new ConsoleCountPrinter());
 
     }
 

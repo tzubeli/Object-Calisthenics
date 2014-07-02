@@ -10,9 +10,9 @@ import org.joda.time.LocalDate;
  */
 public class JobApplication {
 
-    Job job;
+    private Job job;
 
-    ApplicationDetails applicationDetails;
+    private ApplicationDetails applicationDetails;
 
 
     public JobApplication(Job job, ApplicationDetails applicationDetails) {
@@ -24,7 +24,7 @@ public class JobApplication {
 
     public boolean hasDateOf(LocalDate date){
 
-        return (applicationDetails.isDate(date));
+        return (applicationDetails.hasDateOf(date));
 
     }
 

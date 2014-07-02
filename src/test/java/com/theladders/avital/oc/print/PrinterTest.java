@@ -1,12 +1,10 @@
-import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.print.PrintAppToCSVReport;
-import com.theladders.avital.oc.print.PrintAppToConsole;
+package com.theladders.avital.oc.print;
+
 import com.theladders.avital.oc.jobApplications.ApplicationDetails;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobs.*;
-import com.theladders.avital.oc.print.PrintAppToHTMLReport;
 import com.theladders.avital.oc.resumes.NoResume;
 import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.user.Employer;
@@ -21,7 +19,7 @@ import org.junit.Test;
  */
 public class PrinterTest {
 
-    JobManager jobManager;
+    private JobManager jobManager;
 
 
 
@@ -32,7 +30,7 @@ public class PrinterTest {
 
         Employer theladders = new Employer(new Name("theladders"), jobManager);
 
-        Job software = new JobATS(theladders, new Name("engineer"));
+        Job software = new ATSJob(theladders, new Name("engineer"));
 
         Jobseeker avital = new Jobseeker(new Name("Avital"));
 
@@ -54,7 +52,7 @@ public class PrinterTest {
 
         Employer theladders = new Employer(new Name("theladders"), jobManager);
 
-        Job software = new JobATS(theladders, new Name("engineer"));
+        Job software = new ATSJob(theladders, new Name("engineer"));
 
         Jobseeker avital = new Jobseeker(new Name("Avital"));
 
@@ -80,9 +78,9 @@ public class PrinterTest {
 
         Employer theladders = new Employer(new Name("theladders"), jobManager);
 
-        JobATS engineer = new JobATS(theladders, new Name("engineer"));
+        ATSJob engineer = new ATSJob(theladders, new Name("engineer"));
 
-        JobJReq design = new JobJReq(theladders, new Name("designer"));
+        JReqJob design = new JReqJob(theladders, new Name("designer"));
 
         Jobseeker avital = new Jobseeker(new Name("Avital"));
 

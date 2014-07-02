@@ -8,13 +8,13 @@ import java.util.*;
  */
 public class AggregateCount {
 
-    Map<Job, Integer> jobCount = new HashMap<>();
+    private Map<Job, Integer> jobCount = new HashMap<>();
 
     public AggregateCount(){
 
     }
 
-    public AggregateCount(Map<Job, Integer> jobCount){
+    private AggregateCount(Map<Job, Integer> jobCount){
 
         this.jobCount = jobCount;
     }
@@ -37,7 +37,7 @@ public class AggregateCount {
 
     }
 
-    public void printCount(CountPrinterConsole printer){
+    public void printCount(ConsoleCountPrinter printer){
 
         printer.createHeader();
 

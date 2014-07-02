@@ -2,11 +2,11 @@ package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.exception.InvalidResumeException;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
-import com.theladders.avital.oc.jobs.JobATS;
-import com.theladders.avital.oc.jobs.JobJReq;
+import com.theladders.avital.oc.jobs.ATSJob;
+import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.Jobs;
-import com.theladders.avital.oc.print.ListPrinterConsole;
+import com.theladders.avital.oc.print.ConsoleListPrinter;
 import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.resumes.Resume;
 import com.theladders.avital.oc.resumes.Resumes;
@@ -18,12 +18,12 @@ import org.junit.Test;
 public class JobseekerTest {
 
 
-    ApplicationManager manager;
-    Employer theladders;
-    Jobseeker avital, jay;
-    Resume avitalResume, jayResume;
-    JobATS software, intern;
-    JobJReq design;
+    private ApplicationManager manager;
+    private Employer theladders;
+    private Jobseeker avital, jay;
+    private Resume avitalResume, jayResume;
+    private ATSJob software, intern;
+    private JReqJob design;
 
     @Before
     public void initialize(){
@@ -72,7 +72,7 @@ public class JobseekerTest {
         avital.apply(software, manager);
         avital.apply(intern, manager);
 
-        avital.viewAppliedJobs().printJobs(new ListPrinterConsole());
+        avital.viewAppliedJobs().printJobs(new ConsoleListPrinter());
     }
 
     @Test
@@ -81,7 +81,7 @@ public class JobseekerTest {
         avital.saveJob(intern);
         avital.saveJob(design);
         avital.saveJob(software);
-        avital.viewSavedJobs().printJobs(new ListPrinterConsole());
+        avital.viewSavedJobs().printJobs(new ConsoleListPrinter());
     }
 
     @Test
@@ -92,7 +92,7 @@ public class JobseekerTest {
         avital.createResume(new Name("resume.doc"), resumes);
         avital.createResume(new Name("resume.pdf"), resumes);
 
-        avital.getResumes(resumes).printResumes(new ListPrinterConsole());
+        avital.getResumes(resumes).printResumes(new ConsoleListPrinter());
     }
 
 }
