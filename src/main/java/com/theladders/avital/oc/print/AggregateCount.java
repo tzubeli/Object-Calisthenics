@@ -37,7 +37,7 @@ public class AggregateCount {
 
     }
 
-    public void printCount(ConsoleCountPrinter printer){
+    public void printCount(AggregateCountPrinter printer){
 
         printer.createHeader();
 

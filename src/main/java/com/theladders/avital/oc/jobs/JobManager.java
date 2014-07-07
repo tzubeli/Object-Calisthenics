@@ -4,6 +4,9 @@ import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.print.AggregateCount;
+import com.theladders.avital.oc.print.AggregateCountPrinter;
+import com.theladders.avital.oc.print.ApplicationsPrinter;
+import com.theladders.avital.oc.print.ListPrinter;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Name;
 import org.joda.time.LocalDate;
@@ -53,48 +56,48 @@ public class JobManager {
 
     }
 
-    public JobList getPostedJobs(Employer employer){
+    public void  getPostedJobs(Employer employer, ListPrinter printer){
 
-        return jobs.getAllJobsByEmployer(employer);
+         jobs.getAllJobsByEmployer(employer, printer);
     }
 
-    public ApplicationsList getAllApplications(){
+    public void getAllApplications(ApplicationsPrinter printer){
 
-        return jobs.getAllApplications();
+        jobs.getAllApplications(printer);
     }
 
-    public ApplicationsList getByDate(LocalDate date){
+    public void getByDate(LocalDate date, ApplicationsPrinter printer){
 
-        return jobs.getByDate(date);
+        jobs.getByDate(date, printer);
     }
 
-    public ApplicationsList getApplicationsByEmployer(Employer employer){
+    public void getApplicationsByEmployer(Employer employer, ApplicationsPrinter printer){
 
-       return jobs.getAllApplicationsByEmployer(employer);
-
-    }
-
-    public ApplicationsList getApplicationsByJob(Employer employer, Job job){
-
-        return jobs.getByJob(employer, job);
+       jobs.getAllApplicationsByEmployer(employer, printer);
 
     }
 
-    public ApplicationsList getApplicationsByJobAndDate(Employer employer, Job job, LocalDate date){
+    public void getApplicationsByJob(Employer employer, Job job, ApplicationsPrinter printer){
 
-        return jobs.getByJobAndDate(employer, job, date);
-
-    }
-
-    public ApplicationsList getApplicationsByDate(Employer employer, LocalDate date){
-
-        return jobs.getByDateAndEmployer(employer, date);
+        jobs.getByJob(employer, job, printer);
 
     }
 
-    public AggregateCount getApplicationCountByEmployerAndJob(){
+    public void getApplicationsByJobAndDate(Employer employer, Job job, LocalDate date, ApplicationsPrinter printer){
 
-        return jobs.getApplicationCountByEmployerAndJob();
+        jobs.getByJobAndDate(employer, job, date, printer);
+
+    }
+
+    public void getApplicationsByDate(Employer employer, LocalDate date, ApplicationsPrinter printer){
+
+        jobs.getByDateAndEmployer(employer, date, printer);
+
+    }
+
+    public void getApplicationCountByEmployerAndJob(AggregateCountPrinter printer){
+
+        jobs.getApplicationCountByEmployerAndJob(printer);
     }
 
     public int getNumberOfApplications(){

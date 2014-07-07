@@ -10,9 +10,12 @@ import com.theladders.avital.oc.print.ConsoleListPrinter;
 import com.theladders.avital.oc.resumes.RealResume;
 import static org.junit.Assert.assertTrue;
 import org.joda.time.LocalDate;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 
 public class EmployerTest{
@@ -25,6 +28,9 @@ public class EmployerTest{
     private JobManager jobManager;
     private Employer theladders, abc;
     private ApplicationsPrinter printer;
+
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
 
     @Before
     public void initialize(){
@@ -47,31 +53,35 @@ public class EmployerTest{
 
     }
 
+    @Before
+    public void setUpStream(){
+
+        System.setOut(new PrintStream(outContent));
+    }
+
     @Test
-    public void testPostJob(){
+    public void testEmployerCanPostJobs(){
 
         theladders.postATSJob(new Name("software"));
 
         abc.postJREQJob(new Name("design"));
 
-        System.out.println(jobs.numberOfJobs());
-
         assertTrue(jobs.numberOfJobs() == 2);
     }
 
     @Test
-    public void testGetPostedJobs(){
+    public void testEmployerCanViewPostedJobs(){
 
         theladders.postATSJob(new Name("software"));
 
         theladders.postJREQJob(new Name("design"));
 
-        theladders.getPostedJobs().printJobs(new ConsoleListPrinter());
+        theladders.getPostedJobs(new ConsoleListPrinter());
 
     }
 
     @Test
-    public void testApplicationsByJob(){ //CSV
+    public void testEmployersCanSeeApplicationsByJob(){ //CSV
 
         software = theladders.postATSJob(new Name("software"));
 
@@ -83,13 +93,13 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getAllApplications().printAppList(new CSVAppPrinter());
+        theladders.getApplicationsByJob(software,new CSVAppPrinter());
 
 
     }
 
     @Test
-    public void testGetByDate(){
+    public void testEmployersCanSeeApplicationsByDate(){
 
         software = theladders.postATSJob(new Name("software"));
 
@@ -99,14 +109,14 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByDate(new LocalDate(2014, 07, 02)).printAppList(printer);
+        theladders.getApplicationsByDate(new LocalDate(2014, 07, 02), printer);
 
 
 
     }
 
     @Test
-    public void testGetByJobAndDate(){
+    public void testEmployersCanSeeApplicationsByJobAndDate(){
 
         software = theladders.postATSJob(new Name("software"));
 
@@ -116,12 +126,12 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByJobAndDate(software, new LocalDate(2014, 07, 02)).printAppList(printer);
+        theladders.getApplicationsByJobAndDate(software, new LocalDate(2014, 07, 02), printer);
 
     }
 
     @Test
-    public void testGetByJob(){
+    public void testEmployersCanSeeAllTheirApplications(){ //TODO
 
         software = theladders.postATSJob(new Name("software"));
 
@@ -133,8 +143,13 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByJob(software).printAppList(printer);
+        theladders.getAllApplications(printer);
 
+    }
+
+    @After
+    public void cleanUp(){
+        System.setOut(null);
     }
 
 }

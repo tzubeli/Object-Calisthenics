@@ -51,7 +51,7 @@ public class TheLaddersTest {
     }
 
     @Test
-    public void getApplicationsByDateTest(){
+    public void testTheLaddersCanSeeApplicationsByDate(){
 
         software = employer.postATSJob(new Name("software"));
 
@@ -67,12 +67,12 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getByDate(new LocalDate(2014, 07, 02)).printAppList(new ConsoleAppPrinter());
+        theLadders.getByDate(new LocalDate(2014, 07, 02), new ConsoleAppPrinter());
 
     }
 
     @Test
-    public void getAllApplicationsTest(){  //HTML
+    public void testTheLaddersCanSeeAllApplications(){  //HTML
 
         software = employer.postATSJob(new Name("software"));
 
@@ -90,12 +90,12 @@ public class TheLaddersTest {
 
         assertTrue(theLadders.getNumberOfApplications() == 4);
 
-        theLadders.getAllApplications().printAppList(new HTMLAppPrinter());
+        theLadders.getAllApplications(new HTMLAppPrinter());
 
     }
 
     @Test
-    public void getAggregateApplicationCount() {
+    public void testTheLaddersCanSeeAggregateJobApplicationNumbers() {
 
         software = employer.postATSJob(new Name("software"));
 
@@ -111,8 +111,27 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getApplicationCountByEmployerAndJob().printCount(new ConsoleCountPrinter());
+        theLadders.getApplicationCountByEmployerAndJob(new ConsoleCountPrinter());
     }
+
+    public void testMoreThanOneJobWithTheSameTitle(){
+
+
+    }
+
+
+    public void testMoreThanOneJobseekerWithTheSameTitle(){
+
+
+    }
+
+
+    public void testMoreThanOneEmployerWithTheSameTitle(){
+
+
+    }
+
+
 
 
 }

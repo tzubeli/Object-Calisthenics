@@ -92,9 +92,9 @@ public class PrinterTest {
 
         avital.apply(design, new RealResume(avital, new Name("avital's resume")), applicationManager);
 
-        ApplicationsList newList = theladders.getAllApplications();
+        theladders.getAllApplications(new HTMLAppPrinter());
 
-        newList.printAppList(new HTMLAppPrinter());
+
 
 
     }

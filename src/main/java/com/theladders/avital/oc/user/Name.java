@@ -1,5 +1,6 @@
 package com.theladders.avital.oc.user;
 
+import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.ConsoleCountPrinter;
 import com.theladders.avital.oc.print.ListPrinter;
@@ -28,7 +29,7 @@ public class Name {
         printer.print(name);
     }
 
-    public void print(ConsoleCountPrinter printer){
+    public void print(AggregateCountPrinter printer){
 
         printer.print(name);
 

@@ -1,6 +1,7 @@
 package com.theladders.avital.oc.jobLists;
 
 import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.print.ListPrinter;
 
 /**
  * Created by atzubeli on 6/26/14.
@@ -18,9 +19,9 @@ public class JobseekerJobList {
 
     }
 
-    public JobList getSavedJobs(){
+    public void getSavedJobs(ListPrinter printer){
 
-        return saved;
+        saved.printJobs(printer);
 
     }
 
@@ -30,9 +31,9 @@ public class JobseekerJobList {
 
     }
 
-    public JobList getAppliedJobs(){
+    public void getAppliedJobs(ListPrinter printer){
 
-        return applied;
+        applied.printJobs(printer);
 
     }
 }

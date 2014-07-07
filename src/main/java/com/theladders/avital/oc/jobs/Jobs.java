@@ -5,11 +5,16 @@ import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobApplications.JobApplications;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.print.AggregateCount;
+import com.theladders.avital.oc.print.AggregateCountPrinter;
+import com.theladders.avital.oc.print.ApplicationsPrinter;
+import com.theladders.avital.oc.print.ListPrinter;
 import com.theladders.avital.oc.user.Employer;
+import javafx.application.Application;
 import org.joda.time.LocalDate;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -52,15 +57,15 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
         }
     }
 
-    public JobList getAllJobsByEmployer(Employer employer){
+    public void getAllJobsByEmployer(Employer employer, ListPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
-        return applications.getAllJobsByEmployer();
+        applications.getAllJobsByEmployer(printer);
 
     }
 
-    public ApplicationsList getAllApplications(){
+    public void getAllApplications(ApplicationsPrinter printer){
 
         ApplicationsList resultList = new ApplicationsList();
 
@@ -73,11 +78,11 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
             resultList = resultList.combinedWith(list);
 
             }
-        return resultList;
+        resultList.printAppList(printer);
 
     }
 
-    public ApplicationsList getByDate(LocalDate date){
+    public void getByDate(LocalDate date, ApplicationsPrinter printer){
 
         ApplicationsList resultList = new ApplicationsList();
 
@@ -85,52 +90,65 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
             JobApplications applications = postedJobs.get(employer);
 
-            ApplicationsList list = applications.getByDate(date);
+            ApplicationsList list = applications.getByDate(date, printer);
 
             resultList = resultList.combinedWith(list);
 
         }
-        return resultList;
+        resultList.printAppList(printer);
 
 
     }
 
 
-    public ApplicationsList getAllApplicationsByEmployer(Employer employer){
+    public void getAllApplicationsByEmployer(Employer employer, ApplicationsPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
-        return applications.getAllApplications();
+        ApplicationsList list = applications.getAllApplications();
+
+        list.printAppList(printer);
 
     }
 
-    public ApplicationsList getByJob(Employer employer, Job job){
+    public void getByJob(Employer employer, Job job, ApplicationsPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
-        return applications.getByJob(job);
+        applications.getByJob(job, printer);
 
     }
 
-    public ApplicationsList getByJobAndDate(Employer employer, Job job, LocalDate date){
+    public void getByJobAndDate(Employer employer, Job job, LocalDate date,  ApplicationsPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
-        return applications.getByJobAndDate(job, date);
+        applications.getByJobAndDate(job, date, printer);
 
     }
 
-    public ApplicationsList getByDateAndEmployer(Employer employer, LocalDate date){
+    public void getByDateAndEmployer(Employer employer, LocalDate date, ApplicationsPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
-        return applications.getByDate(date);
+        applications.getByDate(date, printer);
 
     }
 
     public int numberOfApplications(){
 
-        return getAllApplications().size();
+        ApplicationsList resultList = new ApplicationsList();
+
+        for (Employer employer : postedJobs.keySet()){
+
+            JobApplications applications = postedJobs.get(employer);
+
+            ApplicationsList list = applications.getAllApplications();
+
+            resultList = resultList.combinedWith(list);
+
+        }
+        return resultList.size();
     }
 
     public int numberOfJobs(){
@@ -149,7 +167,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
 
 
-    public AggregateCount getApplicationCountByEmployerAndJob(){
+    public void getApplicationCountByEmployerAndJob(AggregateCountPrinter printer){
 
         AggregateCount resultList = new AggregateCount();
 
@@ -163,7 +181,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
         }
 
-         return resultList;
+         resultList.printCount(printer);
 
     }
 

@@ -1,5 +1,6 @@
 package com.theladders.avital.oc.jobs;
 
+import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.ConsoleCountPrinter;
 import com.theladders.avital.oc.print.ListPrinter;
@@ -38,7 +39,7 @@ public class JReqJob implements Job{
 
     }
 
-    public void print(ConsoleCountPrinter printer){
+    public void print(AggregateCountPrinter printer){
 
         employer.print(printer);
 

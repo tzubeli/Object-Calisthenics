@@ -1,7 +1,7 @@
 package com.theladders.avital.oc.jobs;
 
+import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.print.ConsoleCountPrinter;
 import com.theladders.avital.oc.print.ListPrinter;
 
 /**
@@ -11,7 +11,7 @@ public interface Job {
 
      void print(ApplicationsPrinter printer);
 
-     void print(ConsoleCountPrinter printer);
+     void print(AggregateCountPrinter printer);
 
      void print(ListPrinter printer);
 }

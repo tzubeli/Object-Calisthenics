@@ -2,6 +2,7 @@ package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JReqJob;
+import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobLists.JobList;
@@ -40,29 +41,29 @@ public class Employer {
 
     }
 
-    public JobList getPostedJobs(){
+    public void getPostedJobs(ListPrinter printer){
 
-        return jobManager.getPostedJobs(this);
-
-    }
-    public ApplicationsList getAllApplications(){
-
-        return jobManager.getApplicationsByEmployer(this);
-    }
-
-    public ApplicationsList getApplicationsByDate(LocalDate date){
-
-        return jobManager.getApplicationsByDate(this, date);
+        jobManager.getPostedJobs(this, printer);
 
     }
-    public ApplicationsList getApplicationsByJobAndDate(Job job, LocalDate date){
+    public void getAllApplications(ApplicationsPrinter printer){
 
-        return jobManager.getApplicationsByJobAndDate(this,job, date);
+        jobManager.getApplicationsByEmployer(this, printer);
     }
 
-    public ApplicationsList getApplicationsByJob(Job job){
+    public void getApplicationsByDate(LocalDate date, ApplicationsPrinter printer){
 
-        return jobManager.getApplicationsByJob(this, job);
+        jobManager.getApplicationsByDate(this, date, printer);
+
+    }
+    public void getApplicationsByJobAndDate(Job job, LocalDate date, ApplicationsPrinter printer){
+
+        jobManager.getApplicationsByJobAndDate(this,job, date, printer);
+    }
+
+    public void getApplicationsByJob(Job job, ApplicationsPrinter printer){
+
+        jobManager.getApplicationsByJob(this, job, printer);
     }
 
 
@@ -72,7 +73,7 @@ public class Employer {
     }
 
 
-    public void print(ConsoleCountPrinter printer){
+    public void print(AggregateCountPrinter printer){
 
         name.print(printer);
     }

@@ -1,12 +1,14 @@
 package com.theladders.avital.oc.print;
 
+import com.theladders.avital.oc.jobs.Job;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by atzubeli on 7/1/14.
  */
-public class ConsoleCountPrinter {
+public class ConsoleCountPrinter implements AggregateCountPrinter{
 
     private List<String> list = new ArrayList<>();
 

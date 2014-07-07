@@ -4,9 +4,9 @@ import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
-import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobLists.JobseekerJobList;
 import com.theladders.avital.oc.jobs.Job;
+import com.theladders.avital.oc.print.ListPrinter;
 import com.theladders.avital.oc.resumes.*;
 import com.theladders.avital.oc.exception.*;
 
@@ -66,15 +66,15 @@ public class Jobseeker {
 
     }
 
-    public JobList viewSavedJobs(){
+    public void viewSavedJobs(ListPrinter printer){
 
-        return jobList.getSavedJobs();
+        jobList.getSavedJobs(printer);
 
     }
 
-    public JobList viewAppliedJobs(){
+    public void viewAppliedJobs(ListPrinter printer){
 
-        return jobList.getAppliedJobs();
+        jobList.getAppliedJobs(printer);
 
     }
 
@@ -83,7 +83,6 @@ public class Jobseeker {
         RealResume resume = new RealResume(this, name);
 
         resumes.add(this, resume);
-
 
     }
 

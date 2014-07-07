@@ -1,8 +1,6 @@
 package com.theladders.avital.oc.jobs;
 
-import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.print.ConsoleCountPrinter;
-import com.theladders.avital.oc.print.ListPrinter;
+import com.theladders.avital.oc.print.*;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Name;
 
@@ -38,7 +36,7 @@ public class ATSJob implements Job{
 
     }
 
-    public void print(ConsoleCountPrinter printer){
+    public void print(AggregateCountPrinter printer){
 
         employer.print(printer);
 

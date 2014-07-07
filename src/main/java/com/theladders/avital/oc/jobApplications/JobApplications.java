@@ -2,7 +2,8 @@ package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
-import com.theladders.avital.oc.print.AggregateCount;
+import com.theladders.avital.oc.print.*;
+import javafx.application.Application;
 import org.joda.time.LocalDate;
 
 import java.util.*;
@@ -35,30 +36,34 @@ public class JobApplications{
 
     }
 
-    public JobList getAllJobsByEmployer(){
+    public void getAllJobsByEmployer(ListPrinter printer){
 
         Set<Job> jobSet = applications.keySet();
 
         List<Job> jobList = new ArrayList<>(jobSet);
 
-        return new JobList(jobList);
+        JobList newList =  new JobList(jobList);
+
+        newList.printJobs(printer);
 
     }
 
-    public ApplicationsList getByJob(Job job){
+    public void getByJob(Job job, ApplicationsPrinter printer){
 
-        return applications.get(job);
+        ApplicationsList list =  applications.get(job);
+
+        list.printAppList(printer);
     }
 
-    public ApplicationsList getByJobAndDate(Job job, LocalDate date){
+    public void getByJobAndDate(Job job, LocalDate date, ApplicationsPrinter printer){
 
         ApplicationsList list = applications.get(job);
 
-        return list.filteredByDate(date);
+        list.filteredByDate(date).printAppList(printer);
 
     }
 
-    public ApplicationsList getByDate(LocalDate date){
+    public ApplicationsList getByDate(LocalDate date, ApplicationsPrinter printer){
 
         ApplicationsList resultList = new ApplicationsList();
 
@@ -72,7 +77,7 @@ public class JobApplications{
         return resultList;
     }
 
-    public ApplicationsList getAllApplications(){
+    public ApplicationsList getAllApplications(){ //return list!
 
         ApplicationsList resultList = new ApplicationsList();
 

@@ -1,9 +1,9 @@
 package com.theladders.avital.oc.print;
 
 /**
- * Created by atzubeli on 6/25/14.
+ * Created by atzubeli on 7/2/14.
  */
-public interface ApplicationsPrinter {
+public interface AggregateCountPrinter {
 
     void createHeader();
 
@@ -13,8 +13,5 @@ public interface ApplicationsPrinter {
 
     void clear();
 
-    void close();
 
-
-    }
-
+}
