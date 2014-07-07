@@ -90,7 +90,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
             JobApplications applications = postedJobs.get(employer);
 
-            ApplicationsList list = applications.getByDate(date, printer);
+            ApplicationsList list = applications.getByDate(date);
 
             resultList = resultList.combinedWith(list);
 
@@ -131,7 +131,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
         JobApplications applications = postedJobs.get(employer);
 
-        applications.getByDate(date, printer);
+        applications.getByDate(date).printAppList(printer);
 
     }
 

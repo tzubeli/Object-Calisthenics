@@ -67,7 +67,7 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getByDate(new LocalDate(2014, 07, 02), new ConsoleAppPrinter());
+        theLadders.getByDate(new LocalDate(2014, 07, 07), new ConsoleAppPrinter());
 
     }
 

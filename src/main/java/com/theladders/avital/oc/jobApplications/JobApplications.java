@@ -63,7 +63,7 @@ public class JobApplications{
 
     }
 
-    public ApplicationsList getByDate(LocalDate date, ApplicationsPrinter printer){
+    public ApplicationsList getByDate(LocalDate date){
 
         ApplicationsList resultList = new ApplicationsList();
 

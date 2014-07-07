@@ -3,11 +3,10 @@ package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobs.*;
-import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.print.CSVAppPrinter;
-import com.theladders.avital.oc.print.ConsoleAppPrinter;
-import com.theladders.avital.oc.print.ConsoleListPrinter;
+import com.theladders.avital.oc.print.*;
 import com.theladders.avital.oc.resumes.RealResume;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.joda.time.LocalDate;
 import org.junit.After;
@@ -22,14 +21,13 @@ public class EmployerTest{
 
     private Jobs jobs;
     private ApplicationManager applicationManager;
-    private ATSJob software;
-    private JReqJob design;
     private Jobseeker avital, jay;
     private JobManager jobManager;
     private Employer theladders, abc;
     private ApplicationsPrinter printer;
 
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
 
 
     @Before
@@ -59,6 +57,20 @@ public class EmployerTest{
         System.setOut(new PrintStream(outContent));
     }
 
+
+    @Test
+    public void testEmployerCanViewPostedJobs(){
+
+        theladders.postATSJob(new Name("software"));
+
+        theladders.postJREQJob(new Name("design"));
+
+        theladders.getPostedJobs(new TestingListPrinter());
+
+        assertEquals("theladders software theladders design ", outContent.toString());
+
+    }
+
     @Test
     public void testEmployerCanPostJobs(){
 
@@ -70,72 +82,62 @@ public class EmployerTest{
     }
 
     @Test
-    public void testEmployerCanViewPostedJobs(){
-
-        theladders.postATSJob(new Name("software"));
-
-        theladders.postJREQJob(new Name("design"));
-
-        theladders.getPostedJobs(new ConsoleListPrinter());
-
-    }
-
-    @Test
     public void testEmployersCanSeeApplicationsByJob(){ //CSV
 
-        software = theladders.postATSJob(new Name("software"));
+        ATSJob software = theladders.postATSJob(new Name("software"));
 
-        design = theladders.postJREQJob(new Name("design"));
+        JReqJob design = theladders.postJREQJob(new Name("design"));
 
         avital.apply(software, applicationManager);
 
-        jay.apply(software, applicationManager);
-
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByJob(software,new CSVAppPrinter());
+        theladders.getApplicationsByJob(software, new TestingApplicationPrinter());
 
+        assertEquals("2014-07-07 avital software theladders ", outContent.toString());
 
     }
 
     @Test
     public void testEmployersCanSeeApplicationsByDate(){
 
-        software = theladders.postATSJob(new Name("software"));
+        ATSJob software = theladders.postATSJob(new Name("software"));
 
-        design = theladders.postJREQJob(new Name("design"));
+        JReqJob design = theladders.postJREQJob(new Name("design"));
 
         avital.apply(software, applicationManager);
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByDate(new LocalDate(2014, 07, 02), printer);
+        theladders.getApplicationsByDate(new LocalDate(2014, 07, 07), new TestingApplicationPrinter());
 
-
+        assertEquals("2014-07-07 jay design theladders 2014-07-07 avital software theladders ", outContent.toString());
 
     }
 
     @Test
     public void testEmployersCanSeeApplicationsByJobAndDate(){
 
-        software = theladders.postATSJob(new Name("software"));
+        ATSJob software = theladders.postATSJob(new Name("software"));
 
-        design = theladders.postJREQJob(new Name("design"));
+        JReqJob design = theladders.postJREQJob(new Name("design"));
 
         avital.apply(software, applicationManager);
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByJobAndDate(software, new LocalDate(2014, 07, 02), printer);
+        theladders.getApplicationsByJobAndDate(software, new LocalDate(2014, 07, 07), new TestingApplicationPrinter());
+
+        assertEquals("2014-07-07 avital software theladders ", outContent.toString());
 
     }
 
     @Test
-    public void testEmployersCanSeeAllTheirApplications(){ //TODO
+    public void testEmployersCanSeeAllTheirApplications(){
 
-        software = theladders.postATSJob(new Name("software"));
+        ATSJob software = theladders.postATSJob(new Name("software"));
 
-        design = abc.postJREQJob(new Name("design"));
+        JReqJob design = abc.postJREQJob(new Name("design"));
 
         avital.apply(software, applicationManager);
 
@@ -143,13 +145,16 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getAllApplications(printer);
+        theladders.getAllApplications(new TestingApplicationPrinter());
 
-    }
+        assertEquals("2014-07-07 avital software theladders 2014-07-07 jay software theladders ", outContent.toString());
+
+        }
 
     @After
     public void cleanUp(){
-        System.setOut(null);
+
+       System.setOut(null);
     }
 
 }

@@ -5,13 +5,15 @@ import javafx.application.Application;
 /**
  * Created by atzubeli on 7/7/14.
  */
-public class TestApplicationPrinter implements ApplicationsPrinter{
+public class TestingApplicationPrinter implements ApplicationsPrinter{
 
     public void createHeader() {
 
     }
 
     public void print(String string) {
+
+        System.out.print(string+" ");
 
     }
 
