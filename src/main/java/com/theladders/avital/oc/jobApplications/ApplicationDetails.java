@@ -4,16 +4,18 @@ import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.user.JobseekerInfo;
 import org.joda.time.LocalDate;
 
+import java.util.Calendar;
+
 /**
  * Created by atzubeli on 6/13/14.
  */
-public class ApplicationDetails {
+public class ApplicationDetails implements Comparable<ApplicationDetails>{
 
     private JobseekerInfo jobseekerInfo;
 
-    private LocalDate date;
+    private Calendar date;
 
-    public ApplicationDetails(JobseekerInfo jobseekerDetails, LocalDate date){
+    public ApplicationDetails(JobseekerInfo jobseekerDetails, Calendar date){
 
         this.jobseekerInfo = jobseekerDetails;
 
@@ -21,10 +23,12 @@ public class ApplicationDetails {
     }
 
 
-    public boolean hasDateOf(LocalDate date){
+    public boolean hasDateOf(Calendar newDate){
+//        date
+//
+//        return (date.get(Calendar.DATE).equals(newDate.get(Calendar.DATE)));
 
-        return (this.date.equals(date));
-
+        return false; 
     }
 
     public void print(ApplicationsPrinter printer){
@@ -33,8 +37,10 @@ public class ApplicationDetails {
 
         jobseekerInfo.print(printer);
 
+    }
 
+    public int compareTo(ApplicationDetails details) {
 
-
+       return date.compareTo(details.date);
     }
 }

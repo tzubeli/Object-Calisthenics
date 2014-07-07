@@ -38,9 +38,7 @@ public class JobApplications{
 
     public void getAllJobsByEmployer(ListPrinter printer){
 
-        Set<Job> jobSet = applications.keySet();
-
-        List<Job> jobList = new ArrayList<>(jobSet);
+        List<Job> jobList = new ArrayList<>(applications.keySet());
 
         JobList newList =  new JobList(jobList);
 
@@ -67,21 +65,22 @@ public class JobApplications{
 
         ApplicationsList resultList = new ApplicationsList();
 
-        for (Job job : applications.keySet())
+        for (Job job : new ArrayList<>(applications.keySet()))
         {
             ApplicationsList list = applications.get(job);
 
             resultList = resultList.combinedWith(list.filteredByDate(date));
         }
 
-        return resultList;
+
+        return resultList.sortList();
     }
 
     public ApplicationsList getAllApplications(){ //return list!
 
         ApplicationsList resultList = new ApplicationsList();
 
-        for (Job job : applications.keySet())
+        for (Job job : new ArrayList<>(applications.keySet()))
         {
             ApplicationsList list = applications.get(job);
 

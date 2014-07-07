@@ -13,9 +13,7 @@ import javafx.application.Application;
 import org.joda.time.LocalDate;
 
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by atzubeli on 6/26/14.
@@ -131,7 +129,11 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
         JobApplications applications = postedJobs.get(employer);
 
-        applications.getByDate(date).printAppList(printer);
+        ApplicationsList newList = applications.getByDate(date);
+
+        newList = newList.sortList();
+
+        newList.printAppList(printer);
 
     }
 

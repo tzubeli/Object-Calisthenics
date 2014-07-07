@@ -10,6 +10,7 @@ import com.theladders.avital.oc.print.ConsoleListPrinter;
 import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.resumes.Resume;
 import com.theladders.avital.oc.resumes.Resumes;
+import org.joda.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 /**
@@ -69,6 +70,8 @@ public class JobseekerTest {
     public void applyToATSJobWithoutResume(){
 
         jay.apply(software, manager);
+
+
 
     }
     @Test

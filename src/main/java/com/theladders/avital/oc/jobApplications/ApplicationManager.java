@@ -5,6 +5,8 @@ import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.user.JobseekerInfo;
 import org.joda.time.LocalDate;
 
+import java.util.Calendar;
+
 
 /**
  * Created by atzubeli on 5/28/14.
@@ -20,7 +22,7 @@ public class ApplicationManager {
 
     public void apply(Job job, JobseekerInfo jobseekerInfo){
 
-        LocalDate date = new LocalDate();
+        Calendar date = Calendar.getInstance();
 
         ApplicationDetails details = new ApplicationDetails(jobseekerInfo, date);
 

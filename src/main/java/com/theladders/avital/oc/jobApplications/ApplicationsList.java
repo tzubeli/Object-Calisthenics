@@ -3,6 +3,7 @@ package com.theladders.avital.oc.jobApplications;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import org.joda.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -62,6 +63,12 @@ public class ApplicationsList {
 
         printer.close();
 
+    }
+
+    public ApplicationsList sortList(){
+
+        Collections.sort(applications);
+        return this;
     }
 
     public int size() {

@@ -14,6 +14,8 @@ import com.theladders.avital.oc.user.Name;
 import org.joda.time.LocalDate;
 import org.junit.Test;
 
+import java.util.Calendar;
+
 /**
  * Created by atzubeli on 6/27/14.
  */
@@ -36,7 +38,7 @@ public class PrinterTest {
 
         JobseekerInfo info = new JobseekerInfo(avital, new NoResume(avital));
 
-        ApplicationDetails details = new ApplicationDetails(info, new LocalDate());
+        ApplicationDetails details = new ApplicationDetails(info, Calendar.getInstance());
 
         JobApplication application = new JobApplication(software, details);
 
@@ -58,7 +60,7 @@ public class PrinterTest {
 
         JobseekerInfo info = new JobseekerInfo(avital, new NoResume(avital));
 
-        ApplicationDetails details = new ApplicationDetails(info, new LocalDate());
+        ApplicationDetails details = new ApplicationDetails(info, Calendar.getInstance());
 
         JobApplication application = new JobApplication(software, details);
 

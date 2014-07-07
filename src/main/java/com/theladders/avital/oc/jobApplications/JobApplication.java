@@ -8,7 +8,7 @@ import org.joda.time.LocalDate;
 /**
  * Created by atzubeli on 5/21/14.
  */
-public class JobApplication {
+public class JobApplication implements Comparable<JobApplication> {
 
     private Job job;
 
@@ -34,8 +34,11 @@ public class JobApplication {
 
         job.print(printer);
 
-
-
     }
 
+    public int compareTo(JobApplication other) {
+
+        return applicationDetails.compareTo(other.applicationDetails);
+
+    }
 }
