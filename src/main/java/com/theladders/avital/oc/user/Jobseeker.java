@@ -68,13 +68,13 @@ public class Jobseeker {
 
     public void viewSavedJobs(ListPrinter printer){
 
-        jobList.getSavedJobs(printer);
+        jobList.printSavedJobs(printer);
 
     }
 
     public void viewAppliedJobs(ListPrinter printer){
 
-        jobList.getAppliedJobs(printer);
+        jobList.printAppliedJobs(printer);
 
     }
 
