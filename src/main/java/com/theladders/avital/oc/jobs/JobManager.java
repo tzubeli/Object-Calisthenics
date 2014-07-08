@@ -1,9 +1,6 @@
 package com.theladders.avital.oc.jobs;
 
-import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
-import com.theladders.avital.oc.jobLists.JobList;
-import com.theladders.avital.oc.print.AggregateCount;
 import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.ListPrinter;

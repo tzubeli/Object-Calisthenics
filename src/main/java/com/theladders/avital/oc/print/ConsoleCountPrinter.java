@@ -1,7 +1,5 @@
 package com.theladders.avital.oc.print;
 
-import com.theladders.avital.oc.jobs.Job;
-
 import java.util.ArrayList;
 import java.util.List;
 

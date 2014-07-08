@@ -2,7 +2,6 @@ package com.theladders.avital.oc.print;
 
 import com.theladders.avital.oc.jobApplications.ApplicationDetails;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
-import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
 import com.theladders.avital.oc.jobs.*;
 import com.theladders.avital.oc.resumes.NoResume;
@@ -13,8 +12,6 @@ import com.theladders.avital.oc.user.JobseekerInfo;
 import com.theladders.avital.oc.user.Name;
 import org.joda.time.DateTime;
 import org.junit.Test;
-
-import java.util.Calendar;
 
 /**
  * Created by atzubeli on 6/27/14.
