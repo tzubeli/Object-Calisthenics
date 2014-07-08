@@ -17,7 +17,7 @@ public class ApplicationManager {
         this.jobManager = jobManager;
     }
 
-    public void apply(Job job, JobseekerInfo jobseekerInfo){
+    public void apply(Job job, JobseekerInfo jobseekerInfo, Success success){
 
         DateTime date = new DateTime();
 
@@ -28,5 +28,14 @@ public class ApplicationManager {
         jobManager.addApplication(job, application);
 
     }
+
+    public void apply(Job job, JobseekerInfo jobseekerInfo, Failure failure) {
+
+        jobManager.addFailure(job);
+
+
+    }
+
+
 
 }

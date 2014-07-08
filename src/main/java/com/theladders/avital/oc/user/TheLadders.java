@@ -3,6 +3,7 @@ package com.theladders.avital.oc.user;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
+import com.theladders.avital.oc.print.ListPrinter;
 import org.joda.time.DateTime;
 
 /**
@@ -42,6 +43,11 @@ public class TheLadders {
     public void getApplicationSuccess(){
 
         //TODO
+    }
+
+    public void getFailedApplications(ListPrinter printer){
+
+        jobManager.getFailedApplications(printer);
     }
 
 }

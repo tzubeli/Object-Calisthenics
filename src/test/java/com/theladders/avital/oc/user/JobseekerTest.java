@@ -69,8 +69,6 @@ public class JobseekerTest {
 
         avital.apply(software, jayResume, manager);
 
-
-
     }
     @Test
     public void testApplyToATSJobWithoutResume(){

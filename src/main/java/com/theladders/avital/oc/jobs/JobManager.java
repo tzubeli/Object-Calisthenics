@@ -1,6 +1,11 @@
 package com.theladders.avital.oc.jobs;
 
+import com.theladders.avital.oc.jobApplications.ApplicationResult;
+import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobApplications.JobApplication;
+import com.theladders.avital.oc.jobApplications.ResultList;
+import com.theladders.avital.oc.jobLists.JobList;
+import com.theladders.avital.oc.print.AggregateCount;
 import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.ListPrinter;
@@ -14,11 +19,13 @@ import org.joda.time.DateTime;
 public class JobManager {
 
     private Jobs jobs;
+    private ResultList resultList;
 
 
-    public JobManager(Jobs jobsToApplications){
+    public JobManager(Jobs jobs){
 
-        this.jobs = jobsToApplications;
+        this.jobs = jobs;
+        resultList = new ResultList();
 
     }
 
@@ -49,7 +56,20 @@ public class JobManager {
 
     public void addApplication(Job job, JobApplication application){
 
+        resultList.addSuccess(job);
         jobs.addApplication(job, application);
+
+    }
+
+    public void addFailure(Job job){
+
+        resultList.addFailure(job);
+
+    }
+
+    public void getFailedApplications(ListPrinter printer){
+
+        resultList.getFailureList(printer);
 
     }
 
