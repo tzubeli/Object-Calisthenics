@@ -22,9 +22,9 @@ public class NoResume implements Resume {
         return name.toString();
     }
 
-    public boolean isOwnedBy(Jobseeker thatJobseeker) {
+    public boolean isNotOwnedBy(Jobseeker thatJobseeker) {
 
-        return thatJobseeker.equals(jobseeker);
+        return !thatJobseeker.equals(jobseeker);
     }
 
 

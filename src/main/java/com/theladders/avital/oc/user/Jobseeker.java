@@ -30,7 +30,7 @@ public class Jobseeker {
 
     public void apply(ATSJob job, Resume resume, ApplicationManager manager) {
 
-        if (!resume.isOwnedBy(this)) throw new InvalidResumeException();
+        if (resume.isNotOwnedBy(this)) throw new InvalidResumeException();
 
         jobList.saveAppliedJob(job);
 
@@ -50,7 +50,7 @@ public class Jobseeker {
 
     public void apply(JReqJob job, Resume resume, ApplicationManager manager){
 
-        if (!resume.isOwnedBy(this)) throw new InvalidResumeException();
+        if (resume.isNotOwnedBy(this)) throw new InvalidResumeException();
 
         jobList.saveAppliedJob(job);
 
