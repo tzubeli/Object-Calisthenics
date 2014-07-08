@@ -49,8 +49,8 @@ public class Jobseeker {
         jobList.saveAppliedJob(job);
 
         manager.apply(job, info, status);
-        manager.apply(job, info, status);
-    }
+
+            }
 
     public void apply(ATSJob job, ApplicationManager manager){
 
