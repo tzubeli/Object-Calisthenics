@@ -5,7 +5,7 @@ import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 
 /**
  * Created by atzubeli on 6/20/14.
@@ -25,7 +25,7 @@ public class TheLadders {
         jobManager.getAllApplications(printer);
     }
 
-    public void getByDate(LocalDate date, ApplicationsPrinter printer){
+    public void getByDate(DateTime date, ApplicationsPrinter printer){
 
         jobManager.getByDate(date, printer);
     }

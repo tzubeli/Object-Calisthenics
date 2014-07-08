@@ -3,7 +3,7 @@ package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.jobs.Job;
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 
 /**
  * Created by atzubeli on 5/21/14.
@@ -22,7 +22,7 @@ public class JobApplication implements Comparable<JobApplication> {
         this.applicationDetails = applicationDetails;
     }
 
-    public boolean hasDateOf(LocalDate date){
+    public boolean hasDateOf(DateTime date){
 
         return (applicationDetails.hasDateOf(date));
 

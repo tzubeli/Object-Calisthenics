@@ -1,7 +1,7 @@
 package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.print.ApplicationsPrinter;
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,7 +29,7 @@ public class ApplicationsList {
 
     }
 
-    public ApplicationsList filteredByDate(LocalDate date) {
+    public ApplicationsList filteredByDate(DateTime date) {
 
         List<JobApplication> filteredApplications = new ArrayList<>();
 

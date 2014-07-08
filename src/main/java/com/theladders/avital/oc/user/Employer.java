@@ -4,13 +4,11 @@ import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.jobApplications.ApplicationsList;
-import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.print.ConsoleCountPrinter;
 import com.theladders.avital.oc.print.ListPrinter;
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 
 /**
  * Created by atzubeli on 5/21/14.
@@ -51,12 +49,12 @@ public class Employer {
         jobManager.getApplicationsByEmployer(this, printer);
     }
 
-    public void getApplicationsByDate(LocalDate date, ApplicationsPrinter printer){
+    public void getApplicationsByDate(DateTime date, ApplicationsPrinter printer){
 
         jobManager.getApplicationsByDate(this, date, printer);
 
     }
-    public void getApplicationsByJobAndDate(Job job, LocalDate date, ApplicationsPrinter printer){
+    public void getApplicationsByJobAndDate(Job job, DateTime date, ApplicationsPrinter printer){
 
         jobManager.getApplicationsByJobAndDate(this,job, date, printer);
     }

@@ -9,7 +9,7 @@ import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.ListPrinter;
 import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Name;
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 
 /**
  * Created by atzubeli on 6/16/14.
@@ -66,7 +66,7 @@ public class JobManager {
         jobs.getAllApplications(printer);
     }
 
-    public void getByDate(LocalDate date, ApplicationsPrinter printer){
+    public void getByDate(DateTime date, ApplicationsPrinter printer){
 
         jobs.getByDate(date, printer);
     }
@@ -83,13 +83,13 @@ public class JobManager {
 
     }
 
-    public void getApplicationsByJobAndDate(Employer employer, Job job, LocalDate date, ApplicationsPrinter printer){
+    public void getApplicationsByJobAndDate(Employer employer, Job job, DateTime date, ApplicationsPrinter printer){
 
         jobs.getByJobAndDate(employer, job, date, printer);
 
     }
 
-    public void getApplicationsByDate(Employer employer, LocalDate date, ApplicationsPrinter printer){
+    public void getApplicationsByDate(Employer employer, DateTime date, ApplicationsPrinter printer){
 
         jobs.getByDateAndEmployer(employer, date, printer);
 

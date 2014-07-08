@@ -4,6 +4,7 @@ import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.print.ListPrinter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -39,8 +40,16 @@ public class JobList {
             printer.clear();
 
         }
+
     }
 
+    public JobList sortList(){
+
+        Collections.sort(jobs);
+
+        return new JobList(jobs);
+
+    }
 
 
 

@@ -4,7 +4,7 @@ import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.print.*;
 import javafx.application.Application;
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 
 import java.util.*;
 
@@ -42,6 +42,8 @@ public class JobApplications{
 
         JobList newList =  new JobList(jobList);
 
+        newList = newList.sortList();
+
         newList.printJobs(printer);
 
     }
@@ -53,15 +55,19 @@ public class JobApplications{
         list.printAppList(printer);
     }
 
-    public void getByJobAndDate(Job job, LocalDate date, ApplicationsPrinter printer){
+    public void getByJobAndDate(Job job, DateTime date, ApplicationsPrinter printer){
 
         ApplicationsList list = applications.get(job);
 
-        list.filteredByDate(date).printAppList(printer);
+        list = list.filteredByDate(date);
+
+        list = list.sortList();
+
+        list.printAppList(printer);
 
     }
 
-    public ApplicationsList getByDate(LocalDate date){
+    public ApplicationsList getByDate(DateTime date){
 
         ApplicationsList resultList = new ApplicationsList();
 
@@ -86,7 +92,7 @@ public class JobApplications{
 
             resultList = resultList.combinedWith(list);
         }
-        return resultList;
+        return resultList.sortList();
 
     }
 

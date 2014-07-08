@@ -8,7 +8,7 @@ import com.theladders.avital.oc.resumes.RealResume;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,10 +24,8 @@ public class EmployerTest{
     private Jobseeker avital, jay;
     private JobManager jobManager;
     private Employer theladders, abc;
-    private ApplicationsPrinter printer;
 
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-
 
 
     @Before
@@ -47,8 +45,6 @@ public class EmployerTest{
 
         jay = new Jobseeker(new Name("jay"));
 
-        printer = new ConsoleAppPrinter();
-
     }
 
     @Before
@@ -57,17 +53,14 @@ public class EmployerTest{
         System.setOut(new PrintStream(outContent));
     }
 
-
     @Test
     public void testEmployerCanViewPostedJobs(){
 
         theladders.postATSJob(new Name("software"));
 
-        theladders.postJREQJob(new Name("design"));
-
         theladders.getPostedJobs(new TestingListPrinter());
 
-        assertEquals("theladders software theladders design ", outContent.toString());
+        assertEquals("theladders software ", outContent.toString());
 
     }
 
@@ -82,6 +75,19 @@ public class EmployerTest{
     }
 
     @Test
+    public void testPostMoreThanOneJobWithTheSameTitle(){
+
+        theladders.postATSJob(new Name("software"));
+
+        theladders.postJREQJob(new Name("software"));
+
+        theladders.getPostedJobs(new TestingListPrinter());
+
+        assertEquals("theladders software theladders software ", outContent.toString());
+
+    }
+
+    @Test
     public void testEmployersCanSeeApplicationsByJob(){ //CSV
 
         ATSJob software = theladders.postATSJob(new Name("software"));
@@ -90,11 +96,13 @@ public class EmployerTest{
 
         avital.apply(software, applicationManager);
 
+        jay.apply(software, applicationManager);
+
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
         theladders.getApplicationsByJob(software, new TestingApplicationPrinter());
 
-        assertEquals("2014-07-07 avital software theladders ", outContent.toString());
+        assertEquals("2014-07-08 avital software theladders 2014-07-08 jay software theladders ", outContent.toString());
 
     }
 
@@ -107,11 +115,15 @@ public class EmployerTest{
 
         avital.apply(software, applicationManager);
 
+        try {  Thread.sleep(100);
+
+        }catch(Exception e) {     }
+
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByDate(new LocalDate(2014, 07, 07), new TestingApplicationPrinter());
+        theladders.getApplicationsByDate(new DateTime(), new TestingApplicationPrinter());
 
-        assertEquals("2014-07-07 jay design theladders 2014-07-07 avital software theladders ", outContent.toString());
+        assertEquals("2014-07-08 avital software theladders 2014-07-08 jay design theladders ", outContent.toString());
 
     }
 
@@ -124,11 +136,17 @@ public class EmployerTest{
 
         avital.apply(software, applicationManager);
 
+        jay.apply(software, applicationManager);
+
+        try {  Thread.sleep(100);
+
+            }catch(Exception e) {     }
+
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByJobAndDate(software, new LocalDate(2014, 07, 07), new TestingApplicationPrinter());
+        theladders.getApplicationsByJobAndDate(software, new DateTime(), new TestingApplicationPrinter());
 
-        assertEquals("2014-07-07 avital software theladders ", outContent.toString());
+        assertEquals("2014-07-08 avital software theladders 2014-07-08 jay software theladders ", outContent.toString());
 
     }
 
@@ -147,7 +165,7 @@ public class EmployerTest{
 
         theladders.getAllApplications(new TestingApplicationPrinter());
 
-        assertEquals("2014-07-07 avital software theladders 2014-07-07 jay software theladders ", outContent.toString());
+        assertEquals("2014-07-08 avital software theladders 2014-07-08 jay software theladders ", outContent.toString());
 
         }
 

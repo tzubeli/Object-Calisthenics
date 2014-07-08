@@ -5,14 +5,16 @@ import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.Jobs;
-import com.theladders.avital.oc.print.ConsoleAppPrinter;
-import com.theladders.avital.oc.print.ConsoleCountPrinter;
-import com.theladders.avital.oc.print.HTMLAppPrinter;
+import com.theladders.avital.oc.print.*;
 import com.theladders.avital.oc.resumes.RealResume;
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -28,6 +30,7 @@ public class TheLaddersTest {
     private JobManager jobManager;
     private Employer employer, abcde;
     private TheLadders theLadders;
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
 
     @Before
@@ -50,6 +53,12 @@ public class TheLaddersTest {
         theLadders = new TheLadders(jobManager);
     }
 
+    @Before
+    public void setUpStream(){
+
+        System.setOut(new PrintStream(outContent));
+    }
+
     @Test
     public void testTheLaddersCanSeeApplicationsByDate(){
 
@@ -61,13 +70,15 @@ public class TheLaddersTest {
 
         avital.apply(software, applicationManager);
 
-        jay.apply(software, applicationManager);
+        try {  Thread.sleep(100);
 
-        jay.apply(intern, applicationManager);
+        }catch(Exception e) {     }
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getByDate(new LocalDate(2014, 07, 07), new ConsoleAppPrinter());
+        theLadders.getByDate(new DateTime(), new TestingApplicationPrinter());
+
+        assertEquals("2014-07-08 avital software employer 2014-07-08 jay design employer ", outContent.toString());
 
     }
 
@@ -90,7 +101,7 @@ public class TheLaddersTest {
 
         assertTrue(theLadders.getNumberOfApplications() == 4);
 
-        theLadders.getAllApplications(new HTMLAppPrinter());
+        theLadders.getAllApplications(new TestingApplicationPrinter());
 
     }
 
@@ -111,22 +122,59 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getApplicationCountByEmployerAndJob(new ConsoleCountPrinter());
-    }
+        theLadders.getApplicationCountByEmployerAndJob(new TestingCountPrinter());
 
-    public void testMoreThanOneJobWithTheSameTitle(){
-
-
+        assertEquals("employer design 1 abcde intern 1 employer software 2 ", outContent.toString());
     }
 
 
+    @Test
     public void testMoreThanOneJobseekerWithTheSameTitle(){
 
+        avital = new Jobseeker(new Name("avital"));
+
+        jay = new Jobseeker(new Name("avital"));
+
+        software = employer.postATSJob(new Name("software"));
+
+        design = employer.postJREQJob(new Name("design"));
+
+        avital.apply(software, applicationManager);
+
+        try {  Thread.sleep(100);
+
+        }catch(Exception e) {     }
+
+        jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
+
+        theLadders.getAllApplications(new TestingApplicationPrinter());
+
+        assertEquals("2014-07-08 avital software employer 2014-07-08 avital design employer ", outContent.toString());
 
     }
 
-
+    @Test
     public void testMoreThanOneEmployerWithTheSameTitle(){
+
+        Employer employer = new Employer(new Name("employer"), jobManager);
+
+        Employer employer2 = new Employer(new Name("employer"), jobManager);
+
+        software = employer.postATSJob(new Name("software"));
+
+        intern = employer2.postATSJob(new Name("intern"));
+
+        avital.apply(software, applicationManager);
+
+        try {  Thread.sleep(100);
+
+        }catch(Exception e) {     }
+
+        jay.apply(intern, applicationManager);
+
+        theLadders.getApplicationCountByEmployerAndJob(new TestingCountPrinter());
+
+        assertEquals("employer intern 1 employer software 1 ", outContent.toString());
 
 
     }

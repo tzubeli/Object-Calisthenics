@@ -7,12 +7,19 @@ import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.Jobs;
 import com.theladders.avital.oc.print.ConsoleListPrinter;
+import com.theladders.avital.oc.print.TestingListPrinter;
 import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.resumes.Resume;
 import com.theladders.avital.oc.resumes.Resumes;
-import org.joda.time.LocalDate;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 /**
  * Created by atzubeli on 7/1/14.
  */
@@ -25,6 +32,7 @@ public class JobseekerTest {
     private Resume avitalResume, jayResume;
     private ATSJob software, intern;
     private JReqJob design;
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
     public void initialize(){
@@ -51,19 +59,23 @@ public class JobseekerTest {
 
         intern = theladders.postATSJob(new Name("intern"));
 
+
+
     }
 
-    @Test
+    @Before
+    public void setUpStream(){
+
+        System.setOut(new PrintStream(outContent));
+    }
+
+
+    @Test (expected = InvalidResumeException.class)
     public void applyToATSJobWithWrongResume(){
 
-        try {
+        avital.apply(software, jayResume, manager);
 
-            avital.apply(software, jayResume, manager);
 
-        }catch (InvalidResumeException invalidResume){
-
-            System.out.println("invalid resume");
-        }
 
     }
     @Test
@@ -71,17 +83,19 @@ public class JobseekerTest {
 
         jay.apply(software, manager);
 
+       }
 
-
-    }
     @Test
     public void viewAppliedJobs(){
 
         avital.apply(design, avitalResume, manager);
-        avital.apply(software, manager);
         avital.apply(intern, manager);
+        jay.apply(software, manager);
 
-        avital.viewAppliedJobs(new ConsoleListPrinter());
+        avital.viewAppliedJobs(new TestingListPrinter());
+
+        assertEquals("theladders design theladders intern ", outContent.toString());
+
     }
 
     @Test
@@ -90,7 +104,9 @@ public class JobseekerTest {
         avital.saveJob(intern);
         jay.saveJob(design);
         avital.saveJob(software);
-        avital.viewSavedJobs(new ConsoleListPrinter());
+        avital.viewSavedJobs(new TestingListPrinter());
+
+        assertEquals("theladders intern theladders software ", outContent.toString());
     }
 
     @Test
@@ -101,7 +117,15 @@ public class JobseekerTest {
         avital.createResume(new Name("resume.doc"), resumes);
         avital.createResume(new Name("resume.pdf"), resumes);
 
-        avital.getResumes(resumes).printResumes(new ConsoleListPrinter()); //TODO
+        avital.getResumes(resumes).printResumes(new TestingListPrinter()); //TODO
+        assertEquals("resume.doc resume.pdf ", outContent.toString());
     }
+
+    @After
+    public void cleanUp(){
+
+        System.setOut(null);
+    }
+
 
 }

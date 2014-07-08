@@ -11,7 +11,7 @@ import com.theladders.avital.oc.user.Employer;
 import com.theladders.avital.oc.user.Jobseeker;
 import com.theladders.avital.oc.user.JobseekerInfo;
 import com.theladders.avital.oc.user.Name;
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 import java.util.Calendar;
@@ -38,7 +38,7 @@ public class PrinterTest {
 
         JobseekerInfo info = new JobseekerInfo(avital, new NoResume(avital));
 
-        ApplicationDetails details = new ApplicationDetails(info, Calendar.getInstance());
+        ApplicationDetails details = new ApplicationDetails(info, new DateTime());
 
         JobApplication application = new JobApplication(software, details);
 
@@ -60,7 +60,7 @@ public class PrinterTest {
 
         JobseekerInfo info = new JobseekerInfo(avital, new NoResume(avital));
 
-        ApplicationDetails details = new ApplicationDetails(info, Calendar.getInstance());
+        ApplicationDetails details = new ApplicationDetails(info, new DateTime());
 
         JobApplication application = new JobApplication(software, details);
 

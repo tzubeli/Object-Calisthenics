@@ -39,9 +39,11 @@ public class AggregateCount {
 
     public void printCount(AggregateCountPrinter printer){
 
+        Map<Job, Integer> sortedMap = new TreeMap<Job, Integer>(jobCount);
+
         printer.createHeader();
 
-        for (Map.Entry<Job, Integer> entry : jobCount.entrySet()){
+        for (Map.Entry<Job, Integer> entry : sortedMap.entrySet()){
 
             entry.getKey().print(printer);
 
@@ -54,6 +56,8 @@ public class AggregateCount {
 
 
     }
+
+
 
 
 }

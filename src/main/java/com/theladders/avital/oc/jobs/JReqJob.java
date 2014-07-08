@@ -10,49 +10,12 @@ import com.theladders.avital.oc.user.Name;
 /**
  * Created by atzubeli on 6/25/14.
  */
-public class JReqJob implements Job{
-
-    private Employer employer;
-
-    private Name name;
+public class JReqJob extends Job{
 
 
     public JReqJob(Employer employer, Name name){
 
-        this.employer = employer;
-        this.name = name;
-
+        super(employer, name);
     }
 
-    public String toString(){
-
-        return name.toString();
-    }
-
-    public void print(ApplicationsPrinter printer){
-
-        name.print(printer);
-
-        employer.print(printer);
-
-        printer.run();
-
-    }
-
-    public void print(AggregateCountPrinter printer){
-
-        employer.print(printer);
-
-        name.print(printer);
-
-    }
-
-    public void print(ListPrinter printer){
-
-        employer.print(printer);
-
-        name.print(printer);
-
-        printer.run();
-    }
 }

@@ -40,6 +40,11 @@ public class Name {
 
     }
 
+    public int compareTo(Name other){
+
+        return this.name.compareTo(other.name);
+    }
+
 
 
 

@@ -2,9 +2,8 @@ package com.theladders.avital.oc.jobApplications;
 
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.user.JobseekerInfo;
+import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
-
-import java.util.Calendar;
 
 /**
  * Created by atzubeli on 6/13/14.
@@ -13,9 +12,9 @@ public class ApplicationDetails implements Comparable<ApplicationDetails>{
 
     private JobseekerInfo jobseekerInfo;
 
-    private Calendar date;
+    private DateTime date;
 
-    public ApplicationDetails(JobseekerInfo jobseekerDetails, Calendar date){
+    public ApplicationDetails(JobseekerInfo jobseekerDetails, DateTime date){
 
         this.jobseekerInfo = jobseekerDetails;
 
@@ -23,17 +22,19 @@ public class ApplicationDetails implements Comparable<ApplicationDetails>{
     }
 
 
-    public boolean hasDateOf(Calendar newDate){
-//        date
-//
-//        return (date.get(Calendar.DATE).equals(newDate.get(Calendar.DATE)));
+    public boolean hasDateOf(DateTime newDate){
 
-        return false; 
+        return (date.toLocalDate().equals(newDate.toLocalDate()));
+
     }
 
     public void print(ApplicationsPrinter printer){
 
-        printer.print(date.toString());
+        LocalDate local = date.toLocalDate();
+
+        String localString = local.toString();
+
+        printer.print(localString);
 
         jobseekerInfo.print(printer);
 

@@ -10,7 +10,7 @@ import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.ListPrinter;
 import com.theladders.avital.oc.user.Employer;
 import javafx.application.Application;
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 
 
 import java.util.*;
@@ -80,7 +80,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
     }
 
-    public void getByDate(LocalDate date, ApplicationsPrinter printer){
+    public void getByDate(DateTime date, ApplicationsPrinter printer){
 
         ApplicationsList resultList = new ApplicationsList();
 
@@ -95,9 +95,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
         }
         resultList.printAppList(printer);
 
-
     }
-
 
     public void getAllApplicationsByEmployer(Employer employer, ApplicationsPrinter printer){
 
@@ -117,7 +115,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
     }
 
-    public void getByJobAndDate(Employer employer, Job job, LocalDate date,  ApplicationsPrinter printer){
+    public void getByJobAndDate(Employer employer, Job job, DateTime date,  ApplicationsPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
@@ -125,7 +123,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
     }
 
-    public void getByDateAndEmployer(Employer employer, LocalDate date, ApplicationsPrinter printer){
+    public void getByDateAndEmployer(Employer employer, DateTime date, ApplicationsPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
@@ -166,7 +164,6 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
         }
         return numberOfJobs;
     }
-
 
 
     public void getApplicationCountByEmployerAndJob(AggregateCountPrinter printer){

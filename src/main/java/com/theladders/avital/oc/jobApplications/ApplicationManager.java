@@ -3,7 +3,8 @@ package com.theladders.avital.oc.jobApplications;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.user.JobseekerInfo;
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
+import org.joda.time.DateTime;
 
 import java.util.Calendar;
 
@@ -22,7 +23,7 @@ public class ApplicationManager {
 
     public void apply(Job job, JobseekerInfo jobseekerInfo){
 
-        Calendar date = Calendar.getInstance();
+        DateTime date = new DateTime();
 
         ApplicationDetails details = new ApplicationDetails(jobseekerInfo, date);
 
