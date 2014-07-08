@@ -32,9 +32,4 @@ public class ConsoleListPrinter implements ListPrinter {
 
         list.clear();
     }
-
-    public void close() {
-
-
-    }
 }
