@@ -22,7 +22,6 @@ public class EmployerTest{
     private Jobs jobs;
     private ApplicationManager applicationManager;
     private Jobseeker avital, jay;
-    private JobManager jobManager;
     private Employer theladders, abc;
 
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -33,7 +32,7 @@ public class EmployerTest{
 
         jobs = new Jobs();
 
-        jobManager = new JobManager(jobs);
+        JobManager jobManager = new JobManager(jobs);
 
         applicationManager = new ApplicationManager(jobManager);
 
@@ -115,9 +114,11 @@ public class EmployerTest{
 
         avital.apply(software, applicationManager);
 
-        try {  Thread.sleep(100);
-
-        }catch(Exception e) {     }
+        try {
+          Thread.sleep(100);
+        } catch(Exception e) {
+          // Do  nothing
+        }
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
@@ -138,9 +139,11 @@ public class EmployerTest{
 
         jay.apply(software, applicationManager);
 
-        try {  Thread.sleep(100);
-
-            }catch(Exception e) {     }
+        try {
+          Thread.sleep(100);
+        }catch(Exception e) {
+          // Do nothing
+        }
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
@@ -166,8 +169,7 @@ public class EmployerTest{
         theladders.getAllApplications(new TestingApplicationPrinter());
 
         assertEquals("2014-07-08 avital software theladders 2014-07-08 jay software theladders ", outContent.toString());
-
-        }
+    }
 
     @After
     public void cleanUp(){

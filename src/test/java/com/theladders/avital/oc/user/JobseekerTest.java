@@ -23,10 +23,7 @@ import java.io.PrintStream;
  * Created by atzubeli on 7/1/14.
  */
 public class JobseekerTest {
-
-
     private ApplicationManager manager;
-    private Employer theladders;
     private Jobseeker avital, jay;
     private Resume avitalResume, jayResume;
     private ATSJob software, intern;
@@ -42,7 +39,7 @@ public class JobseekerTest {
 
         manager = new ApplicationManager(jobManager);
 
-        theladders = new Employer(new Name("theladders"), jobManager);
+        Employer theladders = new Employer(new Name("theladders"), jobManager);
 
         avital = new Jobseeker(new Name("avital"));
 
