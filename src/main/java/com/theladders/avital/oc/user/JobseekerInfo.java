@@ -1,5 +1,6 @@
 package com.theladders.avital.oc.user;
 
+import com.theladders.avital.oc.exception.InvalidResumeException;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.resumes.Resume;
 
@@ -16,7 +17,11 @@ public class JobseekerInfo {
 
         this.jobseeker = jobseeker;
         this.resume = resume;
-    }
+
+        if (!resume.isOwnedBy(jobseeker)) throw new InvalidResumeException();
+
+        }
+
 
     public void print(ApplicationsPrinter printer){
 

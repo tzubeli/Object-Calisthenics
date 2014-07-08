@@ -76,6 +76,8 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
+        theLadders.getByDate(new DateTime(), new CSVAppPrinter());
+
         theLadders.getByDate(new DateTime(), new TestingApplicationPrinter());
 
         assertEquals("2014-07-08 avital software employer 2014-07-08 jay design employer ", outContent.toString());
@@ -99,9 +101,11 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
+        theLadders.getAllApplications(new HTMLAppPrinter());
+
         assertTrue(theLadders.getNumberOfApplications() == 4);
 
-        theLadders.getAllApplications(new TestingApplicationPrinter());
+
 
     }
 

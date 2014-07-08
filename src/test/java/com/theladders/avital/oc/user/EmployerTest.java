@@ -88,7 +88,7 @@ public class EmployerTest{
     }
 
     @Test
-    public void testEmployersCanSeeApplicationsByJob(){ //CSV
+    public void testEmployersCanSeeApplicationsByJob(){
 
         ATSJob software = theladders.postATSJob(new Name("software"));
 

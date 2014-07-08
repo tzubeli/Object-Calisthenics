@@ -4,9 +4,6 @@ import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.user.JobseekerInfo;
 import org.joda.time.DateTime;
-import org.joda.time.DateTime;
-
-import java.util.Calendar;
 
 
 /**
@@ -21,7 +18,7 @@ public class ApplicationManager {
         this.jobManager = jobManager;
     }
 
-    public void apply(Job job, JobseekerInfo jobseekerInfo){
+    public void apply(Job job, JobseekerInfo jobseekerInfo, Success success){
 
         DateTime date = new DateTime();
 
@@ -32,5 +29,14 @@ public class ApplicationManager {
         jobManager.addApplication(job, application);
 
     }
+
+    public void apply(Job job, JobseekerInfo jobseekerInfo, Failure failure) {
+
+        jobManager.addFailure(job);
+
+
+    }
+
+
 
 }
