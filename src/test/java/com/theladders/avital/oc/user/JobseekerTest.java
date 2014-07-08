@@ -6,7 +6,6 @@ import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.Jobs;
-import com.theladders.avital.oc.print.ConsoleListPrinter;
 import com.theladders.avital.oc.print.TestingListPrinter;
 import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.resumes.Resume;
@@ -59,8 +58,6 @@ public class JobseekerTest {
 
         intern = theladders.postATSJob(new Name("intern"));
 
-
-
     }
 
     @Before
@@ -71,7 +68,7 @@ public class JobseekerTest {
 
 
     @Test (expected = InvalidResumeException.class)
-    public void applyToATSJobWithWrongResume(){
+    public void testApplyToATSJobWithWrongResume(){
 
         avital.apply(software, jayResume, manager);
 
@@ -79,14 +76,14 @@ public class JobseekerTest {
 
     }
     @Test
-    public void applyToATSJobWithoutResume(){
+    public void testApplyToATSJobWithoutResume(){
 
         jay.apply(software, manager);
 
        }
 
     @Test
-    public void viewAppliedJobs(){
+    public void testViewAppliedJobs(){
 
         avital.apply(design, avitalResume, manager);
         avital.apply(intern, manager);
@@ -99,7 +96,7 @@ public class JobseekerTest {
     }
 
     @Test
-    public void viewSavedJobs(){
+    public void testViewSavedJobs(){
 
         avital.saveJob(intern);
         jay.saveJob(design);
@@ -110,15 +107,35 @@ public class JobseekerTest {
     }
 
     @Test
-    public void createAndViewResumes(){
+    public void testCreateAndViewResumes(){
 
         Resumes resumes = new Resumes();
 
         avital.createResume(new Name("resume.doc"), resumes);
         avital.createResume(new Name("resume.pdf"), resumes);
 
-        avital.getResumes(resumes).printResumes(new TestingListPrinter()); //TODO
+        avital.getJobseekerResumes(resumes, new TestingListPrinter());
         assertEquals("resume.doc resume.pdf ", outContent.toString());
+    }
+
+    @Test
+    public void testApplyWithDifferentResumes(){
+
+        Resumes resumes = new Resumes();
+
+        avital.createResume(new Name("resume.doc"), resumes);
+        avital.createResume(new Name("resume.pdf"), resumes);
+
+        Resume resume1 = avital.getOneResume(resumes, 0);
+        Resume resume2 = avital.getOneResume(resumes, 1);
+
+        avital.apply(design, resume1, manager);
+        avital.apply(intern, resume2, manager);
+
+        avital.viewAppliedJobs(new TestingListPrinter());
+
+        assertEquals("theladders design theladders intern ", outContent.toString());
+
     }
 
     @After

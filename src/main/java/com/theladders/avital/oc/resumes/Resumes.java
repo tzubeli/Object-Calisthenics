@@ -1,5 +1,6 @@
 package com.theladders.avital.oc.resumes;
 
+import com.theladders.avital.oc.print.ListPrinter;
 import com.theladders.avital.oc.user.Jobseeker;
 
 import java.util.HashMap;
@@ -31,11 +32,21 @@ public class Resumes{
 
     }
 
-    public ResumeList readAll(Jobseeker jobseeker){
+    public Resume getOneResume(Jobseeker jobseeker, int index){
 
         ResumeList list = resumes.get(jobseeker);
 
-        return list.readAll();
+        return list.getOneResume(index);
+
+    }
+
+    public void readAll(Jobseeker jobseeker, ListPrinter printer){
+
+        ResumeList list = resumes.get(jobseeker);
+
+        list.readAll().printResumes(printer);
+
+
 
     }
 

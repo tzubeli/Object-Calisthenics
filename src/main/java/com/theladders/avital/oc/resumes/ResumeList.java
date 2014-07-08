@@ -23,6 +23,11 @@ public class ResumeList {
         return this;
     }
 
+    public Resume getOneResume(int index){
+
+        return resumes.get(index);
+    }
+
     public void printResumes(ListPrinter printer){
 
         for (Resume resume : resumes){

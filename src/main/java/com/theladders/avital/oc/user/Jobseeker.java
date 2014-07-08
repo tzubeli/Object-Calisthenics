@@ -91,11 +91,17 @@ public class Jobseeker {
         return name.toString();
     }
 
-    public ResumeList getResumes(Resumes resumes){
+    public void getJobseekerResumes(Resumes resumes, ListPrinter printer){
 
-        return resumes.readAll(this);
+        resumes.readAll(this, printer);
 
     }
+
+    public Resume getOneResume(Resumes resumes, int index){
+
+        return resumes.getOneResume(this, index);
+    }
+
 
     public void print(ApplicationsPrinter printer){
 
