@@ -3,4 +3,5 @@ target/
 *.iml
 .idea/workspace.xml
 applicationReport.csv
+
 applicationReport.html
