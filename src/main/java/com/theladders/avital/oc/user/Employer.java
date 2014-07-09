@@ -35,14 +35,13 @@ public class Employer {
     public JReqJob postJREQJob(Name name){
 
        return (JReqJob)jobManager.postJReqJob(this, name);
-
     }
 
     public void printPostedJobs(ListPrinter printer){
 
         jobManager.printPostedJobs(this, printer);
-
     }
+
     public void printAllApplications(ApplicationsPrinter printer){
 
         jobManager.printApplicationsByEmployer(this, printer);
@@ -51,8 +50,8 @@ public class Employer {
     public void printApplicationsByDate(DateTime date, ApplicationsPrinter printer){
 
         jobManager.printApplicationsByDate(this, date, printer);
-
     }
+
     public void printApplicationsByJobAndDate(Job job, DateTime date, ApplicationsPrinter printer){
 
         jobManager.printApplicationsByJobAndDate(this, job, date, printer);
@@ -63,12 +62,10 @@ public class Employer {
         jobManager.printApplicationsByJob(this, job, printer);
     }
 
-
     public void print(ApplicationsPrinter printer){
 
         name.print(printer);
     }
-
 
     public void print(AggregateCountPrinter printer){
 
