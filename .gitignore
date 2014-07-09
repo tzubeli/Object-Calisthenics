@@ -2,6 +2,6 @@ target/
 .idea/
 *.iml
 .idea/workspace.xml
-applicationReport.csv
-applicationReport.html
+Object-Calisthenics/applicationReport.csv
+Object-Calisthenics/applicationReport.html
 

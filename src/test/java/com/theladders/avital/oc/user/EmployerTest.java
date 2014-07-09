@@ -23,6 +23,7 @@ public class EmployerTest{
     private ApplicationManager applicationManager;
     private Jobseeker avital, jay;
     private Employer theladders, abc;
+    private String today = new DateTime().toLocalDate().toString();
 
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -101,7 +102,7 @@ public class EmployerTest{
 
         theladders.printApplicationsByJob(software, new TestingApplicationPrinter());
 
-        assertEquals("2014-07-08 avital software theladders 2014-07-08 jay software theladders ", outContent.toString());
+        assertEquals(today+" avital software theladders "+today+ " jay software theladders ", outContent.toString());
 
     }
 
@@ -124,7 +125,7 @@ public class EmployerTest{
 
         theladders.printApplicationsByDate(new DateTime(), new TestingApplicationPrinter());
 
-        assertEquals("2014-07-08 avital software theladders 2014-07-08 jay design theladders ", outContent.toString());
+        assertEquals(today+" avital software theladders "+today+ " jay design theladders ", outContent.toString());
 
     }
 
@@ -149,7 +150,7 @@ public class EmployerTest{
 
         theladders.printApplicationsByJobAndDate(software, new DateTime(), new TestingApplicationPrinter());
 
-        assertEquals("2014-07-08 avital software theladders 2014-07-08 jay software theladders ", outContent.toString());
+        assertEquals(today+" avital software theladders "+today+ " jay software theladders ", outContent.toString());
 
     }
 
@@ -168,7 +169,7 @@ public class EmployerTest{
 
         theladders.printAllApplications(new TestingApplicationPrinter());
 
-        assertEquals("2014-07-08 avital software theladders 2014-07-08 jay software theladders ", outContent.toString());
+        assertEquals(today+" avital software theladders "+today+ " jay software theladders ", outContent.toString());
     }
 
     @After

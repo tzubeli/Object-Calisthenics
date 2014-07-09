@@ -47,26 +47,22 @@ public class JobManager {
         jobs.addJob(employer, job);
 
         return job;
-
     }
 
     public void addApplication(Job job, JobApplication application){
 
         resultList.addSuccess(job);
         jobs.addApplication(job, application);
-
     }
 
     public void addFailure(Job job){
 
         resultList.addFailure(job);
-
     }
 
     public void printResultList(ListPrinter printer){
 
         resultList.printResultList(printer);
-
     }
 
     public void printPostedJobs(Employer employer, ListPrinter printer){
@@ -99,13 +95,11 @@ public class JobManager {
     public void printApplicationsByJobAndDate(Employer employer, Job job, DateTime date, ApplicationsPrinter printer){
 
         jobs.printByJobAndDate(employer, job, date, printer);
-
     }
 
     public void printApplicationsByDate(Employer employer, DateTime date, ApplicationsPrinter printer){
 
         jobs.printByDateAndEmployer(employer, date, printer);
-
     }
 
     public void printApplicationCountByEmployerAndJob(AggregateCountPrinter printer){
@@ -118,5 +112,10 @@ public class JobManager {
         return jobs.numberOfApplications();
     }
 
+    //for testing only
+    public int getNumberOfFailures(){
+
+        return resultList.getNumberOfFailures();
+    }
 
 }

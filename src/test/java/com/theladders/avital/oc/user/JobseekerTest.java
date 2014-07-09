@@ -1,16 +1,17 @@
 package com.theladders.avital.oc.user;
 
-import com.theladders.avital.oc.exception.InvalidResumeException;
 import com.theladders.avital.oc.jobApplications.ApplicationManager;
 import com.theladders.avital.oc.jobs.ATSJob;
 import com.theladders.avital.oc.jobs.JReqJob;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.Jobs;
+
 import com.theladders.avital.oc.print.TestingListPrinter;
 import com.theladders.avital.oc.resumes.RealResume;
 import com.theladders.avital.oc.resumes.Resume;
 import com.theladders.avital.oc.resumes.Resumes;
 import static org.junit.Assert.assertEquals;
+
 
 import org.junit.After;
 import org.junit.Before;
@@ -29,6 +30,7 @@ public class JobseekerTest {
     private ATSJob software, intern;
     private JReqJob design;
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
 
     @Before
     public void initialize(){
@@ -64,16 +66,17 @@ public class JobseekerTest {
     }
 
 
-    @Test (expected = InvalidResumeException.class)
+    @Test
     public void testApplyToATSJobWithWrongResume(){
 
         avital.apply(software, jayResume, manager);
 
-        avital.apply(software, manager);
+        avital.viewAppliedJobs(new TestingListPrinter());
 
-
+        assertEquals("", outContent.toString());
 
     }
+
     @Test
     public void testApplyToATSJobWithoutResume(){
 

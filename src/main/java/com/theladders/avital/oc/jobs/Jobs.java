@@ -20,7 +20,6 @@ public class Jobs {
 
 private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
-
     public void createEmployer(Employer employer) {
 
         if (! postedJobs.containsKey(employer))
@@ -37,20 +36,15 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
        applications.createJobKey(job);
     }
 
-
-    public void addApplication(Job job, JobApplication application){  //TODO two levels
+    public void addApplication(Job job, JobApplication application){
 
         for (Employer employer : postedJobs.keySet()){
 
             JobApplications applications = postedJobs.get(employer);
 
-            if (applications.contains(job)){
+            applications.addApplication(job, application);
 
-                applications.addApplication(job, application);
-
-                break;
             }
-        }
     }
 
     public void printAllJobsByEmployer(Employer employer, ListPrinter printer){
@@ -92,7 +86,6 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
         }
         resultList.printAppList(printer);
-
     }
 
     public void printAllApplicationsByEmployer(Employer employer, ApplicationsPrinter printer){
@@ -133,6 +126,23 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
     }
 
+    public void printApplicationCountByEmployerAndJob(AggregateCountPrinter printer){
+
+        AggregateCount resultList = new AggregateCount();
+
+        for (Employer employer : postedJobs.keySet()) {
+
+            JobApplications applications = postedJobs.get(employer);
+
+            AggregateCount list = applications.getAggregateCount();
+
+            resultList = resultList.combinedWith(list);
+        }
+
+        resultList.printCount(printer);
+    }
+
+    //for testing only
     public int numberOfApplications(){
 
         ApplicationsList resultList = new ApplicationsList();
@@ -149,6 +159,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
         return resultList.size();
     }
 
+    //for testing only
     public int numberOfJobs(){
 
         int numberOfJobs =0;
@@ -162,26 +173,6 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
         }
         return numberOfJobs;
     }
-
-
-    public void printApplicationCountByEmployerAndJob(AggregateCountPrinter printer){
-
-        AggregateCount resultList = new AggregateCount();
-
-        for (Employer employer : postedJobs.keySet()) {
-
-            JobApplications applications = postedJobs.get(employer);
-
-            AggregateCount list = applications.getAggregateCount();
-
-            resultList = resultList.combinedWith(list);
-
-        }
-
-         resultList.printCount(printer);
-
-    }
-
 
 
 }

@@ -30,8 +30,9 @@ public class TheLaddersTest {
     private JobManager jobManager;
     private Employer employer, abcde;
     private TheLadders theLadders;
-    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private String today = new DateTime().toLocalDate().toString();
 
     @Before
     public void initialize(){
@@ -53,11 +54,11 @@ public class TheLaddersTest {
         theLadders = new TheLadders(jobManager);
     }
 
-//    @Before
-//    public void setUpStream(){
-//
-//        System.setOut(new PrintStream(outContent));
-//    }
+    @Before
+    public void setUpStream(){
+
+        System.setOut(new PrintStream(outContent));
+    }
 
     @Test
     public void testTheLaddersCanSeeApplicationsByDate(){
@@ -82,7 +83,7 @@ public class TheLaddersTest {
 
         theLadders.printByDate(new DateTime(), new TestingApplicationPrinter());
 
-        assertEquals("2014-07-08 avital software employer 2014-07-08 jay design employer ", outContent.toString());
+        assertEquals(today+" avital software employer "+today+" jay design employer ", outContent.toString());
 
     }
 
@@ -157,7 +158,7 @@ public class TheLaddersTest {
 
         theLadders.printAllApplications(new TestingApplicationPrinter());
 
-        assertEquals("2014-07-08 avital software employer 2014-07-08 avital design employer ", outContent.toString());
+        assertEquals(today+" avital software employer "+today+" avital design employer ", outContent.toString());
 
     }
 
@@ -202,7 +203,11 @@ public class TheLaddersTest {
 
         avital.apply(intern, jayResume, applicationManager);
 
-        theLadders.printApplicationResultList(new ConsoleListPrinter());
+        assertTrue(jobManager.getNumberOfFailures() == 1);
+
+        theLadders.printApplicationResultList(new TestingListPrinter());
+
+        assertEquals("abcde intern employer software ", outContent.toString());
 
     }
 

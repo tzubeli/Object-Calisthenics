@@ -1,6 +1,6 @@
 package com.theladders.avital.oc.user;
 
-import com.theladders.avital.oc.jobApplications.ApplicationResult;
+
 import com.theladders.avital.oc.jobApplications.Failure;
 import com.theladders.avital.oc.jobApplications.Success;
 import com.theladders.avital.oc.jobs.ATSJob;

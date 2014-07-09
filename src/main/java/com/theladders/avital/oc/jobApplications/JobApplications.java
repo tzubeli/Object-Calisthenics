@@ -22,17 +22,14 @@ public class JobApplications{
 
     }
 
-    public boolean contains(Job job){
-
-        return applications.containsKey(job);
-    }
-
     public void addApplication(Job job, JobApplication application){
 
-        ApplicationsList list = applications.get(job);
+        if (applications.containsKey(job)) {
 
-        list.addApplication(application);
+            ApplicationsList list = applications.get(job);
 
+            list.addApplication(application);
+        }
     }
 
     public void printAllJobsByEmployer(ListPrinter printer){

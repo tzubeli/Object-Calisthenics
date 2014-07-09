@@ -11,7 +11,7 @@ import java.util.Map;
 */
 public class Resumes{
 
-    private Map<Jobseeker, ResumeList> resumes = new HashMap<Jobseeker, ResumeList>();
+    private Map<Jobseeker, ResumeList> resumes = new HashMap<>();
 
 
     private void createKey(Jobseeker jobseeker) {

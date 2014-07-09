@@ -51,5 +51,10 @@ public class ResultList {
 
     }
 
+    public int getNumberOfFailures(){
+
+        return failure.size();
+    }
+
 
 }
