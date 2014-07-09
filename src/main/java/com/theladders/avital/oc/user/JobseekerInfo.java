@@ -18,7 +18,7 @@ public class JobseekerInfo {
         this.jobseeker = jobseeker;
         this.resume = resume;
 
-        if (!resume.isOwnedBy(jobseeker)) throw new InvalidResumeException();
+        if (resume.isNotOwnedBy(jobseeker)) throw new InvalidResumeException();
 
         }
 

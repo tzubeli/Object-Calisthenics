@@ -36,12 +36,6 @@ public class ConsoleAppPrinter implements ApplicationsPrinter {
 
     }
 
-    private void printList(){
-
-
-
-    }
-
     public void clear(){
 
         list.clear();

@@ -14,7 +14,7 @@ public class Resumes{
     private Map<Jobseeker, ResumeList> resumes = new HashMap<Jobseeker, ResumeList>();
 
 
-    void createKey(Jobseeker jobseeker) {
+    private void createKey(Jobseeker jobseeker) {
 
         if (!resumes.containsKey(jobseeker))
 

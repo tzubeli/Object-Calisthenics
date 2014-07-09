@@ -9,6 +9,6 @@ public interface Resume {
 
     String toString();
 
-     boolean isOwnedBy(Jobseeker thatJobseeker);
+    boolean isNotOwnedBy(Jobseeker thatJobseeker);
 
 }
