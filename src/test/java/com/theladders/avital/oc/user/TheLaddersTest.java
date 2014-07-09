@@ -106,7 +106,7 @@ public class TheLaddersTest {
 
         theLadders.printAllApplications(new HTMLAppPrinter());
 
-        assertTrue(theLadders.printNumberOfApplications() == 4);
+        assertEquals(theLadders.printNumberOfApplications(), 4);
 
 
 

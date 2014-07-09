@@ -71,7 +71,7 @@ public class EmployerTest{
 
         abc.postJREQJob(new Name("design"));
 
-        assertTrue(jobs.numberOfJobs() == 2);
+        assertEquals(jobs.numberOfJobs(), 2);
     }
 
     @Test
