@@ -1,7 +1,5 @@
 package com.theladders.avital.oc.user;
 
-import com.theladders.avital.oc.print.AggregateCount;
-import com.theladders.avital.oc.jobApplications.ApplicationsList;
 import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;

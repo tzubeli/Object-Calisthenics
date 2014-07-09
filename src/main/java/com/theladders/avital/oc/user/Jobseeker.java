@@ -50,7 +50,7 @@ public class Jobseeker {
 
         manager.apply(job, info, status);
 
-            }
+    }
 
     public void apply(ATSJob job, ApplicationManager manager){
 
@@ -63,7 +63,7 @@ public class Jobseeker {
 
     public void apply(JReqJob job, Resume resume, ApplicationManager manager){
 
-        if (!resume.isOwnedBy(this)) throw new InvalidResumeException();
+        if (resume.isNotOwnedBy(this)) throw new InvalidResumeException();
 
         jobList.saveAppliedJob(job);
 
@@ -81,13 +81,13 @@ public class Jobseeker {
 
     public void viewSavedJobs(ListPrinter printer){
 
-        jobList.getSavedJobs(printer);
+        jobList.printSavedJobs(printer);
 
     }
 
     public void viewAppliedJobs(ListPrinter printer){
 
-        jobList.getAppliedJobs(printer);
+        jobList.printAppliedJobs(printer);
 
     }
 

@@ -3,7 +3,6 @@ package com.theladders.avital.oc.jobApplications;
 import com.theladders.avital.oc.jobLists.JobList;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.print.*;
-import javafx.application.Application;
 import org.joda.time.DateTime;
 
 import java.util.*;

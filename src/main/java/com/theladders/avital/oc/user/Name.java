@@ -2,7 +2,6 @@ package com.theladders.avital.oc.user;
 
 import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
-import com.theladders.avital.oc.print.ConsoleCountPrinter;
 import com.theladders.avital.oc.print.ListPrinter;
 
 /**

@@ -19,7 +19,7 @@ public class JobseekerJobList {
 
     }
 
-    public void getSavedJobs(ListPrinter printer){
+    public void printSavedJobs(ListPrinter printer){
 
         saved.printJobs(printer);
 
@@ -31,7 +31,7 @@ public class JobseekerJobList {
 
     }
 
-    public void getAppliedJobs(ListPrinter printer){
+    public void printAppliedJobs(ListPrinter printer){
 
         applied.printJobs(printer);
 

@@ -6,7 +6,6 @@ import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.jobs.Job;
 import com.theladders.avital.oc.jobs.JobManager;
-import com.theladders.avital.oc.print.ConsoleCountPrinter;
 import com.theladders.avital.oc.print.ListPrinter;
 import org.joda.time.DateTime;
 

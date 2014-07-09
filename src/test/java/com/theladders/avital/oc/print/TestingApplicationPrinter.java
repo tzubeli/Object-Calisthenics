@@ -1,7 +1,5 @@
 package com.theladders.avital.oc.print;
 
-import javafx.application.Application;
-
 /**
  * Created by atzubeli on 7/7/14.
  */

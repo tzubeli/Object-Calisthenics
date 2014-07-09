@@ -22,7 +22,6 @@ import static org.junit.Assert.assertTrue;
  */
 public class TheLaddersTest {
 
-    private Jobs jobs;
     private ApplicationManager applicationManager;
     private ATSJob software, intern;
     private JReqJob design;
@@ -36,7 +35,7 @@ public class TheLaddersTest {
     @Before
     public void initialize(){
 
-        jobs = new Jobs();
+        Jobs jobs = new Jobs();
 
         jobManager = new JobManager(jobs);
 
@@ -70,9 +69,11 @@ public class TheLaddersTest {
 
         avital.apply(software, applicationManager);
 
-        try {  Thread.sleep(100);
-
-        }catch(Exception e) {     }
+        try {
+          Thread.sleep(100);
+        }catch(Exception e) {
+          // Do nothing
+        }
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
@@ -145,9 +146,11 @@ public class TheLaddersTest {
 
         avital.apply(software, applicationManager);
 
-        try {  Thread.sleep(100);
-
-        }catch(Exception e) {     }
+        try {
+          Thread.sleep(100);
+        }catch(Exception e) {
+          // Do nothing
+        }
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
@@ -170,9 +173,11 @@ public class TheLaddersTest {
 
         avital.apply(software, applicationManager);
 
-        try {  Thread.sleep(100);
-
-        }catch(Exception e) {     }
+        try {
+          Thread.sleep(100);
+        }catch(Exception e) {
+          // Do nothing
+        }
 
         jay.apply(intern, applicationManager);
 
