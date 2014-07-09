@@ -33,7 +33,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
        JobApplications applications = postedJobs.get(employer);
 
-       applications.createJobKey(job);
+       applications.addJob(job);
     }
 
     public void addApplication(Job job, JobApplication application){

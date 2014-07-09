@@ -15,10 +15,12 @@ public class JobseekerInfo {
 
     public JobseekerInfo(Jobseeker jobseeker, Resume resume){
 
+        if (resume==null || resume.isNotOwnedBy(jobseeker)) throw new InvalidResumeException();
+
         this.jobseeker = jobseeker;
         this.resume = resume;
 
-        if (resume.isNotOwnedBy(jobseeker)) throw new InvalidResumeException();
+
 
         }
 

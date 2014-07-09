@@ -14,7 +14,7 @@ public class JobApplications{
 
     private Map<Job, ApplicationsList> applications = new HashMap<>();
 
-    public void createJobKey(Job job){
+    public void addJob(Job job){
 
         if (!applications.containsKey(job))
 

@@ -53,11 +53,21 @@ public class Jobseeker {
 
     public void apply(ATSJob job, ApplicationManager manager) {
 
+        JobseekerInfo info = new JobseekerInfo(this, new NoResume(this));
+
+        jobList.saveAppliedJob(job);
+
+        manager.apply(job, info, new Success());
+
+    }
+
+    public void apply(JReqJob job, Resume resume, ApplicationManager manager){
+
         JobseekerInfo info;
 
         try {
 
-            info = new JobseekerInfo(this, new NoResume(this));
+            info = new JobseekerInfo(this, resume);
 
             jobList.saveAppliedJob(job);
 
@@ -68,19 +78,6 @@ public class Jobseeker {
             manager.apply(job, new Failure());
         }
     }
-
-    public void apply(JReqJob job, Resume resume, ApplicationManager manager){
-
-        if (resume.isNotOwnedBy(this)) throw new InvalidResumeException();
-
-        jobList.saveAppliedJob(job);
-
-        JobseekerInfo info = new JobseekerInfo(this, resume);
-
-        manager.apply(job, info, new Success());
-
-    }
-
     public void saveJob(Job job){
 
         jobList.saveJob(job);

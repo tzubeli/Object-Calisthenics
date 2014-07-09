@@ -24,7 +24,7 @@ public class Employer {
 
         this.name = name;
 
-        jobManager.createEmployerKey(this);
+        jobManager.addEmployer(this);
     }
 
     public ATSJob postATSJob(Name name){

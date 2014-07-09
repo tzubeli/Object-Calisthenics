@@ -108,8 +108,6 @@ public class TheLaddersTest {
 
         assertEquals(theLadders.printNumberOfApplications(), 4);
 
-
-
     }
 
     @Test
@@ -191,11 +189,24 @@ public class TheLaddersTest {
     }
 
     @Test
+    public void testJReqJobsRequireResume(){
+
+        design = employer.postJREQJob(new Name("design"));
+
+        avital.apply(design, null, applicationManager);
+
+        assertEquals(jobManager.getNumberOfFailures(), 1);
+
+    }
+
+    @Test
     public void testLaddersCanSeeApplicationResult(){
 
         software = employer.postATSJob(new Name("software"));
 
         intern = abcde.postATSJob(new Name("intern"));
+
+        design = employer.postJREQJob(new Name("design"));
 
         avital.apply(software, applicationManager);
 
@@ -203,11 +214,11 @@ public class TheLaddersTest {
 
         avital.apply(intern, jayResume, applicationManager);
 
-        assertTrue(jobManager.getNumberOfFailures() == 1);
+        avital.apply(design, null, applicationManager);  // null instead of resume
 
         theLadders.printApplicationResultList(new TestingListPrinter());
 
-        assertEquals("abcde intern employer software ", outContent.toString());
+        assertEquals("employer design abcde intern employer software ", outContent.toString());
 
     }
 

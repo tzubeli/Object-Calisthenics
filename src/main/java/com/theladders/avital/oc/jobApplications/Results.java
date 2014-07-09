@@ -5,14 +5,15 @@ import com.theladders.avital.oc.print.ListPrinter;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by atzubeli on 7/8/14.
  */
-public class ResultList {
+public class Results {
 
-    private ArrayList<Job> success = new ArrayList<>();
-    private ArrayList<Job> failure = new ArrayList<>();
+    private List<Job> success = new ArrayList<>();
+    private List<Job> failure = new ArrayList<>();
 
 
    public void addSuccess(Job job){

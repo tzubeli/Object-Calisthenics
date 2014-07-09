@@ -26,7 +26,7 @@ import java.io.PrintStream;
 public class JobseekerTest {
     private ApplicationManager manager;
     private Jobseeker avital, jay;
-    private Resume avitalResume, jayResume;
+    private RealResume avitalResume, jayResume;
     private ATSJob software, intern;
     private JReqJob design;
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -67,7 +67,7 @@ public class JobseekerTest {
 
 
     @Test
-    public void testApplyToATSJobWithWrongResume(){
+    public void testApplyToATSJobWithWrongResume() {
 
         avital.apply(software, jayResume, manager);
 
@@ -76,13 +76,6 @@ public class JobseekerTest {
         assertEquals("", outContent.toString());
 
     }
-
-    @Test
-    public void testApplyToATSJobWithoutResume(){
-
-        jay.apply(software, manager);
-
-       }
 
     @Test
     public void testViewAppliedJobs(){
@@ -96,6 +89,8 @@ public class JobseekerTest {
         assertEquals("theladders design theladders intern ", outContent.toString());
 
     }
+
+
 
     @Test
     public void testViewSavedJobs(){

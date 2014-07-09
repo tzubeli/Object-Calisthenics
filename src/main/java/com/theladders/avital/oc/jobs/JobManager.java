@@ -1,7 +1,7 @@
 package com.theladders.avital.oc.jobs;
 
 import com.theladders.avital.oc.jobApplications.JobApplication;
-import com.theladders.avital.oc.jobApplications.ResultList;
+import com.theladders.avital.oc.jobApplications.Results;
 import com.theladders.avital.oc.print.AggregateCountPrinter;
 import com.theladders.avital.oc.print.ApplicationsPrinter;
 import com.theladders.avital.oc.print.ListPrinter;
@@ -15,17 +15,17 @@ import org.joda.time.DateTime;
 public class JobManager {
 
     private Jobs jobs;
-    private ResultList resultList;
+    private Results resultList;
 
 
     public JobManager(Jobs jobs){
 
         this.jobs = jobs;
-        resultList = new ResultList();
+        resultList = new Results();
 
     }
 
-    public void createEmployerKey(Employer employer){
+    public void addEmployer(Employer employer){
 
         jobs.createEmployer(employer);
     }
