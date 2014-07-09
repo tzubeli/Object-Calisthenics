@@ -69,6 +69,10 @@ public class JobseekerTest {
 
         avital.apply(software, jayResume, manager);
 
+        avital.apply(software, manager);
+
+
+
     }
     @Test
     public void testApplyToATSJobWithoutResume(){
@@ -109,7 +113,7 @@ public class JobseekerTest {
         avital.createResume(new Name("resume.doc"), resumes);
         avital.createResume(new Name("resume.pdf"), resumes);
 
-        avital.getJobseekerResumes(resumes, new TestingListPrinter());
+        avital.printJobseekerResumes(resumes, new TestingListPrinter());
         assertEquals("resume.doc resume.pdf ", outContent.toString());
     }
 

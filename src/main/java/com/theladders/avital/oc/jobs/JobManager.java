@@ -63,57 +63,57 @@ public class JobManager {
 
     }
 
-    public void getFailedApplications(ListPrinter printer){
+    public void printResultList(ListPrinter printer){
 
-        resultList.getFailureList(printer);
+        resultList.printResultList(printer);
 
     }
 
-    public void  getPostedJobs(Employer employer, ListPrinter printer){
+    public void printPostedJobs(Employer employer, ListPrinter printer){
 
-         jobs.getAllJobsByEmployer(employer, printer);
+         jobs.printAllJobsByEmployer(employer, printer);
     }
 
-    public void getAllApplications(ApplicationsPrinter printer){
+    public void printAllApplications(ApplicationsPrinter printer){
 
-        jobs.getAllApplications(printer);
+        jobs.printAllApplications(printer);
     }
 
-    public void getByDate(DateTime date, ApplicationsPrinter printer){
+    public void printByDate(DateTime date, ApplicationsPrinter printer){
 
         jobs.getByDate(date, printer);
     }
 
-    public void getApplicationsByEmployer(Employer employer, ApplicationsPrinter printer){
+    public void printApplicationsByEmployer(Employer employer, ApplicationsPrinter printer){
 
-       jobs.getAllApplicationsByEmployer(employer, printer);
-
-    }
-
-    public void getApplicationsByJob(Employer employer, Job job, ApplicationsPrinter printer){
-
-        jobs.getByJob(employer, job, printer);
+       jobs.printAllApplicationsByEmployer(employer, printer);
 
     }
 
-    public void getApplicationsByJobAndDate(Employer employer, Job job, DateTime date, ApplicationsPrinter printer){
+    public void printApplicationsByJob(Employer employer, Job job, ApplicationsPrinter printer){
 
-        jobs.getByJobAndDate(employer, job, date, printer);
-
-    }
-
-    public void getApplicationsByDate(Employer employer, DateTime date, ApplicationsPrinter printer){
-
-        jobs.getByDateAndEmployer(employer, date, printer);
+        jobs.printByJob(employer, job, printer);
 
     }
 
-    public void getApplicationCountByEmployerAndJob(AggregateCountPrinter printer){
+    public void printApplicationsByJobAndDate(Employer employer, Job job, DateTime date, ApplicationsPrinter printer){
 
-        jobs.getApplicationCountByEmployerAndJob(printer);
+        jobs.printByJobAndDate(employer, job, date, printer);
+
     }
 
-    public int getNumberOfApplications(){
+    public void printApplicationsByDate(Employer employer, DateTime date, ApplicationsPrinter printer){
+
+        jobs.printByDateAndEmployer(employer, date, printer);
+
+    }
+
+    public void printApplicationCountByEmployerAndJob(AggregateCountPrinter printer){
+
+        jobs.printApplicationCountByEmployerAndJob(printer);
+    }
+
+    public int NumberOfApplications(){
 
         return jobs.numberOfApplications();
     }

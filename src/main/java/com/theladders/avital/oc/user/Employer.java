@@ -38,29 +38,29 @@ public class Employer {
 
     }
 
-    public void getPostedJobs(ListPrinter printer){
+    public void printPostedJobs(ListPrinter printer){
 
-        jobManager.getPostedJobs(this, printer);
-
-    }
-    public void getAllApplications(ApplicationsPrinter printer){
-
-        jobManager.getApplicationsByEmployer(this, printer);
-    }
-
-    public void getApplicationsByDate(DateTime date, ApplicationsPrinter printer){
-
-        jobManager.getApplicationsByDate(this, date, printer);
+        jobManager.printPostedJobs(this, printer);
 
     }
-    public void getApplicationsByJobAndDate(Job job, DateTime date, ApplicationsPrinter printer){
+    public void printAllApplications(ApplicationsPrinter printer){
 
-        jobManager.getApplicationsByJobAndDate(this,job, date, printer);
+        jobManager.printApplicationsByEmployer(this, printer);
     }
 
-    public void getApplicationsByJob(Job job, ApplicationsPrinter printer){
+    public void printApplicationsByDate(DateTime date, ApplicationsPrinter printer){
 
-        jobManager.getApplicationsByJob(this, job, printer);
+        jobManager.printApplicationsByDate(this, date, printer);
+
+    }
+    public void printApplicationsByJobAndDate(Job job, DateTime date, ApplicationsPrinter printer){
+
+        jobManager.printApplicationsByJobAndDate(this, job, date, printer);
+    }
+
+    public void printApplicationsByJob(Job job, ApplicationsPrinter printer){
+
+        jobManager.printApplicationsByJob(this, job, printer);
     }
 
 

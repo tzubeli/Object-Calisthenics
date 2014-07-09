@@ -7,6 +7,7 @@ import com.theladders.avital.oc.jobs.JobManager;
 import com.theladders.avital.oc.jobs.Jobs;
 import com.theladders.avital.oc.print.*;
 import com.theladders.avital.oc.resumes.RealResume;
+import com.theladders.avital.oc.resumes.Resume;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
@@ -52,11 +53,11 @@ public class TheLaddersTest {
         theLadders = new TheLadders(jobManager);
     }
 
-    @Before
-    public void setUpStream(){
-
-        System.setOut(new PrintStream(outContent));
-    }
+//    @Before
+//    public void setUpStream(){
+//
+//        System.setOut(new PrintStream(outContent));
+//    }
 
     @Test
     public void testTheLaddersCanSeeApplicationsByDate(){
@@ -77,9 +78,9 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getByDate(new DateTime(), new CSVAppPrinter());
+        theLadders.printByDate(new DateTime(), new CSVAppPrinter());
 
-        theLadders.getByDate(new DateTime(), new TestingApplicationPrinter());
+        theLadders.printByDate(new DateTime(), new TestingApplicationPrinter());
 
         assertEquals("2014-07-08 avital software employer 2014-07-08 jay design employer ", outContent.toString());
 
@@ -102,9 +103,9 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getAllApplications(new HTMLAppPrinter());
+        theLadders.printAllApplications(new HTMLAppPrinter());
 
-        assertTrue(theLadders.getNumberOfApplications() == 4);
+        assertTrue(theLadders.printNumberOfApplications() == 4);
 
 
 
@@ -127,7 +128,7 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getApplicationCountByEmployerAndJob(new TestingCountPrinter());
+        theLadders.printApplicationCountByEmployerAndJob(new TestingCountPrinter());
 
         assertEquals("employer design 1 abcde intern 1 employer software 2 ", outContent.toString());
     }
@@ -154,7 +155,7 @@ public class TheLaddersTest {
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.getAllApplications(new TestingApplicationPrinter());
+        theLadders.printAllApplications(new TestingApplicationPrinter());
 
         assertEquals("2014-07-08 avital software employer 2014-07-08 avital design employer ", outContent.toString());
 
@@ -181,10 +182,27 @@ public class TheLaddersTest {
 
         jay.apply(intern, applicationManager);
 
-        theLadders.getApplicationCountByEmployerAndJob(new TestingCountPrinter());
+        theLadders.printApplicationCountByEmployerAndJob(new TestingCountPrinter());
 
         assertEquals("employer intern 1 employer software 1 ", outContent.toString());
 
+
+    }
+
+    @Test
+    public void testLaddersCanSeeApplicationResult(){
+
+        software = employer.postATSJob(new Name("software"));
+
+        intern = abcde.postATSJob(new Name("intern"));
+
+        avital.apply(software, applicationManager);
+
+        Resume jayResume = new RealResume(jay, new Name("Jay's Resume"));
+
+        avital.apply(intern, jayResume, applicationManager);
+
+        theLadders.printApplicationResultList(new ConsoleListPrinter());
 
     }
 

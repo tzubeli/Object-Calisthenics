@@ -27,9 +27,9 @@ public class ResultList {
 
     }
 
-    public void getFailureList(ListPrinter printer){
+    public void printResultList(ListPrinter printer){
 
-        printer.createHeader();
+        printer.createHeader("Failed Applications");
 
         Collections.sort(failure);
 
@@ -39,11 +39,7 @@ public class ResultList {
             printer.clear();
         }
 
-    }
-
-    public void getSuccessList(ListPrinter printer){
-
-        printer.createHeader();
+        printer.createHeader("Successful Applications");
 
         Collections.sort(success);
 
@@ -54,4 +50,6 @@ public class ResultList {
         }
 
     }
+
+
 }

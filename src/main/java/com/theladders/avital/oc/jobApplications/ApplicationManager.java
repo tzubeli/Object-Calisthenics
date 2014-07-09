@@ -29,7 +29,7 @@ public class ApplicationManager {
 
     }
 
-    public void apply(Job job, JobseekerInfo jobseekerInfo, Failure failure) {
+    public void apply(Job job, Failure failure) {
 
         jobManager.addFailure(job);
 

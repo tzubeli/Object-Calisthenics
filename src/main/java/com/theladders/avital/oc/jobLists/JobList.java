@@ -31,7 +31,7 @@ public class JobList {
 
     public void printJobs(ListPrinter printer){
 
-        printer.createHeader();
+        printer.createHeader("Employer", "Job");
 
         for (Job job : jobs){
 

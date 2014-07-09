@@ -29,15 +29,25 @@ public class ApplicationsList {
 
     }
 
-    public ApplicationsList filteredByDate(DateTime date) { //TODO two levels
+    public ApplicationsList filteredByDate(DateTime date) {
 
         List<JobApplication> filteredApplications = new ArrayList<>();
 
         for (JobApplication application : applications)
 
-            if (application.hasDateOf(date)) filteredApplications.add(application);
+            filteredApplications = addFilteredApplication(filteredApplications, application, date);
+
+            //if (application.hasDateOf(date)) filteredApplications.add(application);
 
         return new ApplicationsList(filteredApplications);
+
+    }
+
+    private List<JobApplication> addFilteredApplication(List<JobApplication> filteredApplications, JobApplication application, DateTime date){
+
+        if (application.hasDateOf(date)) filteredApplications.add(application);
+
+        return filteredApplications;
 
     }
 

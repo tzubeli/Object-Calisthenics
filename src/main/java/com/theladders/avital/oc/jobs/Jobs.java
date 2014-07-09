@@ -53,15 +53,15 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
         }
     }
 
-    public void getAllJobsByEmployer(Employer employer, ListPrinter printer){
+    public void printAllJobsByEmployer(Employer employer, ListPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
-        applications.getAllJobsByEmployer(printer);
+        applications.printAllJobsByEmployer(printer);
 
     }
 
-    public void getAllApplications(ApplicationsPrinter printer){
+    public void printAllApplications(ApplicationsPrinter printer){
 
         ApplicationsList resultList = new ApplicationsList();
 
@@ -86,7 +86,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
             JobApplications applications = postedJobs.get(employer);
 
-            ApplicationsList list = applications.getByDate(date);
+            ApplicationsList list = applications.filterByDate(date);
 
             resultList = resultList.combinedWith(list);
 
@@ -95,7 +95,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
     }
 
-    public void getAllApplicationsByEmployer(Employer employer, ApplicationsPrinter printer){
+    public void printAllApplicationsByEmployer(Employer employer, ApplicationsPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
@@ -105,27 +105,27 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
 
     }
 
-    public void getByJob(Employer employer, Job job, ApplicationsPrinter printer){
+    public void printByJob(Employer employer, Job job, ApplicationsPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
-        applications.getByJob(job, printer);
+        applications.printByJob(job, printer);
 
     }
 
-    public void getByJobAndDate(Employer employer, Job job, DateTime date,  ApplicationsPrinter printer){
+    public void printByJobAndDate(Employer employer, Job job, DateTime date, ApplicationsPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
-        applications.getByJobAndDate(job, date, printer);
+        applications.printByJobAndDate(job, date, printer);
 
     }
 
-    public void getByDateAndEmployer(Employer employer, DateTime date, ApplicationsPrinter printer){
+    public void printByDateAndEmployer(Employer employer, DateTime date, ApplicationsPrinter printer){
 
         JobApplications applications = postedJobs.get(employer);
 
-        ApplicationsList newList = applications.getByDate(date);
+        ApplicationsList newList = applications.filterByDate(date);
 
         newList = newList.sortList();
 
@@ -164,7 +164,7 @@ private Map<Employer, JobApplications> postedJobs = new HashMap<>();
     }
 
 
-    public void getApplicationCountByEmployerAndJob(AggregateCountPrinter printer){
+    public void printApplicationCountByEmployerAndJob(AggregateCountPrinter printer){
 
         AggregateCount resultList = new AggregateCount();
 

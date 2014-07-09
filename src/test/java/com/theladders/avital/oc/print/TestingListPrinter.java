@@ -5,7 +5,7 @@ package com.theladders.avital.oc.print;
  */
 public class TestingListPrinter implements ListPrinter {
 
-    public void createHeader() {
+    public void createHeader(String... args) {
 
     }
 

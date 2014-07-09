@@ -57,7 +57,7 @@ public class EmployerTest{
 
         theladders.postATSJob(new Name("software"));
 
-        theladders.getPostedJobs(new TestingListPrinter());
+        theladders.printPostedJobs(new TestingListPrinter());
 
         assertEquals("theladders software ", outContent.toString());
 
@@ -80,7 +80,7 @@ public class EmployerTest{
 
         theladders.postJREQJob(new Name("software"));
 
-        theladders.getPostedJobs(new TestingListPrinter());
+        theladders.printPostedJobs(new TestingListPrinter());
 
         assertEquals("theladders software theladders software ", outContent.toString());
 
@@ -99,7 +99,7 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByJob(software, new TestingApplicationPrinter());
+        theladders.printApplicationsByJob(software, new TestingApplicationPrinter());
 
         assertEquals("2014-07-08 avital software theladders 2014-07-08 jay software theladders ", outContent.toString());
 
@@ -122,7 +122,7 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByDate(new DateTime(), new TestingApplicationPrinter());
+        theladders.printApplicationsByDate(new DateTime(), new TestingApplicationPrinter());
 
         assertEquals("2014-07-08 avital software theladders 2014-07-08 jay design theladders ", outContent.toString());
 
@@ -147,7 +147,7 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getApplicationsByJobAndDate(software, new DateTime(), new TestingApplicationPrinter());
+        theladders.printApplicationsByJobAndDate(software, new DateTime(), new TestingApplicationPrinter());
 
         assertEquals("2014-07-08 avital software theladders 2014-07-08 jay software theladders ", outContent.toString());
 
@@ -166,7 +166,7 @@ public class EmployerTest{
 
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theladders.getAllApplications(new TestingApplicationPrinter());
+        theladders.printAllApplications(new TestingApplicationPrinter());
 
         assertEquals("2014-07-08 avital software theladders 2014-07-08 jay software theladders ", outContent.toString());
     }

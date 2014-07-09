@@ -19,35 +19,30 @@ public class TheLadders {
     }
 
 
-    public void getAllApplications(ApplicationsPrinter printer){
+    public void printAllApplications(ApplicationsPrinter printer){
 
-        jobManager.getAllApplications(printer);
+        jobManager.printAllApplications(printer);
     }
 
-    public void getByDate(DateTime date, ApplicationsPrinter printer){
+    public void printByDate(DateTime date, ApplicationsPrinter printer){
 
-        jobManager.getByDate(date, printer);
+        jobManager.printByDate(date, printer);
     }
 
-    public void getApplicationCountByEmployerAndJob(AggregateCountPrinter printer){
+    public void printApplicationCountByEmployerAndJob(AggregateCountPrinter printer){
 
-        jobManager.getApplicationCountByEmployerAndJob(printer);
+        jobManager.printApplicationCountByEmployerAndJob(printer);
     }
 
-    public int getNumberOfApplications(){
+    public int printNumberOfApplications(){
 
-        return jobManager.getNumberOfApplications();
+        return jobManager.NumberOfApplications();
 
     }
 
-    public void getApplicationSuccess(){
+    public void printApplicationResultList(ListPrinter printer){
 
-        //TODO
-    }
-
-    public void getFailedApplications(ListPrinter printer){
-
-        jobManager.getFailedApplications(printer);
+        jobManager.printResultList(printer);
     }
 
 }

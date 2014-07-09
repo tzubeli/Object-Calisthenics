@@ -33,7 +33,7 @@ public class ConsoleAppPrinter implements ApplicationsPrinter {
 
     }
 
-<<<<<<< HEAD
+
     private void printList(){
 
         for (int i = 0; i < 4; i++)
@@ -42,8 +42,7 @@ public class ConsoleAppPrinter implements ApplicationsPrinter {
 
     }
 
-=======
->>>>>>> FETCH_HEAD
+
     public void clear(){
 
         list.clear();

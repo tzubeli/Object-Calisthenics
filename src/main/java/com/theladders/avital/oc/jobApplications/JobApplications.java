@@ -35,7 +35,7 @@ public class JobApplications{
 
     }
 
-    public void getAllJobsByEmployer(ListPrinter printer){
+    public void printAllJobsByEmployer(ListPrinter printer){
 
         List<Job> jobList = new ArrayList<>(applications.keySet());
 
@@ -47,14 +47,14 @@ public class JobApplications{
 
     }
 
-    public void getByJob(Job job, ApplicationsPrinter printer){
+    public void printByJob(Job job, ApplicationsPrinter printer){
 
         ApplicationsList list =  applications.get(job);
 
         list.printAppList(printer);
     }
 
-    public void getByJobAndDate(Job job, DateTime date, ApplicationsPrinter printer){
+    public void printByJobAndDate(Job job, DateTime date, ApplicationsPrinter printer){
 
         ApplicationsList list = applications.get(job);
 
@@ -66,7 +66,7 @@ public class JobApplications{
 
     }
 
-    public ApplicationsList getByDate(DateTime date){
+    public ApplicationsList filterByDate(DateTime date){
 
         ApplicationsList resultList = new ApplicationsList();
 
@@ -109,7 +109,6 @@ public class JobApplications{
             ApplicationsList list = applications.get(job);
 
             aggregateCount.add(job, list.size());
-
         }
 
         return aggregateCount;

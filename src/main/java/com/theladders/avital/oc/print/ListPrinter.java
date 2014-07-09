@@ -5,7 +5,7 @@ package com.theladders.avital.oc.print;
  */
 public interface ListPrinter {
 
-    void createHeader();
+    void createHeader(String... args);
 
     void print(String string);
 

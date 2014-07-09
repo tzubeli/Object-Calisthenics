@@ -33,32 +33,40 @@ public class Jobseeker {
 
     public void apply(ATSJob job, Resume resume, ApplicationManager manager) {
 
-        JobseekerInfo info = null;
-
-        ApplicationResult status = new Success();
+        JobseekerInfo info;
 
         try {
 
             info = new JobseekerInfo(this, resume);
 
+            jobList.saveAppliedJob(job);
+
+            manager.apply(job, info, new Success());
+
         }catch (InvalidResumeException invalidResume){
 
-            status = new Failure();
+            manager.apply(job, new Failure());
+
         }
-
-        jobList.saveAppliedJob(job);
-
-        manager.apply(job, info, status);
 
     }
 
-    public void apply(ATSJob job, ApplicationManager manager){
+    public void apply(ATSJob job, ApplicationManager manager) {
 
-        jobList.saveAppliedJob(job);
+        JobseekerInfo info;
 
-        JobseekerInfo info = new JobseekerInfo(this, new NoResume(this));
+        try {
 
-        manager.apply(job, info, status);
+            info = new JobseekerInfo(this, new NoResume(this));
+
+            jobList.saveAppliedJob(job);
+
+            manager.apply(job, info, new Success());
+
+        } catch (InvalidResumeException invalidResume) {
+
+            manager.apply(job, new Failure());
+        }
     }
 
     public void apply(JReqJob job, Resume resume, ApplicationManager manager){
@@ -69,7 +77,7 @@ public class Jobseeker {
 
         JobseekerInfo info = new JobseekerInfo(this, resume);
 
-        manager.apply(job, info);
+        manager.apply(job, info, new Success());
 
     }
 
@@ -104,7 +112,7 @@ public class Jobseeker {
         return name.toString();
     }
 
-    public void getJobseekerResumes(Resumes resumes, ListPrinter printer){
+    public void printJobseekerResumes(Resumes resumes, ListPrinter printer){
 
         resumes.readAll(this, printer);
 
