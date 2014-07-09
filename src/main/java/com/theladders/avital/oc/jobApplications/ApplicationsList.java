@@ -29,7 +29,7 @@ public class ApplicationsList {
 
     }
 
-    public ApplicationsList filteredByDate(DateTime date) {
+    public ApplicationsList filteredByDate(DateTime date) { //TODO two levels
 
         List<JobApplication> filteredApplications = new ArrayList<>();
 
