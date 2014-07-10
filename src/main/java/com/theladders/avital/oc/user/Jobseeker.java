@@ -41,11 +41,11 @@ public class Jobseeker {
 
             jobList.saveAppliedJob(job);
 
-            manager.apply(job, info, new Success());
+            manager.apply(job, info);
 
         }catch (InvalidResumeException invalidResume){
 
-            manager.apply(job, new Failure());
+            manager.failedApplication(job);
 
         }
 
@@ -57,7 +57,7 @@ public class Jobseeker {
 
         jobList.saveAppliedJob(job);
 
-        manager.apply(job, info, new Success());
+        manager.apply(job, info);
 
     }
 
@@ -71,11 +71,11 @@ public class Jobseeker {
 
             jobList.saveAppliedJob(job);
 
-            manager.apply(job, info, new Success());
+            manager.apply(job, info);
 
         } catch (InvalidResumeException invalidResume) {
 
-            manager.apply(job, new Failure());
+            manager.failedApplication(job);
         }
     }
     public void saveJob(Job job){
