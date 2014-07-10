@@ -17,7 +17,7 @@ public class ApplicationManager {
         this.jobManager = jobManager;
     }
 
-    public void apply(Job job, JobseekerInfo jobseekerInfo, Success success){
+    public void apply(Job job, JobseekerInfo jobseekerInfo){ //TODO
 
         DateTime date = new DateTime();
 
@@ -29,7 +29,7 @@ public class ApplicationManager {
 
     }
 
-    public void apply(Job job, Failure failure) {
+    public void failedApplication(Job job) {
 
         jobManager.addFailure(job);
 

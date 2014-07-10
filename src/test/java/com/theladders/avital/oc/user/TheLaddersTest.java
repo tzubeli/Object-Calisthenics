@@ -30,9 +30,9 @@ public class TheLaddersTest {
     private JobManager jobManager;
     private Employer employer, abcde;
     private TheLadders theLadders;
-
-    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private String today = new DateTime().toLocalDate().toString();
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
 
     @Before
     public void initialize(){
@@ -146,17 +146,13 @@ public class TheLaddersTest {
 
         avital.apply(software, applicationManager);
 
-        try {
-          Thread.sleep(100);
-        }catch(Exception e) {
-          // Do nothing
-        }
-
         jay.apply(design, new RealResume(jay, new Name("jay resume")), applicationManager);
 
-        theLadders.printAllApplications(new TestingApplicationPrinter());
+        avital.viewAppliedJobs(new TestingListPrinter());
 
-        assertEquals(today+" avital software employer "+today+" avital design employer ", outContent.toString());
+        jay.viewAppliedJobs(new TestingListPrinter());
+
+        assertEquals("employer software employer design ", outContent.toString());
 
     }
 
@@ -221,8 +217,5 @@ public class TheLaddersTest {
         assertEquals("employer design abcde intern employer software ", outContent.toString());
 
     }
-
-
-
 
 }

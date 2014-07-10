@@ -22,7 +22,6 @@ public class EmployerTest{
     private Jobseeker avital, jay;
     private Employer theLadders, abc;
     private String today = new DateTime().toLocalDate().toString();
-
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
 

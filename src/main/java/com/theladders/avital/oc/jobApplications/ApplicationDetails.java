@@ -24,7 +24,11 @@ public class ApplicationDetails implements Comparable<ApplicationDetails>{
 
     public boolean hasDateOf(DateTime newDate){
 
-        return (date.toLocalDate().equals(newDate.toLocalDate()));
+        LocalDate thisDate = date.toLocalDate();
+        LocalDate thatDate = newDate.toLocalDate();
+
+        return (thisDate.equals(thatDate)); 
+
 
     }
 
